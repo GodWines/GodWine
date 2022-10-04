@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GodWine</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/styles-geral.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles-geral.css">
 </head>
 <body>
     <header>
@@ -14,20 +14,20 @@
             <div class="container">
                 <div class="cabecalho">
                     <ul class="poppins">Entender a safra é entender a influência da natureza na sua vida</ul>
-                    <img src="./Assets/img/logo.png">
+                    <img src="./Assets/img/logo.svg">
                         <div class="login">
-                            <ul class="poppins">Login</ul>
+                            <ul><a class="poppins" href="./login.html">Login</a></ul>
                         </div>
-                        <button class="fundo-amarelo poppins">Registre-se</button>
+                        <button class="fundo-amarelo "><a class="poppins" href="./cadastro.html">Registre-se</a></button>
                 </div>
                 <div class="barranav">
-                        <ul><a href="#">Home</a></ul>
-                        <ul>Sobre nós</ul>
-                        <ul>Controle de vinhos</ul>
-                        <ul>Comentários clientes</ul>
-                        <ul>Melhores Safras</ul>
-                        <ul>Simulador</ul>
-                        <ul>Fale Conosco</ul>
+                        <ul class="agora">Home</ul>
+                        <ul><a href="#sobre-nos">Sobre nós</a></ul>
+                        <ul><a href="#">Controle de vinhos</a></ul>
+                        <ul><a href="#">Comentários clientes</a></ul>
+                        <ul><a href="#">Melhores Safras</a></ul>
+                        <ul><a href="#">Simulador</a></ul>
+                        <ul><a href="#">Fale Conosco</a></ul>
                 </div>           
             </div>
         </nav>
@@ -58,7 +58,7 @@
                             GodWine
                         </div>
                         <div class="sobre">
-                            <span class ="sobre txt-amarelo">Sobre Nós<span class="Winehouse poppins">Winehouse Vineyard</span></span>
+                            <span class ="sobre txt-amarelo"><section id ="sobre-nos">Sobre nós</section><span class="Winehouse poppins">Winehouse Vineyard</span></span>
                         </div>
                         <div class="titulo4 poppins">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget lectus pulvinar venenatis volutpat, lacinia sagittisVulputate habitasse vel nisl, id consequat lacus. Et porttitor vestibulum, blandit quam id. Accumsan lacus,non tincidunt sed pellentesque facilisi ornare pellentesque ullamcorpe.
@@ -76,19 +76,33 @@
             </div>
         </div>
         
-        <!-- <div class="banner">
-            <div class="fundo">    
+       <div class="banner3">
+           <div class="fundo">    
+                <div class="titulo5">
+                    <section id ="Controle de Vinhos">Controle de <span class="txt-amarelo">Vinhos</span></section>
+                </div>
                 <div class="container">
-                 
-
+                    <img src="./Assets/img/vinho-lapis.svg" alt="">
 
                 </div>
             </div>
-        </div> -->
+        </div> 
+        <div class="banner4 fundo-cinza">
+            <div class="fundo">    
+                 <div class="titulo6">
+                     <section id ="Comentários de clientes">Comentários de <span class="txt-amarelo">Clientes</span></section>
+                 </div>
+                 <div class="container">
+                     <img src="./Assets/img/fundo-comentarios.png" alt="">
+ 
+                 </div>
+             </div>
+         </div> 
 </main>
 <footer>
-        top
+
 </footer>
+       
 </body>
 
 </html>

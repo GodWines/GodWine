@@ -36,6 +36,7 @@ body{
     padding: 10px;
     color: #E2B024;
     text-decoration: none;
+  
 }
 .caixa{
     background-color: #18191A;
@@ -68,7 +69,7 @@ body{
     align-items: flex-start;
     width: 500px;
     height: 30px;
-    margin: 40px;
+    margin: 30px;
     border-bottom: 2px solid #FFF;
     border-top: 0px;
     border-left: 0px;
@@ -77,7 +78,6 @@ body{
     background-color: #18191A;
 }
 .Check{
-
    font-size: 20px; 
    color: #FFF;
    width: 35.54px;
@@ -93,7 +93,6 @@ body{
   }
 
 .campo input {
-
     text-align: center;
    
   }
@@ -119,12 +118,7 @@ body{
     text-align: start;
     justify-content: start;
     flex-direction: row-reverse;
-   
     width: 300px;
-    font-size: 20px;
-}
-
-.recuperacao{
     font-size: 20px;
 }
 
@@ -132,14 +126,14 @@ body{
     font-size: 20px;
     padding: 30px;
 }
+
 .cadastro{
     display: flex;
-    
-  
     align-items: center;
     padding: 30px;
     flex-direction: row-reverse;
 }
+
 .cadastro span{
     font-size: 24px;
 }

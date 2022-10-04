@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
-   
     margin: 0px;
     font-family: Cinzel, "Regular";
 }
@@ -14,17 +13,26 @@
 .poppins{
     font-family: Poppins, "Regular";
 }
-
+.txt-branco{
+    color: #FFF;
+}
 .txt-amarelo{
     color: #E2B024;
 }
 .fundo-amarelo{
     background-color: #E2B024;
-    
+}
+
+.txt-cinza{
+    color: #18191A;
 }
 
 .fundo-cinza{
     background-color: #18191A;
+}
+
+.txt-preto{
+    color: black;
 }
 .fundo-preto{
     background-color: black;
@@ -33,9 +41,9 @@
 .img-fundo-vinhos{
     background-image: url(../Assets/img/fundo.png);
     width: 100%;
-   
 }
-.elipse{
+
+/* .elipse{
     display: flex;
     justify-content: center;
     box-sizing: border-box;
@@ -68,4 +76,4 @@
 
     border: 10px solid #E2B024;
     transform: rotate(-180deg);
-}
+} */
