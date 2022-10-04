@@ -1,0 +1,84 @@
+*{
+    margin: 0px;
+    background-color: #18191A;
+}
+.banner{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.caixa{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.login{
+    display: flex;
+    
+    justify-content: start;
+    align-items: flex-start;
+    font-size: 72px;
+}
+.inputLogin{
+    display: flex;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #FFFFFF;
+    border-radius: 0%;
+    border:10px;
+    border-bottom: #FFF;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 500px;
+    padding: 10px;
+    margin: 35px;
+    border-bottom: 2px solid #FFF;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    color: #FFF;
+}
+.Check{
+   font-size: 20px; 
+   color: #FFF;
+   width: 35.54px;
+   height: 29px;   
+   margin: 5px;
+   align-items: end;
+}
+
+::placeholder { 
+    color: #FFFFFF;
+    opacity: 1; 
+  }
+
+.campo input {
+    text-align: center;
+   
+  }
+
+#imgVinhoLogin{
+    position: absolute;
+    width: 200px;
+    height: 200px; 
+}
+.senha{
+    display: flex;
+    justify-content: start;
+    flex-direction: row-reverse;
+    color: #FFF;
+    align-items: center;
+    width: 500px;
+    font-size: 20px;
+}
+
+.rec{
+    justify-content: end;
+}
