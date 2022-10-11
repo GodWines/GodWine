@@ -1,9 +1,8 @@
-<img src="https://user-images.githubusercontent.com/46379117/192358781-9ca879e4-e55e-4d0d-b876-f9a4a2ed9ae8.png" width="600px">
-
-_Web Data Visualization = Visualização de Dados na Web_
-
-_Implementação de Referência para o seu Projeto de Primeiro Semestre_
-
+<div>
+<img src="https://user-images.githubusercontent.com/110927471/194975716-adbdeee1-ad1a-4210-a140-8c3483e6f876.png" width="200px">
+<img src="https://user-images.githubusercontent.com/110927471/194975459-0f84c1b9-1683-4ece-8264-89e0209e53d5.png" width="200px">
+<img src="https://user-images.githubusercontent.com/110927471/194975404-4181975d-6442-41d9-91fb-5a190fd16da6.png" width="200px">
+</div>
 <hr>
 
 # Como usar
