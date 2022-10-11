@@ -2,10 +2,11 @@
 <html>
 
 <head>
-    <title>Line Chart</title>
+    <title>Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="stylesheet" href="../css/dashboard.css">
     <style>
         canvas {
             -moz-user-select: none;
@@ -17,27 +18,29 @@
 </head>
 
 <body>
-    <div>
-        <h1>Sensor DHT 11 - Umidade</h1>
-        <section style="width:100%">
-            <canvas id="dht11Umidade"></canvas>
-        </section>
-        <h1>Sensor DHT 11 - Temperatura</h1>
-        <section style="width: 100%;">
-            <canvas id="dht11Temperatura"></canvas>
-        </section>
-        <h1>Sensor Luminosidade</h1>
-        <section style="width: 100%;">
-            <canvas id="luminosidade"></canvas>
-        </section>
-        <h1>Sensor LM 35 - Temperatura</h1>
-        <section style="width: 100%;">
-            <canvas id="lm35Temperatura"></canvas>
-        </section>
-        <h1>Sensor Chave</h1>
-        <section style="width: 100%;">
-            <canvas id="chave"></canvas>
-        </section>
+    <div class="container">
+            <div class="dashboard">
+            <h1>Sensor DHT 11 - Umidade</h1>
+            <section>
+                <canvas id="dht11Umidade"></canvas>
+            </section>
+            <h1>Sensor DHT 11 - Temperatura</h1>
+            <section>
+                <canvas id="dht11Temperatura"></canvas>
+            </section>
+            <h1>Sensor Luminosidade</h1>
+            <section>
+                <canvas id="luminosidade"></canvas>
+            </section>
+            <h1>Sensor LM 35 - Temperatura</h1>
+            <section>
+                <canvas id="lm35Temperatura"></canvas>
+            </section>
+            <h1>Sensor Chave</h1>
+            <section>
+                <canvas id="chave"></canvas>
+            </section>
+        </div>
     </div>
 
     <script>
