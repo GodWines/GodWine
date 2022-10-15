@@ -1,0 +1,749 @@
+/*Global*/
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+ul {
+  all: unset;
+}
+
+li {
+  all: unset;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 1);
+  font-size: 0.8vw;
+}
+
+button {
+  all: unset;
+  text-align: center;
+  text-decoration: none;
+  background: #e2b024;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  border: none;
+}
+
+input {
+  all: unset;
+  border: white solid 0.1vh;
+  width: 100%;
+  height: 1.8vh;
+  font-size: 1.2vw;
+  color: white;
+  padding: 1vw;
+}
+
+label {
+  text-decoration: none;
+  margin-bottom: -1vh;
+  color: white;
+  width: 72%;
+  padding-left: 8%;
+  font-size: 1.2vw;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70%;
+  width: 90%;
+  border-bottom: white solid 0.1vw;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*container*/
+.container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.home .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sobre .container {
+  align-items: center;
+  flex-direction: row;
+}
+
+.controle .container {
+  align-items: center;
+}
+
+.comentario .container {
+  align-items: center;
+  justify-content: center;
+}
+
+.safra .container {
+  align-items: center;
+  justify-content: space-evenly;
+  height: 90%;
+}
+
+.simulador .container {
+  align-items: center;
+  height: 80%;
+  justify-content: space-evenly;
+}
+
+.contato .container {
+  align-items: center;
+  height: 90%;
+  justify-content: space-between;
+}
+
+.saiba .container {
+  align-items: center;
+  height: 90%;
+  justify-content: space-evenly;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Textos*/
+.textoCinzel {
+  font-family: "Cinzel", Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 1);
+}
+
+.textoPoppins {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 1);
+}
+
+.amarelo {
+  color: rgba(226, 176, 36, 1);
+}
+
+.titulo {
+  font-size: 2vw;
+}
+
+.paragrafo {
+  font-size: 1vw;
+}
+
+.subTitulo {
+  font-size: 1vw;
+}
+
+.subTexto {
+  font-size: 1vw;
+}
+
+.home .titulo {
+  font-size: 10vh;
+}
+
+.home .paragrafo {
+  width: 64%;
+  text-align: center;
+  line-height: 5vh;
+}
+
+.home .subTitulo {
+  font-size: 2vw;
+}
+
+.navbar .subTitulo {
+  font-size: 0.8vw;
+}
+
+.nav_item a {
+  font-size: 1vw;
+}
+
+.sobre .titulo {
+  font-size: 6vw;
+}
+
+.sobre .paragrafo {
+  width: 80%;
+}
+
+.sobre .subTitulo {
+  font-size: 2vw;
+  margin-bottom: 3%;
+}
+
+.sobre .subTexto {
+  font-size: 1.5vw;
+}
+
+.controle .titulo {
+  font-size: 2vw;
+}
+
+.controle .subTitulo {
+  font-size: 1.2vw;
+}
+
+.controle .subTexto {
+  font-size: 1vw;
+}
+
+.comentario .subTitulo {
+  font-size: 1.5vw;
+}
+
+.comentario .paragrafo {
+  width: 80%;
+  text-align: center;
+}
+
+.simula .paragrafo {
+  width: 70%;
+  margin-top: 2%;
+}
+
+.contato .paragrafo {
+  width: 80%;
+  margin-top: 2%;
+}
+
+.saiba footer .titulo {
+  font-size: 1.5vw;
+  margin-bottom: 10%;
+}
+
+.saiba .subTexto {
+  font-size: 0.9vw;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Background / Imagens*/
+
+.imgFundo {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+}
+
+.home .imgFundo {
+  justify-content: flex-start;
+  background-image: url("../assets/telaHome/fundo-home.png");
+  background-position: bottom;
+}
+
+.controle .imgFundo {
+  background-size: 30vw;
+  background-image: url("../assets/telaControle/fundo-controle.png");
+  background-position: center;
+}
+
+.comentario .imgFundo {
+  background-image: url("../assets/telaComentario/fundo-comentario.png");
+  background-position: center;
+}
+
+.imgLogo {
+  margin-left: -10%;
+  width: 5vh;
+}
+
+.imgVinho {
+  height: 100%;
+}
+
+.imgCliente {
+  height: 100%;
+}
+
+.imgSafraCentro {
+  height: 65vh;
+}
+
+.imgSafra {
+  height: 55vh;
+}
+
+.imgSimula {
+  height: 40vh;
+}
+
+.imgContato {
+  height: 4vh;
+}
+
+.imgSocial {
+  height: 5vh;
+}
+
+footer .imgSocial {
+  height: 3vh;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Home*/
+.home {
+  background-color: rgba(0, 0, 0, 1);
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.navbar button {
+  font-size: 0.8vw;
+  width: 6vw;
+  height: 6vh;
+
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  width: 100%;
+
+}
+
+.login {
+  width: 15%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.nav {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 0.1vh solid rgb(255, 255, 255);
+  border-bottom: 0.1vh solid rgb(255, 255, 255);
+
+}
+
+.nav_item {
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 7vh;
+
+}
+
+.nav_link {
+  display: flex;
+  height: 3vh;
+}
+
+.home .texto {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Sobre*/
+
+.sobre {
+  background-color: rgba(24, 25, 26, 1);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.sobre .texto {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imagem_sobre {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.quadrado {
+  width: 35vw;
+  height: 28vh;
+  border: 0.6vw solid #e2b024;
+}
+
+.cima {
+  border-bottom: none;
+}
+
+.baixo {
+  margin-top: 6vw;
+  border-top: none;
+}
+
+.circulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 22vw;
+  height: 22vw;
+  border-radius: 100%;
+  background: #e2b024;
+  border: 0.1vw solid #000000;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Controle*/
+
+.controle {
+  background-color: rgb(0, 0, 0, 1);
+  height: 110vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: center;
+  width: 40vw;
+  align-items: center;
+  height: 20vh;
+  border-bottom: 0.1vw solid rgb(255, 255, 255);
+}
+
+.conteudoVinho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
+  margin-top: 5%;
+}
+
+.caixaVinho {
+  display: flex;
+  justify-content: space-around;
+  width: 85%;
+  height: 35vh;
+}
+
+.unidadeVinho {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 20%;
+  position: relative;
+}
+
+.imagemTempVinho {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+}
+
+.temp {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 5vh;
+}
+
+.temperatura {
+  background-color: #e2b024;
+  height: 100%;
+  width: 30%;
+  font-size: 0.8vw;
+  text-align: center;
+  font-weight: 800;
+}
+
+.nomeVinho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 20%;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Comentario*/
+.comentario {
+  background-color: rgba(0, 0, 0, 1);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.cliente {
+  height: 48%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cliente .cliente {
+  height: 100%;
+  justify-content: center;
+}
+
+.foto {
+  background-position: center;
+  border-radius: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 8vw;
+  height: 8vw;
+}
+
+.carroucel {
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bolinha {
+  background-position: center;
+  border-radius: 100%;
+  background-color: white;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 1vw;
+  height: 1vw;
+  margin: 0.5vw;
+}
+
+.carroucel .amarelo {
+  background-color: #e2b024;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Safra*/
+
+.safra {
+  background-color: rgba(0, 0, 0, 1);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.imagens {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60vw;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Simulador*/
+.simulador {
+  background-color: rgba(0, 0, 0, 1);
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.simula {
+  display: flex;
+  justify-content: center;
+}
+
+.simulador .caixa {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(24, 25, 26, 1);
+  height: 40vh;
+  width: 50vw;
+}
+
+.simulador .texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 10%;
+  height: 90%;
+}
+
+.botao {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.simulador button {
+  font-size: 1vw;
+  width: 7vw;
+  height: 6vh;
+  border: none;
+  margin-top: 5%;
+  border: none;
+  margin: 3%;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Contato*/
+.contato {
+  background-color: rgba(0, 0, 0, 1);
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.informacoes {
+  display: flex;
+  align-items: center;
+  height: 70vh;
+  width: 90%;
+}
+
+.contato .texto {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.dados {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 90%;
+}
+
+.contato .entreContato {
+  display: flex;
+}
+
+.contato button {
+  font-size: 1vw;
+  width: 7vw;
+  height: 6vh;
+  border: none;
+  margin-top: 5%;
+  border: none;
+  margin: 3%;
+}
+
+.icones {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 80%;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Saiba Mais*/
+
+.saiba {
+  background-color: rgba(0, 0, 0, 1);
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.saibaMais {
+  background-color: rgba(24, 25, 26, 1);
+  width: 100%;
+  height: 45%;
+}
+
+.saiba .entreContato {
+  display: flex;
+  height: 5vh;
+}
+
+.saiba .texto {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 80%;
+}
+
+.saiba input {
+  background-color: #000000;
+  border: none;
+  height: 3vh;
+  width: 15vw;
+}
+
+.saiba button {
+  width: 7vw;
+  height: 7vh;
+  border: none;
+  text-decoration: none;
+  font-size: 1vw;
+  border: none;
+}
+
+.saiba .icones {
+  margin-bottom: 10%;
+}
+
+.saiba .contatos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.texto .email {
+  display: flex;
+}
+
