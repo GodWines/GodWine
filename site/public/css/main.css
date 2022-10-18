@@ -10,47 +10,70 @@ body {
   overflow-x: hidden;
 }
 
+ul {
+  all: unset;
+}
+
+li {
+  all: unset;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+
 a {
   text-decoration: none;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 1);
-  font-size: 10px;
+  font-size: 0.8vw;
 }
 
 button {
+  all: unset;
+  text-align: center;
   text-decoration: none;
   background: #e2b024;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
+  border: none;
 }
 
 input {
   all: unset;
-  border: white solid 1px;
+  border: white solid 0.1vh;
   width: 100%;
+  height: 1.8vh;
+  font-size: 1.2vw;
   color: white;
+  padding: 1vw;
 }
 
 label {
   text-decoration: none;
-  margin-bottom: -10px;
+  margin-bottom: -1vh;
   color: white;
   width: 72%;
   padding-left: 8%;
+  font-size: 1.2vw;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
+
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height:70%;
+  height: 70%;
   width: 90%;
-  border-bottom: white solid 1px;
+  border-bottom: white solid 0.1vw;
 }
+
 
 /*--------------------------------------------------------------------------------------------------------*/
 /*container*/
 .container {
-  width: 960px;
+  width: 80%;
   height: 100%;
   display: flex;
   overflow: hidden;
@@ -95,12 +118,12 @@ footer {
   height: 90%;
   justify-content: space-between;
 }
+
 .saiba .container {
   align-items: center;
   height: 90%;
   justify-content: space-evenly;
 }
-
 
 /*--------------------------------------------------------------------------------------------------------*/
 /*Textos*/
@@ -118,41 +141,50 @@ footer {
   color: rgba(226, 176, 36, 1);
 }
 
-.titulo {
-  font-size: 26px;
+.preto{
+  color: #000000;
 }
+
+.titulo {
+  font-size: 2vw;
+}
+
 .paragrafo {
-  font-size: 12px;
+  font-size: 1vw;
 }
 
 .subTitulo {
-  font-size: 16px;
+  font-size: 1vw;
 }
 
 .subTexto {
-  font-size: 14px;
+  font-size: 1vw;
 }
 
 .home .titulo {
-  font-size: 72px;
+  font-size: 10vh;
 }
 
 .home .paragrafo {
   width: 64%;
   text-align: center;
-  line-height: 30px;
+  line-height: 5vh;
 }
 
 .home .subTitulo {
-  font-size: 16px;
+  font-size: 2vw;
 }
 
 .navbar .subTitulo {
-  font-size: 11px;
+  font-size: 0.8vw;
+}
+
+.nav_item a {
+  font-size: 1vw;
 }
 
 .sobre .titulo {
-  font-size: 72px;
+  font-size: 6vw;
 }
 
 .sobre .paragrafo {
@@ -160,19 +192,28 @@ footer {
 }
 
 .sobre .subTitulo {
-  font-size: 30px;
+  font-size: 2vw;
   margin-bottom: 3%;
 }
 
 .sobre .subTexto {
-  font-size: 16px;
+  font-size: 1.5vw;
 }
 
 .controle .titulo {
-  font-size: 26px;
+  font-size: 2vw;
 }
+
+.controle .subTitulo {
+  font-size: 1.2vw;
+}
+
+.controle .subTexto {
+  font-size: 1vw;
+}
+
 .comentario .subTitulo {
-  font-size: 20px;
+  font-size: 1.5vw;
 }
 
 .comentario .paragrafo {
@@ -190,16 +231,17 @@ footer {
   margin-top: 2%;
 }
 
-.saiba .contatos .titulo{
-  font-size: 20px;
+.saiba footer .titulo {
+  font-size: 1.5vw;
   margin-bottom: 10%;
 }
-.saiba .subTexto{
-  font-size: 10px;
+
+.saiba .subTexto {
+  font-size: 0.9vw;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
-/*Imagens de fundo*/
+/*Background / Imagens*/
 
 .imgFundo {
   display: flex;
@@ -213,19 +255,56 @@ footer {
 
 .home .imgFundo {
   justify-content: flex-start;
-  background-image: url("/assets/fundo-home.png");
+  background-image: url("../assets/telaHome/fundo-home.png");
   background-position: bottom;
 }
 
 .controle .imgFundo {
   background-size: 30vw;
-  background-image: url("/assets/fundo-vinho.png");
+  background-image: url("../assets/telaControle/fundo-controle.png");
   background-position: center;
 }
 
 .comentario .imgFundo {
-  background-image: url("/assets/fundo-comentario.png");
+  background-image: url("../assets/telaComentario/fundo-comentario.png");
   background-position: center;
+}
+
+.imgLogo {
+  margin-left: -10%;
+  width: 5vh;
+}
+
+.imgVinho {
+  height: 100%;
+}
+
+.imgCliente {
+  height: 100%;
+}
+
+.imgSafraCentro {
+  height: 65vh;
+}
+
+.imgSafra {
+  height: 55vh;
+}
+
+.imgSimula {
+  height: 40vh;
+}
+
+.imgContato {
+  height: 4vh;
+}
+
+.imgSocial {
+  height: 5vh;
+}
+
+footer .imgSocial {
+  height: 3vh;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
@@ -241,35 +320,43 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 80%;
 }
 
 .navbar button {
-  font-size: 10px;
-  width: 72px;
-  height: 32px;
+  font-size: 0.8vw;
+  width: 6vw;
+  height: 6vh;
+
 }
+
 .logo {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  height: 72px;
-  width: 110%;
+  justify-content: space-between;
+  height: 10vh;
+  width: 100%;
+
 }
 
 .login {
   width: 15%;
+  height: 5vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .nav {
   width: 100%;
-  height: 40px;
+  height: 7vh;
   display: flex;
   align-items: center;
-  border-top: 1px solid rgb(255, 255, 255);
-  border-bottom: 1px solid rgb(255, 255, 255);
+  justify-content: center;
+  border-top: 0.1vh solid rgb(255, 255, 255);
+  border-bottom: 0.1vh solid rgb(255, 255, 255);
+
 }
 
 .nav_item {
@@ -277,7 +364,15 @@ footer {
   text-decoration: none;
   list-style-type: none;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
+  height: 7vh;
+
+}
+
+.nav_link {
+  display: flex;
+  height: 3vh;
 }
 
 .home .texto {
@@ -287,6 +382,7 @@ footer {
   align-items: center;
   flex-direction: column;
 }
+
 /*--------------------------------------------------------------------------------------------------------*/
 /*Tela Sobre*/
 
@@ -315,9 +411,9 @@ footer {
 }
 
 .quadrado {
-  width: 400px;
-  height: 150px;
-  border: 6px solid #e2b024;
+  width: 35vw;
+  height: 28vh;
+  border: 0.6vw solid #e2b024;
 }
 
 .cima {
@@ -325,7 +421,7 @@ footer {
 }
 
 .baixo {
-  margin-top: 60px;
+  margin-top: 6vw;
   border-top: none;
 }
 
@@ -334,11 +430,11 @@ footer {
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 22vw;
+  height: 22vw;
   border-radius: 100%;
   background: #e2b024;
-  border: 1px solid #000000;
+  border: 0.1vw solid #000000;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
@@ -346,7 +442,7 @@ footer {
 
 .controle {
   background-color: rgb(0, 0, 0, 1);
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -355,26 +451,27 @@ footer {
 .cabecalho {
   display: flex;
   justify-content: center;
-  width: 480px;
+  width: 40vw;
   align-items: center;
-  height: 200px;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  height: 20vh;
+  border-bottom: 0.1vw solid rgb(255, 255, 255);
 }
 
 .conteudoVinho {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding-top: 10%;
+  height: 90%;
+  margin-top: 5%;
 }
 
 .caixaVinho {
   display: flex;
   justify-content: space-around;
-  width: 80%;
-  height: 200px;
+  width: 85%;
+  height: 35vh;
 }
 
 .unidadeVinho {
@@ -397,13 +494,16 @@ footer {
   display: flex;
   position: absolute;
   width: 100%;
-  height: 30px;
+  height: 5vh;
 }
 
 .temperatura {
   background-color: #e2b024;
   height: 100%;
   width: 30%;
+  font-size: 0.8vw;
+  text-align: center;
+  font-weight: 800;
 }
 
 .nomeVinho {
@@ -414,6 +514,7 @@ footer {
   width: 100%;
   height: 20%;
 }
+
 /*--------------------------------------------------------------------------------------------------------*/
 /*Tela Comentario*/
 .comentario {
@@ -440,11 +541,10 @@ footer {
 .foto {
   background-position: center;
   border-radius: 100%;
-  background-image: url("/assets/cliente.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 120px;
-  height: 120px;
+  width: 8vw;
+  height: 8vw;
 }
 
 .carroucel {
@@ -460,9 +560,9 @@ footer {
   background-color: white;
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 15px;
-  height: 15px;
-  margin: 5px;
+  width: 1vw;
+  height: 1vw;
+  margin: 0.5vw;
 }
 
 .carroucel .amarelo {
@@ -470,7 +570,7 @@ footer {
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
-/*Tela Comentario*/
+/*Tela Safra*/
 
 .safra {
   background-color: rgba(0, 0, 0, 1);
@@ -484,7 +584,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 60vw;
   padding-top: 5%;
   padding-bottom: 5%;
 }
@@ -508,8 +608,8 @@ footer {
   display: flex;
   flex-direction: column;
   background-color: rgba(24, 25, 26, 1);
-  height: 250px;
-  width: 600px;
+  height: 40vh;
+  width: 50vw;
 }
 
 .simulador .texto {
@@ -526,12 +626,13 @@ footer {
 }
 
 .simulador button {
-  font-size: 10px;
-  width: 100px;
-  height: 50px;
+  font-size: 1vw;
+  width: 7vw;
+  height: 6vh;
+  border: none;
+  margin-top: 5%;
   border: none;
   margin: 3%;
-  font-size: 20px;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
@@ -547,7 +648,7 @@ footer {
 .informacoes {
   display: flex;
   align-items: center;
-  height: 400px;
+  height: 70vh;
   width: 90%;
 }
 
@@ -568,13 +669,18 @@ footer {
   height: 90%;
 }
 
+.contato .entreContato {
+  display: flex;
+}
+
 .contato button {
-  font-size: 10px;
-  width: 100px;
-  height: 50px;
+  font-size: 1vw;
+  width: 7vw;
+  height: 6vh;
   border: none;
   margin-top: 5%;
-  font-size: 20px;
+  border: none;
+  margin: 3%;
 }
 
 .icones {
@@ -601,7 +707,11 @@ footer {
   background-color: rgba(24, 25, 26, 1);
   width: 100%;
   height: 45%;
+}
 
+.saiba .entreContato {
+  display: flex;
+  height: 5vh;
 }
 
 .saiba .texto {
@@ -609,23 +719,36 @@ footer {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  height:80%;
+  height: 80%;
 }
 
 .saiba input {
   background-color: #000000;
   border: none;
-  height: 20px;
-  width: 62%;
+  height: 3vh;
+  width: 15vw;
 }
 
 .saiba button {
-  width: 90px;
-  height: 40px;
+  width: 7vw;
+  height: 7vh;
   border: none;
   text-decoration: none;
+  font-size: 1vw;
+  border: none;
 }
 
-.saiba .icones{
+.saiba .icones {
   margin-bottom: 10%;
 }
+
+.saiba .contatos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.texto .email {
+  display: flex;
+}
+
