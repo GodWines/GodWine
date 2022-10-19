@@ -8,6 +8,7 @@
   <title>Cadastre-se</title>
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="./css/cadastro.css" />
+  <script src="./js/cadastro.js"></script>
 </head>
 
 <body>
@@ -24,11 +25,11 @@
           <div class="info">
             <input type="text" placeholder="Email" />
 
-            <input type="password" placeholder="Senha" />
-            <input type="password" placeholder="Repetir Senha" />
+            <input type="password" placeholder="Senha" id="senha" />
+            <input type="password" placeholder="Repetir Senha" id="confirmaSenha" />
             <div class="esqueceSenha">
               <label for="verSenha" class="textoPoppins subTitulo">
-                <input type="checkbox" id="verSenha" />Mostrar senha</label>
+                <input type="checkbox" onclick="mostrarSenha()" id="verSenha" />Mostrar senha</label>
             </div>
 
             <span class="textoPoppins subTexto">O melhor vinho não é necessariamente o mais caro, mas o que nós
@@ -37,7 +38,7 @@
           <div class="logar">
             <div class="botao">
               <a href="login.html" class="textoPoppins subTitulo amarelo">Log In</a>
-              <a class="preto" href="dados.html"><button>Continuar</button></a>
+              <button onclick="validarSenha()">Continuar</button>
             </div>
           </div>
         </div>
@@ -45,5 +46,4 @@
     </div>
   </div>
 </body>
-
 </html>

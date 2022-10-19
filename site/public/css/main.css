@@ -580,14 +580,19 @@ footer .imgSocial {
   justify-content: center;
 }
 
-.imagens {
+.video {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60vw;
+  width: 80vw;
   padding-top: 5%;
   padding-bottom: 5%;
 }
+.video video{
+  width: 100vw;
+  height: 65vh;
+}
+
 
 /*--------------------------------------------------------------------------------------------------------*/
 /*Tela Simulador*/

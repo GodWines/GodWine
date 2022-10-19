@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/cadastro.css" />
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <script src="./js/login.js"></script>
 </head>
 
 <body>
@@ -24,11 +25,13 @@
                 <div class="info">
                     <input type="text" placeholder="Email">
 
-                    <input type="password" placeholder="Senha">
+                    <input id="senha" type="password" placeholder="Senha">
                     <div class="esqueceSenha">
                         
                         <label for="verSenha" class="textoPoppins subTitulo">
-                            <input type="checkbox" id="verSenha">Mostrar senha</label>
+                            <input type="checkbox"  onclick="mostrarSenha()" id="verSenha">Mostrar senha
+                            <span class="check"></span>
+                        </label>
                         <span class="textoPoppins subTexto amarelo">Esqueceu a Senha?</span>
                     </div>
 
@@ -47,5 +50,4 @@
         </div>
         
 </body>
-
 </html>
