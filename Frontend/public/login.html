@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/cadastro.css">
+</head>
+
+<body>
+    <div class="login">
+        <img src="./assets/vinicula.png" alt="" class="imgFundo">
+        <div class="tela">
+            <div class="voltar">
+                <a href="/public/index.html" class="textoCinzel subTitulo amarelo">Home</a>
+                <img class="imgLogo" src="./assets/logo.png" alt=""/>
+            </div>
+           <div class="input">
+            <div class="espaco">
+                <div class="textoCinzel titulo amarelo">Login</div>
+                <div class="info">
+                    <input type="text" placeholder="Email">
+
+                    <input id="senha" type="password" placeholder="Senha">
+                    <div class="esqueceSenha">
+                        
+                        <label for="verSenha" class="textoPoppins subTitulo">
+                            <input type="checkbox"  onclick="mostrarSenha()" id="verSenha">Mostrar senha
+                            <span class="check"></span>
+                        </label>
+                        <span class="textoPoppins subTexto amarelo">Esqueceu a Senha?</span>
+                    </div>
+
+                    <span class="textoPoppins subTexto">O melhor vinho não é necessariamente o mais caro, mas o que nós
+                        compartilhamos.</span>
+
+                </div>
+                <div class="logar">
+                    <div class="botao">
+                        <a href="/public/cadastro.html" class="textoPoppins subTitulo amarelo">Cadastre-se</a>
+                        <a class="preto" href="/public/index.html"><button onclick="">Logar</button></a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>
+        
+</body>
+</html>
+
+<script src="/src/login.js"></script>

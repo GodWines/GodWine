@@ -1,0 +1,228 @@
+/*Global*/
+input {
+    border: white solid 0.4vh;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1.5vw;
+    
+}
+
+label {
+    all: unset;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    font-size: 1.5vw;
+    width: 9vw;
+    height: 7vh;
+
+}
+
+input {
+    width: 25.8vw;
+    margin-bottom: 1.4vw;
+}
+
+
+.imgFundo {
+    width: 55vw;
+}
+
+.imgLogo {
+    margin-left: 2vw;
+}
+
+.voltar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 35vw;
+    height: 12vh;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.esqueceSenha {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+#verSenha {
+    all: unset;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+    padding: 1.5vh;
+    margin-right: 1vw;
+}
+
+.logar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 18vw;
+    margin-top: 5vh;
+}
+
+.tela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    height: 90%;
+}
+/*--------------------------------------------------------------------------------------------------------*/
+/*Texto*/
+.titulo {
+    font-size: 3vw;
+    text-decoration: 0.2vw underline;
+    font-weight: bold;
+}
+
+.subTitulo {
+    font-weight: bold;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Login*/
+
+.login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(24, 25, 26, 1);
+}
+
+
+.login .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 80vh;
+    background-color: rgba(30, 30, 30, 1);
+}
+
+
+.login .espaco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28vw;
+    height: 60vh;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Cadastro*/
+
+.cadastro {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(24, 25, 26, 1);
+}
+
+.cadastro .espaco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28vw;
+    height: 68vh;
+}
+
+.cadastro .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 90vh;
+    background-color: rgba(30, 30, 30, 1);
+}
+.cadastro .tela{
+    height: 95%;
+    
+}
+
+.cadastro .botao{
+    width: 15vw;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*Tela Dados*/
+
+.dados {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    background-color: rgba(24, 25, 26, 1);
+}
+
+.dados .espaco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 28vw;
+    height: 70vh;
+}
+
+.dados .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 95vh;
+    background-color: rgba(30, 30, 30, 1);
+}
+.dados .tela{
+    height: 95%;
+    
+}
+.dados .titulo{
+    font-size: 2.0vw;
+    margin-bottom: 4vh;
+}
+
+.dados .subTexto{
+    font-size: 0.8vw;
+}
+
+.dadosPessoais{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.dados input{
+    width: 40%;
+}
+
+.dados button{
+    font-size: 1.2vw;
+}
+
+.dados .botao{
+    width: 15vw;
+    margin-top: 3vh;
+}
