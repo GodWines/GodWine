@@ -1,16 +1,6 @@
-// Validar email digitado
-function verificarEmail(){
-    var frase = (document.getElementById('email')).value;
-        if (frase.indexOf("@") > -1) {
-           alert('tem arromba');
-        } else {
-           alert('não arromba');
-        }
-    }
-
 // Mostrar a senha digitada
-function verSenha(){
-    var mostrar = document.getElementById('Mostrar')
+function mostrarSenha(){
+    var mostrar = document.getElementById('senha')
     if(mostrar.type == 'password'){
         mostrar.type = 'text';
     }else{

@@ -25,11 +25,11 @@
           <div class="info">
             <input type="text" placeholder="Email" />
 
-            <input id="Mostrar" type="password" placeholder="Senha" />
-            <input id="Mostrar2" type="password" placeholder="Repetir Senha" />
+            <input type="password" placeholder="Senha" id="senha" />
+            <input type="password" placeholder="Repetir Senha" id="confirmaSenha" />
             <div class="esqueceSenha">
               <label for="verSenha" class="textoPoppins subTitulo">
-                <input onclick="mostrarSenha()" type="checkbox" id="verSenha" />Mostrar senha</label>
+                <input type="checkbox" onclick="mostrarSenha()" id="verSenha" />Mostrar senha</label>
             </div>
 
             <span class="textoPoppins subTexto">O melhor vinho não é necessariamente o mais caro, mas o que nós
@@ -38,7 +38,7 @@
           <div class="logar">
             <div class="botao">
               <a href="login.html" class="textoPoppins subTitulo amarelo">Log In</a>
-              <a class="preto" href="dados.html"><button>Continuar</button></a>
+              <button onclick="validarSenha()">Continuar</button>
             </div>
           </div>
         </div>
@@ -46,5 +46,4 @@
     </div>
   </div>
 </body>
-
 </html>
