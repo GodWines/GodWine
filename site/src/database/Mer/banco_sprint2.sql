@@ -46,7 +46,7 @@ cidade VARCHAR(60),
 sigla VARCHAR(2),
 bairro VARCHAR(70), 
 numero VARCHAR(20),
-complemento VARCHAR(40) default,
+complemento VARCHAR(40) NOT NULL,
 cep CHAR(8)
 );
 
