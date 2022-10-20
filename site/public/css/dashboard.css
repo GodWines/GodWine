@@ -78,6 +78,7 @@
     width: 80vw;
     height: 100vh;
     display: flex;
+    justify-content: space-evenly;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
@@ -143,4 +144,45 @@
 
 .imgLogo{
     margin: 0;
+}
+
+.visaoGeral{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 18%;
+}
+
+.informacoes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.blocoInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.numero{
+    font-size: 3vw;
+}
+
+.status{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 0.5vw;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    background-color: rgba(25, 189, 41, 1);
+}
+
+.imgStatus{
+    height: 40%;
 }
