@@ -1,0 +1,146 @@
+/*Global*/
+
+.dashboard {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(10, 13, 16, 1);
+}
+
+.dashboard ::-webkit-scrollbar {
+    width: 1.6vw;
+}
+
+.dashboard ::-webkit-scrollbar-track {
+    background: #101010;
+}
+
+.dashboard ::-webkit-scrollbar-thumb {
+    background-color: #e2b024;
+    border-radius: 0.5vw;
+}
+
+.cliente {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(24, 25, 26, 1);
+    width: 20vw;
+    height: 100vh;
+}
+
+.viniculas {
+    height: 60vh;
+    width: 17vw;
+}
+
+.subTitulo {
+    font-weight: bold;
+    font-size: 1.2vw;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 3vw;
+}
+
+.barra {
+    background-color: rgba(16, 16, 16, 1);
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.corpo {
+    height: 80%;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: rgba(37, 38, 38, 1);
+    color: white;
+    scrollbar-base-color: gold;
+}
+
+.vin {
+    padding: 0;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.tela {
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bemVindo {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 8%;
+}
+
+.inbox {
+    height: 45vh;
+    width: 80%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    border: 0.1vw solid white;
+    color: white;
+    scrollbar-base-color: gold;
+}
+
+.mensagem {
+    background-color: rgba(37, 38, 38, 1);
+    display: flex;
+    width: 90%;
+    height: 50%;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 1vw 1vw;
+    border-radius: 0.5vw;
+}
+
+.envio {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    height: 40%;
+    margin-left: 5%;
+    justify-content: space-evenly;
+}
+
+.balao {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    background-color: rgba(24, 25, 26, 1);
+    height: 40%;
+    margin-left: 5%;
+    border-radius: 0.5vw;
+}
+
+.imgLogo{
+    margin: 0;
+}
