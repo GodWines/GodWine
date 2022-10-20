@@ -1,7 +1,7 @@
 //Verificar se o email é válido
 function validarEmail() {
   var email = Email.value
-  
+  msgErro.innerHTML = ``;
   //Verificar se o email está dentro do intervalo de 6 e 85
   if (email.length < 6 || email.length > 85) {
     emailValido.innerHTML = `<span style='color:red'>Seu email deve ter mais de 6 letras e no máximo 85</span>`;
@@ -28,7 +28,7 @@ function validarEmail() {
 //Verificar se a senha digitada é forte
 function validarForcaSenha() {
   var password = senha.value;
-
+  msgErro.innerHTML = ``;
   //Verificar se a senha possui mais de 7 caracters
   if (password.length <= 7) {
     forcaSenha.innerHTML = `<span style='color:red'>Sua senha é muito fraca</span>`;
@@ -51,14 +51,10 @@ function validarForcaSenha() {
 function validarConfirmarSenha() {
   var senha = document.getElementById("senha");
   var confirmaSenha = document.getElementById("confirmaSenha");
-  
-  //Verificar se os campos foram preenchidos
-  if( senha.value == "" || confirmaSenha.value == ""){
-    msgErro.innerHTML = `<span style='color:red'>Você deve preencher todos os campos antes de seguir para a próxima tela.</span>`;
-  }
-  
+  msgErro.innerHTML = ``;
+
   //Verifica se as senhas são diferentes
-  else if (senha.value != confirmaSenha.value) {
+  if (senha.value != confirmaSenha.value) {
     senhasIguais.innerHTML = `<span style='color:red'>Suas senhas não coincidem</span>`;
   } 
 
