@@ -23,17 +23,20 @@
         <div class="espaco">
           <div class="textoCinzel titulo amarelo">Cadastre-se</div>
           <div class="info">
-            <input type="text" placeholder="Email" />
-
-            <input type="password" placeholder="Senha" id="senha" />
-            <input type="password" placeholder="Repetir Senha" id="confirmaSenha" />
+            <input onkeyup="validarEmail()" type="text" placeholder="Email" id="Email"/>
+            <div id="emailValido" class="textoPoppins"></div>
+            <input onkeyup="validarForcaSenha()" type="password" placeholder="Senha" id="senha" />
+            <div id="forcaSenha" class="textoPoppins"></div>
+            <input onkeyup="validarConfirmarSenha()" type="password" placeholder="Repetir Senha" id="confirmaSenha" />
+            <div id="senhasIguais" class="textoPoppins"></div>
             <div class="esqueceSenha">
               <label for="verSenha" class="textoPoppins subTitulo">
                 <input type="checkbox" onclick="mostrarSenha()" id="verSenha" />Mostrar senha</label>
             </div>
 
             <span class="textoPoppins subTexto">O melhor vinho não é necessariamente o mais caro, mas o que nós
-              compartilhamos.</span>
+              compartilhamos.</span><br>
+              <div id="msgErro" class="textoPoppins"></div>
           </div>
           <div class="logar">
             <div class="botao">
