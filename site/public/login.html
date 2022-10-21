@@ -23,9 +23,9 @@
             <div class="espaco">
                 <div class="textoCinzel titulo amarelo">Login</div>
                 <div class="info">
-                    <input type="text" placeholder="Email">
+                    <input id="Email" type="text" placeholder="Email">
 
-                    <input id="senha" type="password" placeholder="Senha">
+                    <input id="Senha" type="password" placeholder="Senha">
                     <div class="esqueceSenha">
                         
                         <label for="verSenha" class="textoPoppins subTitulo">
@@ -38,11 +38,12 @@
                     <span class="textoPoppins subTexto">O melhor vinho não é necessariamente o mais caro, mas o que nós
                         compartilhamos.</span>
 
+                        <div style="height: 2vw;" id="msgErro" class="textoPoppins"></div>
                 </div>
                 <div class="logar">
                     <div class="botao">
                         <a href="cadastro.html" class="textoPoppins subTitulo amarelo">Cadastre-se</a>
-                        <a class="preto" href="index.html"><button onclick="">Logar</button></a>
+                        <a class="preto"><button onclick="validarCampos()">Logar</button></a>
                     </div>
                 </div>
             </div>

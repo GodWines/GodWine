@@ -8,6 +8,7 @@
   <title>GodWine</title>
 
   <link rel="stylesheet" href="./css/main.css" />
+  <script src="./js/index.js"></script>
 </head>
 
 <body>
@@ -328,17 +329,18 @@
           </div>
         </div>
         <div class="dados">
-          <label for="nome">Nome</label>
-          <input id="nome" type="text" />
-          <label for="nome">Email</label>
-          <input id="nome" type="text" />
-          <label for="nome">Telefone</label>
-          <input id="nome" type="text" />
-          <label for="nome">Mensagem</label>
-          <input id="nome" type="text" style="height: 8vh" />
-          <button>Enviar</button>
+          <label for="Nome">Nome</label>
+          <input id="Nome" type="text" />
+          <label for="Email">Email</label>
+          <input id="Email" type="text" />
+          <label for="Telefone">Telefone</label>
+          <input id="Telefone" type="text" />
+          <label for="Msg">Mensagem</label>
+          <input id="Msg" type="text" style="height: 8vh" />
+          <button onclick="entrarEmContato()">Enviar</button>
         </div>
       </div>
+      <div style="height: 2vw;" id="msgEntrarEmContato" class="textoPoppins amarelo"></div>
     </div>
   </div>
   <!--
@@ -353,9 +355,10 @@
           Envie seu E-mail para saber tudo sobre o mundo do Vinho
         </div>
         <div class="email">
-          <input type="text" placeholder="Email" style="padding: 1vw" />
-          <button>Saiba Mais</button>
+          <input id="saibaMais" type="text" placeholder="Email" style="padding: 1vw" />
+          <button onclick="enviarEmail()">Saiba Mais</button>
         </div>
+        <div style="height: 2vw;" id="msgSaibaMais" class="textoPoppins amarelo"></div>
       </div>
     </div>
     <div class="container">
@@ -428,5 +431,4 @@
     </div>
   </div>
 </body>
-
 </html>

@@ -1,19 +1,21 @@
 function simular() {
-    quantidade_garrafas = Number(simulador_qtd.value);
-    preco_medio_garrafa = Number(simulador_media.value);
+
+    // Coleta dos dados
+    const quantidade_garrafas = Number(simulador_qtd.value);
+    const preco_medio_garrafa = Number(simulador_media.value);
 
     // pegar os 25% que é a porcentagem do garrafas_perdidas 
-    var garrafas_perdidas = quantidade_garrafas * 0.25;
+    const garrafas_perdidas = quantidade_garrafas * 0.25;
 
     // pegar o garrafas_perdidas e multiplicar pelo valor de garrafa
-    var valor_desperdicado = garrafas_perdidas * preco_medio_garrafa; 
+    const valor_desperdicado = garrafas_perdidas * preco_medio_garrafa; 
 
 
     // 25% de disperdicio são reduzidos com os nossos sensores estipuladamente em 3% ao mes 
-    var valor_desperdicado_mes = (quantidade_garrafas * 0.03) * preco_medio_garrafa;
+    const valor_desperdicado_mes = (quantidade_garrafas * 0.03) * preco_medio_garrafa;
     
-    var valor_desperdicado_semestre = (((valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa))*6);
-    var valor_desperdicado_ano = (((valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa))*12);
+    const valor_desperdicado_semestre = (((valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa))*6);
+    const valor_desperdicado_ano = (((valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa))*12);
     // 25% de disperdicio são reduzidos com os nossos sensores estipuladamente em 3% no semestre
     
 
