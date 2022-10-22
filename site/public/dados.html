@@ -24,36 +24,36 @@
                     <div class="textoCinzel titulo amarelo">Dados da empresa </div>
                     <div class="info">
                         <div class="dadosPessoais">
-                            <input id="empresaNomeSocial" type="text" placeholder="Nome Social" />
-                            <input id="empresaNomeFantasia" type="text" placeholder="Nome Fantasia" />
+                            <input onkeyup="verificarNomeSocial()" id="empresaNomeSocial" type="text" placeholder="Nome Social"/>
+                            <input onkeyup="verificarNomeFantasia()" id="empresaNomeFantasia" type="text" placeholder="Nome Fantasia" />
                         </div>
                         <div class="dadosPessoais">
-                            <input id="empresaCnpj" type="text" placeholder="CNPJ" />
-                            <input id="empresaRepresentante" type="text" placeholder="Representante"/>
+                            <input onkeyup="verificarCnpj()" id="empresaCnpj" type="text" placeholder="CNPJ"/>
+                            <input onkeyup="verificarRepresentante()" id="empresaRepresentante" type="text" placeholder="Representante"/>
                         </div>
                         <div style="height: 1vw;" id="msgSaibaMais" class="textoPoppins amarelo"></div>
                         <div class="dadosPessoais">
-                            <input id="empresaTelefone" type="text" placeholder="Telefone" />
-                            <input id="empresaCep" type="pastextsword" placeholder="CEP" />
+                            <input onkeyup="verificarTelefone()" id="empresaTelefone" type="text" placeholder="Telefone" />
+                            <input onkeyup="verificarCep()" id="empresaCep" maxlength="8" onkeypress="return OnlyNumbers(event)" type="pastextsword" placeholder="CEP" />
                         </div>
                         <div class="dadosPessoais">
                             <input id="empresaCidade" type="text" placeholder="Cidade" />
-                            <input id="empresaUr" type="pastextsword" placeholder="UR" style="width: 7%; margin-right: 35%;"/>
+                            <input id="empresaUf"  maxlength="2" type="pastextsword" placeholder="Uf" style="width: 7%; margin-right: 35%;"/>
                         </div>
                         <div class="dadosPessoais">
                             <input id="empresaBairro" type="text" placeholder="Bairro" style="width: 50%;" />
-                            <input id="empresaComplemento" type="text" placeholder="Complemento" style="width: 30%;" />
+                            <input onkeyup="verificarComplemento()" id="empresaComplemento" type="text" placeholder="Complemento" style="width: 30%;" />
                         </div>
                         <div class="dadosPessoais">
                             <input id="empresaRua" type="text" placeholder="Rua" style="width: 50%;" />
-                            <input id="empresaNumero" type="text" placeholder="Numero"style="width: 30%;" />
+                            <input onkeyup="verificarNumero()" id="empresaNumero" type="text" placeholder="Numero"style="width: 30%;" />
                         </div>
-                        <span class="textoPoppins subTexto amarelo">Preencha TODOS os campos a cima </span>
+                        <span id="mensagem" class="textoPoppins subTexto amarelo">Preencha TODOS os campos a cima</span>
                     </div>
                     <div class="logar">
                         <div class="botao">
                             <a href="cadastro.html" class="textoPoppins subTitulo amarelo">Voltar</a>
-                            <a class="preto" href="index.html"><button>Criar Conta</button></a>
+                            <button onclick="criarConta()">Criar Conta</button></a>
                         </div>
                     </div>
                 </div>
@@ -61,5 +61,4 @@
         </div>
     </div>
 </body>
-
 </html>
