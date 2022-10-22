@@ -17,28 +17,31 @@
     <div class="tela">
       <div class="voltar">
         <a href="index.html" class="textoCinzel subTitulo amarelo">Home</a>
-        <img class="imgLogo" src="./assets/logo.png" alt="" />
+        <img src="./assets/logo.png" alt="" class="imgLogo" />
       </div>
       <div class="input">
         <div class="espaco">
           <div class="textoCinzel titulo amarelo">Cadastre-se</div>
           <div class="info">
-            <input type="text" placeholder="Email" />
-
-            <input id="Mostrar" type="password" placeholder="Senha" />
-            <input id="Mostrar2" type="password" placeholder="Repetir Senha" />
+            <input onkeyup="validarEmail()" type="text" placeholder="Email" id="Email"/>
+            <div style="height: 1vw; font-size: 1vw;" id="emailValido" class="textoPoppins"></div>
+            <input onkeyup="validarForcaSenha()" type="password" placeholder="Senha" id="senha" />
+            <div style="height: 1vw; font-size: 1vw;" id="forcaSenha" class="textoPoppins"></div>
+            <input onkeyup="validarConfirmarSenha()" type="password" placeholder="Repetir Senha" id="confirmaSenha" />
+            <div style="height: 1vw; font-size: 1vw;" id="senhasIguais" class="textoPoppins"></div>
             <div class="esqueceSenha">
               <label for="verSenha" class="textoPoppins subTitulo">
-                <input onclick="mostrarSenha()" type="checkbox" id="verSenha" />Mostrar senha</label>
+                <input type="checkbox" onclick="mostrarSenha()" id="verSenha" />Mostrar senha</label>
             </div>
 
             <span class="textoPoppins subTexto">O melhor vinho não é necessariamente o mais caro, mas o que nós
-              compartilhamos.</span>
+              compartilhamos.</span><br>
+              <div style="height: 1vw;  font-size: 1vw;" id="msgErro" class="textoPoppins"></div>
           </div>
           <div class="logar">
             <div class="botao">
               <a href="login.html" class="textoPoppins subTitulo amarelo">Log In</a>
-              <a class="preto" href="dados.html"><button>Continuar</button></a>
+              <button onclick="validarSenha()">Continuar</button>
             </div>
           </div>
         </div>
@@ -46,5 +49,4 @@
     </div>
   </div>
 </body>
-
 </html>
