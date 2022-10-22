@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador</title>
+    <link rel="stylesheet" href="./styles/styles-geral.css">
+    <link rel="stylesheet" href="Simulador1.css">
+    <script src="./js/login.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="banner">
+                <div class="asset">
+                    <img id="fundobarris" src="./Assets/img/barris cortado 2.png">
+                    <div class="caixa">
+                        <div class="simulador txt-amarelo ">
+                            Simulador
+                        </div>
+                        <div class="inputvalores txt-amarelo">
+                            
+                            <input id="simulador_qtd" class="campo poppins" type="number" placeholder="Quantidade de Garrafas:">
+                            <input id="simulador_media" class="campo poppins" type="number"  placeholder="Média de preço de cada Garrafa:">
+                            
+                            <div class="mensagem poppins">Veja as vantagens ao usar nossos serviços.</div>
+                            
+                            <div class="botao_simular">
+                                <button class="botao  poppins fundo-amarelo" onclick="simular()">Simular</button>
+                            </div>
+
+                           
+                            <div class="class_resultado" id="div_resultado">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="logo txt-amarelo"><ul class="poppins"><a href="./index.html">Home</a></ul><img src="./Assets/img/logo.svg" alt=""><div>
+            </div>
+        </div>
+    </div>
+   
+    </main>
+</body>
+</html>
+
+<script>
+    function simular() {
+        quantidade_garrafas = Number(simulador_qtd.value);
+        preco_medio_garrafa = Number(simulador_media.value);
+
+        // pegar os 25% que é a porcentagem do garrafas_perdidas 
+        var garrafas_perdidas = quantidade_garrafas * 0.25;
+
+        // pegar o garrafas_perdidas e multiplicar pelo valor de garrafa
+        var valor_desperdicado = garrafas_perdidas * preco_medio_garrafa; 
+
+
+        // 25% de disperdicio são reduzidos com os nossos sensores estipuladamente em 3% ao mes 
+        var valor_desperdicado_mes = (quantidade_garrafas * 0.03) * preco_medio_garrafa;
+        
+        var valor_desperdicado_semestre = (((valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa))*6);
+        var valor_desperdicado_ano = (((valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa))*12);
+        // 25% de disperdicio são reduzidos com os nossos sensores estipuladamente em 3% no semestre
+        
+
+        div_resultado.innerHTML = ` Estipula-se atualmente que o mercado de vinhos há uma perda considerável de <span style="color:red"> 25% </span> nas vinicolas pela falta de controle de temperatura e umidade. <br>
+        A cada <span style="color:blue">${quantidade_garrafas}</span> garrafas você perde em média um quarto desse valor que é igual 
+        <span style="color:red"> ${garrafas_perdidas}</span>  vinhos que resulta em  <span style="color:red">  ${valor_desperdicado.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' })}</span> reais em produtos perdidos. <br>
+        Com nossos sensores esses valores  de garrafas perdidas diminuiriam para  <span style="color:blue">  ${(quantidade_garrafas * 0.03)} </span>
+        garrafas de vinho, onde economizaria cerca de  <span style="color:green"> ${(valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa).toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' })} </span> reais no mês. <br>
+        Valor economizado no semestre: <span style="color:green">${valor_desperdicado_semestre.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' })} <br> </span>
+        valor economizado no ano: <span style="color:green">${valor_desperdicado_ano.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' })}  </span> <br>`
+
+    }
+
+
+</script>
