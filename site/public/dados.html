@@ -23,6 +23,7 @@
                 <div class="espaco">
                     <div class="textoCinzel titulo amarelo">Dados da empresa </div>
                     <div class="info">
+                        <form method="get" action=".">
                         <div class="dadosPessoais">
                             <input onkeyup="verificarNomeSocial()" id="empresaNomeSocial" type="text" placeholder="Nome Social"/>
                             <input onkeyup="verificarNomeFantasia()" id="empresaNomeFantasia" type="text" placeholder="Nome Fantasia" />
@@ -34,7 +35,8 @@
                         <div style="height: 1vw;" id="msgSaibaMais" class="textoPoppins amarelo"></div>
                         <div class="dadosPessoais">
                             <input onkeyup="verificarTelefone()" id="empresaTelefone" type="text" placeholder="Telefone" />
-                            <input onkeyup="verificarCep()" id="empresaCep" maxlength="8" onkeypress="return OnlyNumbers(event)" type="pastextsword" placeholder="CEP" />
+                            <input onkeyup="verificarCep()" size="10" maxlength="9"
+                            onblur="pesquisacep(this.value);" id="empresaCep" type="pastextsword" placeholder="CEP" />
                         </div>
                         <div class="dadosPessoais">
                             <input id="empresaCidade" type="text" placeholder="Cidade" />
@@ -48,6 +50,7 @@
                             <input id="empresaRua" type="text" placeholder="Rua" style="width: 50%;" />
                             <input onkeyup="verificarNumero()" id="empresaNumero" type="text" placeholder="Numero"style="width: 30%;" />
                         </div>
+                    </form>
                         <span id="mensagem" class="textoPoppins subTexto amarelo">Preencha TODOS os campos a cima</span>
                     </div>
                     <div class="logar">

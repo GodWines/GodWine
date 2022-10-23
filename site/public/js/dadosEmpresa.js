@@ -86,28 +86,6 @@ function verificarTelefone(){
     }
 }
 
-//verificar Cep
-function verificarCep(){
-    const cep = document.getElementById("empresaCep");
-    
-    //Verificar se o campo é nulo
-    if(cep.value == ""){
-        mensagem.innerHTML =`<span style="color:red">Digite algo no campo</span>`
-        return false;
-        }
-        //Verificando se o cep possui todos os digitos necessários
-        else if(cep.value.length < 8){
-            mensagem.innerHTML =`<span style="color:red">O cep não é valido por que não possui todos os digitos</span>`
-            return false;
-        }
-        //Cep cadastrado com sucesso
-        else{
-            mensagem.innerHTML =`<span style="color:green">O cep é valido</span>`
-            return true;
-    }
-}
-
-
 //verificar Complemento
 function verificarComplemento(){
     const complemento = document.getElementById("empresaComplemento");
@@ -170,3 +148,71 @@ function criarConta(){
             mensagem.innerHTML =`<span style="color:red">Verifique os dados inseridos.</span>`
         }
 }
+
+// API DO CEP
+
+function limpa_formulário_cep() {
+    //Limpa valores do formulário de cep.
+    document.getElementById('empresaRua').value=("");
+    document.getElementById('empresaBairro').value=("");
+    document.getElementById('empresaCidade').value=("");
+    document.getElementById('empresaUf').value=("");
+}
+
+function meu_callback(conteudo) {
+if (!("erro" in conteudo)) {
+    //Atualiza os campos com os valores.
+    document.getElementById('empresaRua').value=(conteudo.logradouro);
+    document.getElementById('empresaBairro').value=(conteudo.bairro);
+    document.getElementById('empresaCidade').value=(conteudo.localidade);
+    document.getElementById('empresaUf').value=(conteudo.uf);
+} //end if.
+else {
+    //CEP não Encontrado.
+    limpa_formulário_cep();
+    alert("CEP não encontrado.");
+}
+}
+
+function pesquisacep(valor) {
+
+//Nova variável "cep" somente com dígitos.
+var cep = valor.replace(/\D/g, '');
+
+//Verifica se campo cep possui valor informado.
+if (cep != "") {
+
+    //Expressão regular para validar o CEP.
+    var validacep = /^[0-9]{8}$/;
+
+    //Valida o formato do CEP.
+    if(validacep.test(cep)) {
+
+        //Preenche os campos com "..." enquanto consulta webservice.
+        document.getElementById('empresaRua').value="...";
+        document.getElementById('empresaBairro').value="...";
+        document.getElementById('empresaCidade').value="...";
+        document.getElementById('empresaUf').value="...";
+       
+
+        //Cria um elemento javascript.
+        var script = document.createElement('script');
+
+        //Sincroniza com o callback.
+        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+        //Insere script no documento e carrega o conteúdo.
+        document.body.appendChild(script);
+
+    } //end if.
+    else {
+        //cep é inválido.
+        limpa_formulário_cep();
+        alert("Formato de CEP inválido.");
+    }
+} //end if.
+else {
+    //cep sem valor, limpa formulário.
+    limpa_formulário_cep();
+}
+};
