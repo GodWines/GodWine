@@ -136,7 +136,7 @@ function criarConta(){
         const rua = document.getElementById("empresaRua");
         const numero = document.getElementById("empresaNumero");
 
-        if(nomeSocial.value == "" || nomeFantasia.value == "" || cnpj.value == "" || representante.value == "" || telefone.value == "" || cep.value == "" || cidade.value == "" || ur.value == "" || bairro.value == "" || rua.value == "" || numero.value == ""){
+        if(nomeSocial.value == "" || nomeFantasia.value == "" || cnpj.value == "" || representante.value == "" || telefone.value == "" || cep.value == "" || cidade.value == "" || uf.value == "" || bairro.value == "" || rua.value == "" || numero.value == ""){
             mensagem.innerHTML = `Você não pode prosseguir com um campo nulo além do complemento!` 
         }
             else if(verificarNomeSocial() == true && verificarNomeFantasia() == true && verificarCnpj() == true && verificarRepresentante() == true && verificarTelefone() == true && verificarCep() == true && verificarComplemento() == false || verificarComplemento() == true && verificarNumero() == true){
