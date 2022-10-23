@@ -25,30 +25,24 @@
     <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
 </head>
 
 <body>
     <div class="dashboard">
         <div class="cliente">
-            <img src="./assets/telaComentario/cliente.png" class="imgCliente foto" alt="" />
+            <img src="../assets/telaComentario/cliente.png" class="imgCliente foto" alt="" />
             <span class="textoPoppins subTitulo">Fernando Brandão</span>
             <div class="vinicolas">
                 <div class="barra">
-                    <span class="textoPoppins subTitulo">Armazéns</span>
+                    <span class="textoPoppins subTitulo">Vinicula-1</span>
                 </div>
                 <div class="corpo">
-                    <span class="textoPoppins subTexto vin">Armazém-01</span>
-                    <span class="textoPoppins subTexto vin">Armazém-02</span>
-                    <span class="textoPoppins subTexto vin">Armazém-03</span>
-                    <span class="textoPoppins subTexto vin">Armazém-04</span>
-                    <span class="textoPoppins subTexto vin">Armazém-05</span>
-                    <span class="textoPoppins subTexto vin">Armazém-06</span>
-                    <span class="textoPoppins subTexto vin">Armazém-07</span>
-                    <span class="textoPoppins subTexto vin">Armazém-08</span>
-                    <span class="textoPoppins subTexto vin">Armazém-09</span>
-                    <span class="textoPoppins subTexto vin">Armazém-10</span>
+                    <a href="../dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-01</a>
+                    <a href="../dashboard/2arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Armazém-02</a>
+                    <a href="../dashboard/3arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-03</a>
+                    <a href="../dashboard/4arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-04</a>
                 </div>
                 <div class="barra">
                 </div>
@@ -58,9 +52,9 @@
         <div class="bemVindo">
             <span class="textoPoppins titulo amarelo">DashBoard</span>
             <div class="sair" style="width: 15%;">
-                <a class="textoPoppins subTexto" href="./dashInicial.html">Voltar</a>
-                <a class="textoPoppins subTexto" href="./index.html">Sair</a>
-                <img src="./assets/logo.png" alt="" class="imgLogo" />
+                <a class="textoPoppins subTexto" href="../dashInicial.html">Voltar</a>
+                <a class="textoPoppins subTexto" href="../index.html">Sair</a>
+                <img src="../assets/logo.png" alt="" class="imgLogo" />
             </div>
         </div>
           <div class="graficos" >
@@ -68,11 +62,11 @@
                 <div class="quadradoFundo quadrado1">
                     <div class="registroTempUmi">
                         <span class="textoPoppins subTitulo">Temperatura Atual:</span>
-                        <span class="textoPoppins titulo amarelo numero">6°</span>
+                        <span class="textoPoppins titulo amarelo numero">10°</span>
                         <div class="tipoTemp">
-                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">gelado</span></span>
+                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Frio</span></span>
                             <span class="textoPoppins subTexto">Temperatura ideal: <span
-                                    class="amarelo">3-7°</span></span>
+                                    class="amarelo">7-13°</span></span>
                         </div>
                     </div>
                     <div class="registroTempUmi">
@@ -135,4 +129,5 @@
 
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="./js/dashboard.js"></script>
+<script src="../js/dashboard/2arm-dashboard.js"></script>
+<script src="../js/dashInicial.js"></script>

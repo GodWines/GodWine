@@ -1,10 +1,28 @@
 /*Global*/
 
-.dashInicial {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(10, 13, 16, 1);
+.vinicolas button:hover {
+  background-color: #e2b024;
+  border: 0.1vw solid aliceblue;
+
+}
+
+.vinicolas a:hover {
+  background-color: #e2b024;
+    border: 0.1vw solid aliceblue;
+    color: #101010;
+}
+
+.dashInicial ::-webkit-scrollbar {
+  width: 1.6vw;
+}
+
+.dashInicial ::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+.dashInicial ::-webkit-scrollbar-thumb {
+  background-color: #e2b024;
+  border-radius: 0.5vw;
 }
 
 .dashboard ::-webkit-scrollbar {
@@ -63,8 +81,11 @@
   padding-bottom: 0.5vw;
   display: flex;
   align-items: center;
-  margin-left: 0.5vw;
+  padding-left: 0.5vw;
 }
+
+.vinSelecionado{background-color: #1b1a1a; color: white;}
+
 
 /*--------------------------------------------------------------------------------------------------------*/
 /*texto*/
@@ -109,6 +130,13 @@
 
 /*--------------------------------------------------------------------------------------------------------*/
 /*DashInicial*/
+
+.dashInicial {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 13, 16, 1);
+}
 
 .telaInicial {
   width: 80vw;

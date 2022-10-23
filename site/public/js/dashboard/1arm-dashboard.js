@@ -25,12 +25,12 @@ const labels1 = [
       label: 'Temperatura',
       backgroundColor: 'rgba(86, 11, 173, 1)',
       borderColor: 'rgba(86, 11, 173, 1)',
-      data: [30, 29, 28, 25, 22, 23],
+      data: [3, 2, 4, 4, 6, 5],
     },{
       label: 'Umidade',
       backgroundColor: 'rgba(255, 195, 0, 1)',
       borderColor: 'rgba(255, 195, 0, 1)',
-      data: [80, 82, 80, 85, 80, 83],
+      data: [80, 82, 70, 75, 80, 83],
       
     }]
   };
