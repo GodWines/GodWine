@@ -34,7 +34,7 @@
         <div class="cliente">
             <img src="./assets/telaComentario/cliente.png" class="imgCliente foto" alt="" />
             <span class="textoPoppins subTitulo">Fernando Brandão</span>
-            <div class="viniculas">
+            <div class="vinicolas">
                 <div class="barra">
                     <span class="textoPoppins subTitulo">Armazéns</span>
                 </div>
@@ -55,21 +55,29 @@
             </div>
         </div>
         <div class="telaDash">
-
+        <div class="bemVindo">
+            <span class="textoPoppins titulo amarelo">DashBoard</span>
+            <div class="sair" style="width: 15%;">
+                <a class="textoPoppins subTexto" href="./dashInicial.html">Voltar</a>
+                <a class="textoPoppins subTexto" href="./index.html">Sair</a>
+                <img src="./assets/logo.png" alt="" class="imgLogo" />
+            </div>
+        </div>
+          <div class="graficos" >
             <div class="grafico parte1">
                 <div class="quadradoFundo quadrado1">
                     <div class="registroTempUmi">
                         <span class="textoPoppins subTitulo">Temperatura Atual:</span>
-                        <span class="textoPoppins titulo azul numero">10°</span>
+                        <span class="textoPoppins titulo amarelo numero">6°</span>
                         <div class="tipoTemp">
                             <span class="textoPoppins subTexto">Tipo: <span class="amarelo">gelado</span></span>
                             <span class="textoPoppins subTexto">Temperatura ideal: <span
-                                    class="amarelo">10-13°</span></span>
+                                    class="amarelo">3-7°</span></span>
                         </div>
                     </div>
                     <div class="registroTempUmi">
                         <span class="textoPoppins subTitulo">Umidade Atual:</span>
-                        <span class="textoPoppins titulo azul numero">80%</span>
+                        <span class="textoPoppins titulo amarelo numero">80%</span>
                         <div class="tipoTemp">
                             <span class="textoPoppins subTexto">Tipo: <span class="amarelo">gelado</span></span>
                             <span class="textoPoppins subTexto">Umidade ideal: <span
@@ -78,21 +86,49 @@
                     </div>
                 </div>
                 <div class="quadradoFundo quadrado2">
-                    <div class="registroTempUmi"><canvas id="myChart3"></canvas></div>
-                    <div class="registroTempUmi"><canvas id="myChart4"></canvas></div>
+                    <div class="registroTempUmi">
+                    <div class="divPizzaPie">
+                        <canvas id="myChart4"></canvas>
+                    </div>
+                    <div class="infoGrafico">
+                        <span class="textoPoppins subTitulo">Grafico numero de alertas por Semana</span>
+                    </div>
+                    </div>
+
+                    <div class="registroTempUmi">
+                        <div class="divPizzaPie">
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                        <div class="infoGrafico">
+                            <span class="textoPoppins subTitulo">Grafico tipo de vinhos por armazem</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="grafico parte2">
                 <div class="quadradoFundo quadrado3">
                     <div class="registroGrafico">
-                        <canvas id="myChart1"></canvas>
+                        <div class="infoGrafico">
+                            <span class="textoPoppins subTitulo">Grafico temperatura e umidade por hora</span>
+                        </div>
+                        <div class="divLinhaBarra">
+                            <canvas id="myChart1"></canvas>
+                        </div>
                     </div>
                     <div class="registroGrafico">
-                        <canvas id="myChart2"></canvas>
+                        <div class="infoGrafico">
+                            <span class="textoPoppins subTitulo">Grafico de temperatura minima e temperatura maxima por semana </span>
+                        </div>
+                        <div class="divLinhaBarra">
+                            <canvas id="myChart2">
+                            </canvas>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>  
         </div>
+        
     </div>
     </div>
 </body>
