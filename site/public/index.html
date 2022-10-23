@@ -326,13 +326,13 @@
         </div>
         <div class="dados">
           <label for="Nome">Nome</label>
-          <input id="Nome" type="text" />
+          <input onkeyup="validarNome()" id="Nome" type="text" />
           <label for="Email">Email</label>
-          <input id="Email" type="text" />
+          <input onkeyup="validarEmail()"id="Email" type="email" />
           <label for="Telefone">Telefone</label>
-          <input id="Telefone" type="text" />
+          <input onkeyup="validarTelefone()"id="Telefone" type="text" />
           <label for="Msg">Mensagem</label>
-          <input id="Msg" type="text" style="height: 8vh" />
+          <input onkeyup="validarMsg()"id="Msg" type="text" style="height: 8vh" />
           <button onclick="entrarEmContato()">Enviar</button>
         </div>
       </div>
