@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/dashInicial.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
 </head>
 
 <body>
@@ -30,23 +30,54 @@
                     <span class="textoPoppins subTexto vin">Armazém-08</span>
                     <span class="textoPoppins subTexto vin">Armazém-09</span>
                     <span class="textoPoppins subTexto vin">Armazém-10</span>
-                    <span class="textoPoppins subTexto vin">Armazém-11</span>
-                    <span class="textoPoppins subTexto vin">Armazém-12</span>
-                    <span class="textoPoppins subTexto vin">Armazém-13</span>
-                    <span class="textoPoppins subTexto vin">Armazém-14</span>
-                    <span class="textoPoppins subTexto vin">Armazém-15</span>
                 </div>
                 <div class="barra">
-                    <div class="quadradoFundo1"></div>
-                    <div class="quadradoFundo2"></div>
-                    <div class="quadradoFundo3"></div>
                 </div>
             </div>
         </div>
-        <div class="tela">
+        <div class="telaDash">
+
+            <div class="grafico parte1">
+                <div class="quadradoFundo quadrado1">
+                    <div class="registroTempUmi">
+                        <span class="textoPoppins subTitulo">Temperatura Atual:</span>
+                        <span class="textoPoppins titulo azul numero">10°</span>
+                        <div class="tipoTemp">
+                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">gelado</span></span>
+                            <span class="textoPoppins subTexto">Temperatura ideal: <span
+                                    class="amarelo">10-13°</span></span>
+                        </div>
+                    </div>
+                    <div class="registroTempUmi">
+                        <span class="textoPoppins subTitulo">Umidade Atual:</span>
+                        <span class="textoPoppins titulo azul numero">80%</span>
+                        <div class="tipoTemp">
+                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">gelado</span></span>
+                            <span class="textoPoppins subTexto">Umidade ideal: <span
+                                    class="amarelo">70-80%</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quadradoFundo quadrado2">
+                    <div class="registroTempUmi"><canvas id="myChart3"></canvas></div>
+                    <div class="registroTempUmi"><canvas id="myChart4"></canvas></div>
+                </div>
+            </div>
+            <div class="grafico parte2">
+                <div class="quadradoFundo quadrado3">
+                    <div class="registroGrafico">
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                    <div class="registroGrafico">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
 </body>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/dashboard.js"></script>
