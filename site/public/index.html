@@ -7,6 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GodWine</title>
 
+  <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="./css/main.css" />
   <script src="./js/index.js"></script>
 </head>
@@ -66,7 +84,8 @@
             God <span class="amarelo">Wine</span>
           </span>
           <span class="paragrafo textoPoppins">
-            Nós da GodWine visamos sofisticar, monitorar e aprimorar os armazéns de vinho dos nossos clientes trazendo a tecnologia para o tradicional fazendo com que exista um bom rendimento e uma alta qualidade dos produtos.
+            Nós da GodWine visamos sofisticar, monitorar e aprimorar os armazéns de vinho dos nossos clientes trazendo a
+            tecnologia para o tradicional fazendo com que exista um bom rendimento e uma alta qualidade dos produtos.
           </span>
         </div>
       </div>
@@ -83,11 +102,14 @@
         <span class="textoPoppins subTexto">GodWine</span>
         <span class="textoCinzel titulo amarelo">Sobre Nós</span>
         <span class="textoPoppins subTitulo">Monitoria de Vinhos</span>
-        <span class="textoPoppins paragrafo"><u><b>Missão</b></u>: Mudar a maneira como os vinhos são armazenados, trazendo máxima qualidade para esses produtos, implementando a tecnologia no meio tradicional e oferecendo as melhores soluções aos nossos clientes.<br><br>
+        <span class="textoPoppins paragrafo"><u><b>Missão</b></u>: Mudar a maneira como os vinhos são armazenados,
+          trazendo máxima qualidade para esses produtos, implementando a tecnologia no meio tradicional e oferecendo as
+          melhores soluções aos nossos clientes.<br><br>
 
           <u><b>Visão</b></u>: Ser a melhor e maior empresa no meio da monitoria de temperatura e umidade.<br><br>
-          
-          <u><b>Valores</b></u>: Prezamos a ética, responsabilidade e qualidade acima de tudo! Trazendo confiança aos nossos clientes e funcionários através de um trabalho árduo e funcional.
+
+          <u><b>Valores</b></u>: Prezamos a ética, responsabilidade e qualidade acima de tudo! Trazendo confiança aos
+          nossos clientes e funcionários através de um trabalho árduo e funcional.
         </span>
       </div>
       <div class="imagem_sobre">
@@ -233,7 +255,11 @@
             <div class="textoPoppins subTitulo">Fernando Brandão</div>
           </div>
           <div class="textoPoppins paragrafo">
-           Seu grupo e muito pika viado na moral que caras bacanudos
+<<<<<<< HEAD
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec tincidunt enim. In ut feugiat mi, in sagittis mauris. In viverra interdum nulla, vitae bibendum purus scelerisque eu. Nulla dictum fringilla est et tempus. Phasellus ultricies suscipit dui a venenatis. In facilisis est sapien, ut accumsan nibh dignissim vel.
+=======
+            Seu grupo e muito pika viado na moral que caras bacanudos
+>>>>>>> 0a211bdb7343a3ccb4ba77e906ee06f83adf3b1f
           </div>
         </div>
         <div class="carroucel">
@@ -255,7 +281,7 @@
         Melhores <span class="amarelo">Safras </span>
       </div>
       <div class="video">
-      <video autoplay muted loop src="movie/wine-review.mp4"> </video>
+        <video autoplay muted loop src="movie/wine-review.mp4"> </video>
       </div>
       <span class="textoPoppins paragrafo">
         Conheça formas de otimizar sua produção dos seus vinhos, melhores
@@ -326,13 +352,13 @@
         </div>
         <div class="dados">
           <label for="Nome">Nome</label>
-          <input id="Nome" type="text" />
+          <input onkeyup="validarNome()" id="Nome" type="text" />
           <label for="Email">Email</label>
-          <input id="Email" type="text" />
+          <input onkeyup="validarEmail()" id="Email" type="email" />
           <label for="Telefone">Telefone</label>
-          <input id="Telefone" type="text" />
+          <input onkeyup="validarTelefone()" id="Telefone" type="text" />
           <label for="Msg">Mensagem</label>
-          <input id="Msg" type="text" style="height: 8vh" />
+          <input onkeyup="validarMsg()" id="Msg" type="text" style="height: 8vh" />
           <button onclick="entrarEmContato()">Enviar</button>
         </div>
       </div>
@@ -399,7 +425,7 @@
             vinicios.fagundes@sptech.school
           </div>
         </div>
-        <div class="contatos"> 
+        <div class="contatos">
           <div class="textoCinzel titulo amarelo">Contato</div>
           <div class="icones">
             <img src="./assets/telaContato/google.png" class="imgSocial" alt="" />
@@ -407,9 +433,9 @@
             <img src="./assets/telaContato/linkedin.png" class="imgSocial" alt="" />
             <img src="./assets/telaContato/facebook.png" class="imgSocial" alt="" />
           </div>
-          <div class="entreContato" >
+          <div class="entreContato">
             <img src="../assets/telaContato/call.png" class="imgSocial" alt="" />
-            <span class="textoPoppins subTexto" >+55 11 9 0000-0000</span>
+            <span class="textoPoppins subTexto">+55 11 9 0000-0000</span>
           </div>
           <div class="entreContato">
             <img src="./assets/telaContato/message.png" class="imgSocial" alt="" />
@@ -427,4 +453,5 @@
     </div>
   </div>
 </body>
+
 </html>

@@ -1,3 +1,30 @@
+function validarNome(){
+    const nome = document.getElementById('Nome');
+
+    //Verificar se o campo é nulo
+    if(nome == ""){
+        msgEntrarEmContato.innerHTML =`<span style="color:red">Digite algo no campo</span>`
+        return false;
+    } 
+    // Verifica se o nome digitado possui mais de 5 letras
+        else if(nome.value.length < 3 || nome.value.length > 100){
+            msgEntrarEmContato.innerHTML=`<span style="color:red">Digite um nome  com mais de 3 e menos de 100 letras</span>`
+            return false;
+        } 
+            else if(nome.value.indexOf("0") >= 0 || nome.value.indexOf("1") >= 0 || nome.value.indexOf("2") >= 0|| nome.value.indexOf("3") >= 0 || nome.value.indexOf("4") >= 0 || nome.value.indexOf("5") >= 0 || nome.value.indexOf("6") >= 0|| nome.value.indexOf("7") >= 0 || nome.value.indexOf("8") >= 0 || nome.value.indexOf("9") >= 0 || nome.value.indexOf("!") >= 0 || nome.value.indexOf("@") >= 0 || nome.value.indexOf("#") >= 0 ||nome.value.indexOf("$") >= 0 ||nome.value.indexOf("%") >= 0 ||nome.value.indexOf("&") >= 0 ||nome.value.indexOf("*") >= 0 ||nome.value.indexOf("(") >= 0 ||nome.value.indexOf(")") >= 0 ||nome.value.indexOf("-") >= 0 ||nome.value.indexOf("_") >= 0 ||nome.value.indexOf("=") >= 0 ||nome.value.indexOf("+") >= 0 ||nome.value.indexOf("'") >= 0 ||nome.value.indexOf("´") >= 0 ||nome.value.indexOf("`") >= 0 ||nome.value.indexOf("{") >= 0 ||nome.value.indexOf("[") >= 0 ||nome.value.indexOf("}") >= 0 ||nome.value.indexOf("]") >= 0 ||nome.value.indexOf("~") >= 0 ||nome.value.indexOf("^") >= 0 ||nome.value.indexOf("?") >= 0 ||nome.value.indexOf("/") >= 0 ||nome.value.indexOf(";") >= 0 ||nome.value.indexOf(":") >= 0 ||nome.value.indexOf(">") >= 0 ||nome.value.indexOf("<") >= 0 ||nome.value.indexOf(",") >= 0 ||nome.value.indexOf("|") >= 0 ||nome.value.indexOf('"') >= 0 ||nome.value.indexOf(" ") >= 0 ||nome.value.indexOf("¨") >= 0 ||nome.value.indexOf("ç") >= 0){
+            msgEntrarEmContato.innerHTML=`<span style="color:red">Seu nome não pode ter letras e nem caracter especial</span>`
+            return false;
+            }
+
+        //Nome cadastrado
+        else {
+            msgEntrarEmContato.innerHTML=`<span style="color:green">Nome  valido</span>`
+            return true;
+    }
+}
+
+
+
 //Exibir "Entrar em contato"
 function entrarEmContato(){
     var nome = document.getElementById('Nome');

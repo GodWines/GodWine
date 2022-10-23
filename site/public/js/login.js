@@ -21,7 +21,6 @@ function mostrarSenha(){
     
     //Redireciona o cliente para a próxima página de cadastro
     else{
-      window.location.href = './dashboard.html'
+      window.location.href = './dashInicial.html'
     }
   }
-
