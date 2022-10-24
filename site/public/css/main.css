@@ -54,7 +54,7 @@ button {
     
 }
 
-.index input{
+input{
   all: unset;
   border: white solid 0.1vh;
   width: 100%;
