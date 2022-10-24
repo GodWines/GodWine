@@ -146,15 +146,15 @@ button {
 .botao_simular {
     display: flex;
     justify-content: right;
-    margin-top: 4vw;
-    margin-bottom: 1vw;
+    margin-top: 1.5vw;
+    margin-bottom: 2vw;
 }
 
 .class_resultado {
     background-color: #18191A;
     font-size: 1.1vw;
     width: 32vw;
-    height: 37vh;
+    height: 40vh;
     margin-left: -3vw;
     color: #FFFFFF;
 
