@@ -1,10 +1,28 @@
 /*Global*/
 
-.dashInicial {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(10, 13, 16, 1);
+.vinicolas button:hover {
+  background-color: #e2b024;
+  border: 0.1vw solid aliceblue;
+
+}
+
+.vinicolas a:hover {
+  background-color: #e2b024;
+    border: 0.1vw solid aliceblue;
+    color: #101010;
+}
+
+.dashInicial ::-webkit-scrollbar {
+  width: 1.6vw;
+}
+
+.dashInicial ::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+.dashInicial ::-webkit-scrollbar-thumb {
+  background-color: #e2b024;
+  border-radius: 0.5vw;
 }
 
 .dashboard ::-webkit-scrollbar {
@@ -30,7 +48,7 @@
   height: 100vh;
 }
 
-.viniculas {
+.vinicolas {
   display: flex;
   flex-direction: column;
   height: 60vh;
@@ -63,8 +81,11 @@
   padding-bottom: 0.5vw;
   display: flex;
   align-items: center;
-  margin-left: 0.5vw;
+  padding-left: 0.5vw;
 }
+
+.vinSelecionado{background-color: #1b1a1a; color: white;}
+
 
 /*--------------------------------------------------------------------------------------------------------*/
 /*texto*/
@@ -76,31 +97,46 @@
 }
 
 .numero {
-  font-size: 2.6vw;
+  font-size: 5vw;
 }
+
 .subTitulo {
   font-weight: bold;
   font-size: 1.2vw;
+}
+
+.blocoInfo .numero {
+  font-size: 4vw;
 }
 
 .titulo {
   font-weight: bold;
   font-size: 3vw;
 }
-.grafico .numero{
-    font-size: 5vw;
+
+.grafico .numero {
+  font-size: 5vw;
 }
 
-.grafico .subTitulo{
-    display: flex;
-    align-items: center;
-    height: 7vh;
+.grafico .subTitulo {
+  display: flex;
+  align-items: center;
+  height: 7vh;
 }
-.azul{
-    color: rgba(0, 196, 201, 1);
+
+.infoGrafico .subTitulo{
+  font-size: 0.9vw;
 }
+
 /*--------------------------------------------------------------------------------------------------------*/
 /*DashInicial*/
+
+.dashInicial {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 13, 16, 1);
+}
 
 .telaInicial {
   width: 80vw;
@@ -245,6 +281,7 @@
   width: 4%;
   background-color: rgba(25, 189, 41, 1);
 }
+
 /*--------------------------------------------------------------------------------------------------------*/
 /*Dashboard*/
 
@@ -257,7 +294,13 @@
 }
 
 
-.telaDash {
+.telaDash{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graficos {
   width: 80vw;
   height: 90vh;
   display: flex;
@@ -265,86 +308,112 @@
   align-items: center;
 }
 
-.quadradoFundo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(37, 38, 38, 1);
-    border-radius: 1.5vw;
+.quadradoFundo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(37, 38, 38, 1);
+  border-radius: 1.5vw;
 
 }
 
-.quadrado1{
-    display: flex;
-    justify-content: space-around;
-    width: 98%;
-    height: 48%;
+.quadrado1 {
+  display: flex;
+  justify-content: space-around;
+  width: 98%;
+  height: 48%;
 }
 
-.quadrado2{
-    display: flex;
-    justify-content: space-around;
-    width: 98%;
-    height: 48%;
+.quadrado2 {
+  display: flex;
+  justify-content: space-around;
+  width: 98%;
+  height: 48%;
 }
 
-.quadrado3{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    width: 98%;
-    height: 98%;
+.quadrado3 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 98%;
+  height: 98%;
 }
 
-.grafico{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 50%;
+.grafico {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 50%;
 }
 
-.parte1{
-    flex-direction: column;
-    justify-content: space-around;
-    
+.parte1 {
+  flex-direction: column;
+  justify-content: space-around;
+
 }
 
-.parte2{
-    justify-content: center;
+.parte2 {
+  justify-content: center;
 }
 
-.registroTempUmi{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between ;
-    align-items: center;
-    border-radius: 1.0vw;
-    background-color: rgba(10, 13, 16, 1);
-    width: 48%;
-    height: 90%;
-    overflow: hidden;
+.registroTempUmi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1.0vw;
+  background-color: rgba(10, 13, 16, 1);
+  width: 48%;
+  height: 90%;
+  overflow: hidden;
 }
 
-.registroGrafico{
-    border-radius: 1.0vw;
-    background-color: rgba(10, 13, 16, 1);
-    width: 90%;
-    height: 48%;
+.registroGrafico {
+  border-radius: 1.0vw;
+  background-color: rgba(10, 13, 16, 1);
+  width: 90%;
+  height: 48%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 
 
-.tipoTemp{
-    width: 100%;
-    height: 25%;
-    background-color: rgba(18, 23, 29, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.tipoTemp {
+  width: 100%;
+  height: 25%;
+  background-color: rgba(18, 23, 29, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.myChart1{
-    padding: 0;
-    width: 10%;
+.divLinhaBarra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 100%;
+}
+
+.divPizzaPie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88%;
+  height: 75%;
+}
+
+
+.infoGrafico{
+  background-color: rgba(18, 23, 29, 1);
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

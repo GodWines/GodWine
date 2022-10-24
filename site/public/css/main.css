@@ -7,6 +7,7 @@ html{
   scroll-behavior: smooth;
 }
 
+
 body {
   padding: 0;
   margin: 0;
@@ -45,7 +46,15 @@ button {
   border: none;
 }
 
-input {
+#ancora{
+  padding: 5px;
+  position: fixed;
+  margin-bottom: -40vw;
+  margin-right: -90vw;
+    
+}
+
+input{
   all: unset;
   border: white solid 0.1vh;
   width: 100%;
@@ -310,6 +319,12 @@ footer {
 
 footer .imgSocial {
   height: 3vh;
+}
+
+.imgAncora{
+  background-color: #e2b024;
+  border-radius: 100%;
+  width: 4vw;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/

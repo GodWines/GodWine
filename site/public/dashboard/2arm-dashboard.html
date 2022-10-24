@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="cliente">
+            <img src="../assets/telaComentario/cliente.png" class="imgCliente foto" alt="" />
+            <span class="textoPoppins subTitulo">Fernando Brandão</span>
+            <div class="vinicolas">
+                <div class="barra">
+                    <span class="textoPoppins subTitulo">Vinicula-1</span>
+                </div>
+                <div class="corpo">
+                    <a href="../dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-01</a>
+                    <a href="../dashboard/2arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Armazém-02</a>
+                    <a href="../dashboard/3arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-03</a>
+                    <a href="../dashboard/4arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-04</a>
+                </div>
+                <div class="barra">
+                </div>
+            </div>
+        </div>
+        <div class="telaDash">
+        <div class="bemVindo">
+            <span class="textoPoppins titulo amarelo">DashBoard</span>
+            <div class="sair" style="width: 15%;">
+                <a class="textoPoppins subTexto" href="../dashInicial.html">Voltar</a>
+                <a class="textoPoppins subTexto" href="../index.html">Sair</a>
+                <img src="../assets/logo.png" alt="" class="imgLogo" />
+            </div>
+        </div>
+          <div class="graficos" >
+            <div class="grafico parte1">
+                <div class="quadradoFundo quadrado1">
+                    <div class="registroTempUmi">
+                        <span class="textoPoppins subTitulo">Temperatura Atual:</span>
+                        <span class="textoPoppins titulo amarelo numero">10°</span>
+                        <div class="tipoTemp">
+                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Frio</span></span>
+                            <span class="textoPoppins subTexto">Temperatura ideal: <span
+                                    class="amarelo">7-13°</span></span>
+                        </div>
+                    </div>
+                    <div class="registroTempUmi">
+                        <span class="textoPoppins subTitulo">Umidade Atual:</span>
+                        <span class="textoPoppins titulo amarelo numero">80%</span>
+                        <div class="tipoTemp">
+                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">gelado</span></span>
+                            <span class="textoPoppins subTexto">Umidade ideal: <span
+                                    class="amarelo">70-80%</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quadradoFundo quadrado2">
+                    <div class="registroTempUmi">
+                    <div class="divPizzaPie">
+                        <canvas id="myChart4"></canvas>
+                    </div>
+                    <div class="infoGrafico">
+                        <span class="textoPoppins subTitulo">Grafico numero de alertas por Semana</span>
+                    </div>
+                    </div>
+
+                    <div class="registroTempUmi">
+                        <div class="divPizzaPie">
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                        <div class="infoGrafico">
+                            <span class="textoPoppins subTitulo">Grafico tipo de vinhos por armazem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grafico parte2">
+                <div class="quadradoFundo quadrado3">
+                    <div class="registroGrafico">
+                        <div class="infoGrafico">
+                            <span class="textoPoppins subTitulo">Grafico temperatura e umidade por hora</span>
+                        </div>
+                        <div class="divLinhaBarra">
+                            <canvas id="myChart1"></canvas>
+                        </div>
+                    </div>
+                    <div class="registroGrafico">
+                        <div class="infoGrafico">
+                            <span class="textoPoppins subTitulo">Grafico de temperatura minima e temperatura maxima por semana </span>
+                        </div>
+                        <div class="divLinhaBarra">
+                            <canvas id="myChart2">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        </div>
+        
+    </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/dashboard/2arm-dashboard.js"></script>
+<script src="../js/dashInicial.js"></script>

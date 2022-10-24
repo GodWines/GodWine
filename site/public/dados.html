@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dados da empresa</title>
 
+    <META></META>
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
@@ -50,15 +51,15 @@
                                     placeholder="Nome Fantasia" />
                             </div>
                             <div class="dadosPessoais">
-                                <input onkeyup="verificarCnpj()" id="empresaCnpj" type="text" placeholder="CNPJ" />
+                                <input onkeyup="verificarCnpj()" id="empresaCnpj" type="text" placeholder="CNPJ" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" />
                                 <input onkeyup="verificarRepresentante()" id="empresaRepresentante" type="text"
                                     placeholder="Representante" />
                             </div>
                             <div style="height: 1vw;" id="msgSaibaMais" class="textoPoppins amarelo"></div>
                             <div class="dadosPessoais">
                                 <input onkeyup="verificarTelefone()" id="empresaTelefone" type="text"
-                                    placeholder="Telefone" />
-                                <input onkeyup="verificarCep()" size="10" maxlength="9"
+                                    placeholder="Telefone" name="tel" maxlength="13" OnKeyPress="formatar('##-#####-####', this)"/>
+                                <input onkeyup="verificarCep()" size="10" maxlength="9" OnKeyPress="formatar('#####-###', this)"
                                     onblur="pesquisacep(this.value);" id="empresaCep" type="pastextsword"
                                     placeholder="CEP" />
                             </div>
