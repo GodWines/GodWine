@@ -58,11 +58,13 @@ input {
 }
 
 #verSenha {
-    all: unset;
+    width: 10%;
+    margin: 0;
+    padding: 0;
     text-decoration: none;
     background-color: white;
     border: none;
-    padding: 1.5vh;
+    padding: 5.5vh;
     margin-right: 1vw;
 }
 
