@@ -25,48 +25,40 @@
     <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/simulador.css">
     <script src="./js/simulador.js"></script>
 </head>
 
 <body>
-    <main>
-        <div class="container">
-            <div class="banner">
-                <div class="asset">
-                    <img id="fundobarris" src="./assets/barris.png">
-                    <div class="caixa">
-                        <div class="simulador amarelo">
-                            Simulador
-                        </div>
-                        <div class="inputvalores txt-amarelo">
+    <div class="simulador12">
+        <div id="opacidade">
+            <img src="./assets/telaSimulador/barris.png" alt="" class="imgFundo">
+        </div>
+        <div id="div_resultado"></div>
 
-                            <input id="simulador_qtd" class="campo poppins" type="number"
-                                placeholder="Quantidade de Garrafas:">
-                            <input id="simulador_media" class="campo poppins" type="number"
-                                placeholder="Média de preço de cada Garrafa:">
+        <div class="tela">
+            <div class="voltar">
+                <a href="index.html" class="textoCinzel subTitulo ">Home</a>
+                <img class="imgLogo" src="./assets/logo.png" alt="" />
+            </div>
+            <div class="input">
+                <div class="espaco">
+                    <div class="textoCinzel titulo amarelo">Simulador</div>
+                    <div class="info">
+                        <input id="simulador_qtd" type="number" placeholder="Quantidade de Garrafas:">
 
-                            <div class="mensagem poppins">Veja as vantagens ao usar nossos serviços.</div>
-
-                            <div class="botao_simular">
-                                <button class="botao  poppins fundo-amarelo" onclick="simular()">Simular</button>
-                            </div>
-
-
-                            <div class="class_resultado" id="div_resultado">
-                            </div>
-
-                        </div>
+                        <input id="simulador_media" type="number" placeholder="Média de preço de cada Garrafa:">
                     </div>
-                </div>
-                <div class="logo txt-amarelo">
-                    <ul class="poppins"><a href="./index.html">Home</a></ul><img src="./assets/logo.png" alt="">
-                    <div>
+                    <div class="logar">
+                        <div class="botao">
+                            <a class="preto"><button onclick="simular()">Simular</button></a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-    </main>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 function simulacaoAlerta(){
     inbox.innerHTML = `
-    <div class="mensagem">
+    <a href="./dashboard/1arm-dashboard.html" class="mensagem">
     <div class="envio">
         <img src="./assets/logo.png" alt="" class="imgLogo" />
         <span class="textoPoppins subTitulo">GOD<span class="amarelo">WINE</span></span>
@@ -15,9 +15,9 @@ function simulacaoAlerta(){
         </div>
         <div class="triangulo"></div>
     </div>
-</div>
+</a>
 
-<div class="mensagem">
+<a href="./dashboard/2arm-dashboard.html"  class="mensagem">
     <div class="envio">
         <img src="./assets/logo.png" alt="" class="imgLogo" />
         <span class="textoPoppins subTitulo">GOD<span class="amarelo">WINE</span></span>
@@ -32,9 +32,9 @@ function simulacaoAlerta(){
         </div>
         <div class="triangulo"></div>
     </div>
-</div>
+</a>
 
-<div class="mensagem">
+<a href="./dashboard/3arm-dashboard.html"  class="mensagem">
     <div class="envio">
         <img src="./assets/logo.png" alt="" class="imgLogo" />
         <span class="textoPoppins subTitulo">GOD<span class="amarelo">WINE</span></span>
@@ -49,7 +49,7 @@ function simulacaoAlerta(){
         </div>
         <div class="triangulo"></div>
     </div>
-</div>
+</a>
 
 
     `
@@ -80,7 +80,7 @@ function simulacaoAlerta(){
 
 function simulacaoErro(){
     inbox.innerHTML = `
-    <div class="mensagem">
+    <a href="./dashboard/1arm-dashboard.html" class="mensagem">
     <div class="envio">
         <img src="./assets/logo.png" alt="" class="imgLogo" />
         <span class="textoPoppins subTitulo">GOD<span class="amarelo">WINE</span></span>
@@ -95,7 +95,7 @@ function simulacaoErro(){
         </div>
         <div class="triangulo"></div>
     </div>
-</div>
+</a>
 
 
 

@@ -64,8 +64,8 @@ input {
 
 .botao {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: flex-end;
     width: 18vw;
     margin-top: 5vh;
 }
@@ -75,7 +75,7 @@ input {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 55%;
     height: 90%;
 }
 /*--------------------------------------------------------------------------------------------------------*/
@@ -113,7 +113,24 @@ input {
     flex-direction: column;
     justify-content: space-between;
     width: 28vw;
+    height: 55vh;
+
+}
+
+#div_resultado {
+    margin-top: 10%;
+    margin-left: 4%;
+    width: 40vw;
     height: 60vh;
+    color: rgb(255, 255, 255);
+    position: fixed;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+
+#opacidade {
+    display: flex;
+    height: 100vh;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
@@ -185,3 +202,4 @@ input {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
