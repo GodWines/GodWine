@@ -1,7 +1,6 @@
 /*Global*/
 
 .vinicolas button:hover {
-  background-color: #e2b024;
   border: 0.1vw solid aliceblue;
 
 }
@@ -161,7 +160,7 @@
   width: 8%;
 }
 
-.inbox {
+#inbox {
   height: 40vh;
   width: 90%;
   overflow: scroll;
@@ -193,7 +192,7 @@
   justify-content: space-evenly;
 }
 
-.forma {
+#forma {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -237,7 +236,7 @@
   width: 2vw;
 }
 
-.visaoGeral {
+#visaoGeral {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -261,7 +260,7 @@
   height: 10%;
 }
 
-.status {
+.statusAlerta {
   display: flex;
   align-items: center;
   justify-content: space-evenly;

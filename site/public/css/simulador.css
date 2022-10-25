@@ -1,165 +1,187 @@
-* {
-    margin: 0px;
+input {
+    border: white solid 0.4vh;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1.5vw;
+    
 }
 
-body {
+label {
+    all: unset;
+    height: 6vh;
     display: flex;
-}
-
-main {
-    position: relative;
-    background-color: #18191A;
-    width: 100vw;
+    align-items: center;
 }
 
 button {
-    background-color: #E2B024;
     font-size: 1.5vw;
     width: 9vw;
-    height: 5vh;
-    border: 0.1vw solid #18191A;
-    cursor: pointer;
-}
-
-.amarelo {
-    color: rgba(226, 176, 36, 1);
-}
-
-.logo {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    color: white;
-    position: absolute;
-}
-
-.logo ul {
-    display: flex;
-    font-size: 1vw;
-    width: 4vw;
-    max-height: 1vh;
-}
-
-.logo img {
-    width: 6vh;
     height: 7vh;
-    margin-top: 2vh;
-    margin-right: 6vw;
+
 }
 
-.logo a {
-    color: #E2B024;
+input {
+    width: 25.8vw;
+    margin-bottom: 1.4vw;
 }
 
-.banner {
+
+.imgFundo {
+    width: 55vw;
+}
+
+.imgLogo {
+    margin-left: 2vw;
+}
+
+.voltar {
     display: flex;
-    justify-content: end;
-    align-items: flex-start;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-
-.asset {
-    display: flex;
-    position: absolute;
     align-items: center;
+    justify-content: flex-end;
+    width: 35vw;
+    height: 12vh;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.esqueceSenha {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.logar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 18vw;
+    margin-top: 5vh;
+}
+
+.tela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    height: 90%;
+}
+/*--------------------------------------------------------------------------------------------------------*/
+/*Texto*/
+.titulo {
+    font-size: 3vw;
+    text-decoration: 0.2vw underline;
+    font-weight: bold;
+}
+
+.subTitulo {
+    font-weight: bold;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*simulador*/
+.simulador12 {
     width: 100vw;
     height: 100vh;
-}
-
-.asset img {
     display: flex;
-    justify-content: start;
-    height: 100vh;
-    width: 50vw;
-    margin-right: 10vw;
-}
-
-.caixa {
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: flex-end;
-    background-color: #1E1E1E;
-    width: 25vw;
-    height: 80vh;
-    max-width: 25vw;
-    max-height: 80vh;
-    padding: 8vw 7vw 0vw 2vw;
-
-
-
-}
-
-.simulador {
-    display: flex;
-    justify-content: start;
-    align-items: flex-end;
-    font-size: 4vw;
-    font-weight: bold;
-    width: 23vw;
-    max-width: 23vw;
-    height: 3vh;
-    max-height: 3vh;
-}
-
-.inputvalores {
-    display: flex;
-    flex-direction: column;
-    font-size: 1vw;
-    margin-bottom: 20px;
-    width: 23vw;
-}
-
-.campo {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    padding: 1vw;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    height: 1vh;
-    width: 22vw;
-    border-bottom: 0.1vw solid #FFF;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    color: #fff;
-    background-color: #1E1E1E;
+    background-color: rgba(0, 0,0, 1);
 }
-
-::placeholder {
-    color: #FFFFFF;
-    font-size: 1vw;
-}
-
-.mensagem {
-    color: #fff;
-    margin-top: 2vw;
-    font-size: 1vw;
-    width: 24vw;
-    height: 2vh;
-}
-
-.botao_simular {
+.input {
     display: flex;
-    justify-content: right;
-    margin-top: 4vw;
-    margin-bottom: 1vw;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 80vh;
+    background-color: rgba(24, 25, 26, 1);
 }
 
-.class_resultado {
-    background-color: #18191A;
-    font-size: 1.1vw;
-    width: 32vw;
-    height: 37vh;
-    margin-left: -3vw;
-    color: #FFFFFF;
+.espaco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28vw;
+    height: 60vh;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*CheckBox*/
+
+.container {
+    width: 30%;
+    height: 100%;
+    display: block;
+    position: relative;
+    padding-left: 2vw;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
 }
 
-.inputvalores.txt-amarelo {
-    align-items: flex-starts;
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.3vw;
+    width: 1.3vw;
+    background-color: rgb(73, 73, 73);
+}
+
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+.container input:checked~.checkmark {
+    background-color:#e2b024;
+}
+
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+
+.container .checkmark:after {
+    left: 0.30vw;
+    width: 0.5vw;
+    height: 0.7vw;
+    border: solid white;
+    border-width: 0 0.2vw 0.2vw 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }

@@ -30,7 +30,7 @@ const dataLinha = {
     label: 'Umidade',
     backgroundColor: 'rgba(255, 195, 0, 1)',
     borderColor: 'rgba(255, 195, 0, 1)',
-    data: [80, 82, 70, 75, 80, 83],
+    data: [71, 72, 73, 72, 73, 72],
 
   }]
 };
@@ -41,12 +41,12 @@ const dataBarra = {
     label: 'Temp Maxima',
     backgroundColor: 'rgba(86, 11, 173, 1)',
     borderColor: 'rgb(255, 0, 77)',
-    data: [16, 13, 10, 8, 9, 10],
+    data: [12, 12, 10, 12, 9, 10],
   }, {
     label: 'Temp Minima',
     backgroundColor: 'rgba(0, 196, 201, 1)',
     borderColor: 'rgb(0, 179, 225)',
-    data: [5, 5, 7, 8, 5, 6],
+    data: [8, 9, 10, 8, 8, 9],
   }]
 };
 

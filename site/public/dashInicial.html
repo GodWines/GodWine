@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Inicio</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
@@ -39,7 +39,7 @@
                     <span class="textoPoppins subTitulo">Vinicolas</span>
                 </div>
                 <div class="corpo">
-                    <a href="../public/dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin">Vinicola-01</a>
+                    <a href="../public/dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Vinicola-01</a>
                     <span class="textoPoppins subTexto vin">Vinicola-02</span>
                     <span class="textoPoppins subTexto vin">Vinicola-03</span>
                     <span class="textoPoppins subTexto vin">Vinicola-04</span>
@@ -51,9 +51,9 @@
                     <span class="textoPoppins subTexto vin">Vinicola-10</span>
                     <span class="textoPoppins subTexto vin">Vinicola-11</span>
                     <span class="textoPoppins subTexto vin">Vinicola-12</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-13</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-14</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-15</span>
+                    <a onclick="simulacaoAlerta()" class="textoPoppins subTexto vin">Vinicola-13</a>
+                    <a onclick="simulacaoErro()"class="textoPoppins subTexto vin">Vinicola-14</a>
+                    <a onclick="simulacaoOK()" class="textoPoppins subTexto vin">Vinicola-15</a>
                 </div>
                 <div class="barra"></div>
             </div>
@@ -68,17 +68,17 @@
             </div>
             <span class="textoPoppins subTitulo" style="width: 90%">Problemas Encontrados: <span
                     class="amarelo">0</span></span>
-            <div class="inbox">
+            <div id="inbox">
                 <div class="mensagem">
                     <div class="envio">
                         <img src="./assets/logo.png" alt="" class="imgLogo" />
                         <span class="textoPoppins subTitulo">GOD<span class="amarelo">WINE</span></span>
                     </div>
-                    <div class="forma">
+                    <div id="forma" >
                         <div class="balao">
                             <div class="statusMensagem">
                                 <span class="textoPoppins subTitulo amarelo">Mensagem:</span>
-                                <span class="textoPoppins subTexto">Mensagem:</span>
+                                <span class="textoPoppins subTexto">Tudo OK no momentos</span>
                             </div>
                             <div class="bolinha verde"></div>
                         </div>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="visaoGeral">
+            <div id="visaoGeral">
                 <span class="textoPoppins subTitulo amarelo textoVisaoGeral">Visão Geral: </span>
                 <div class="informacoes">
                     <div class="blocoInfo">
@@ -101,7 +101,7 @@
                         <span class="textoPoppins subTitulo">Sensores por armazém</span>
                         <span class="textoPoppins subTitulo numero amarelo">3</span>
                     </div>
-                    <div class="status">
+                    <div class="statusAlerta">
                         <span class="textoPoppins subTitulo preto">Status:</span>
                         <img class="imgStatus" src="./assets/telaDashboard/statusOK.png" alt="">
                     </div>
@@ -113,3 +113,4 @@
 </body>
 
 </html>
+<script src="./js/dashInicial.js"></script>

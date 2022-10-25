@@ -36,7 +36,7 @@
         <img src="./assets/vinicula.png" alt="" class="imgFundo" />
         <div class="tela">
             <div class="voltar">
-                <a href="/public/index.html" class="textoCinzel subTitulo amarelo">Home</a>
+                <a href="/public/index.html" class="textoCinzel subTitulo ">Home</a>
                 <img class="imgLogo" src="./assets/logo.png" alt="" />
             </div>
             <div class="input">
@@ -51,7 +51,7 @@
                                     placeholder="Nome Fantasia" />
                             </div>
                             <div class="dadosPessoais">
-                                <input onkeyup="verificarCnpj()" id="empresaCnpj" type="text" placeholder="CNPJ" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" />
+                                <input onkeyup="verificarCnpj()" id="empresaCnpj" type="text" placeholder="CNPJ" maxlength="13" OnKeyPress="formatar('###.###.###-##', this)" />
                                 <input onkeyup="verificarRepresentante()" id="empresaRepresentante" type="text"
                                     placeholder="Representante" />
                             </div>
@@ -59,7 +59,7 @@
                             <div class="dadosPessoais">
                                 <input onkeyup="verificarTelefone()" id="empresaTelefone" type="text"
                                     placeholder="Telefone" name="tel" maxlength="13" OnKeyPress="formatar('##-#####-####', this)"/>
-                                <input onkeyup="verificarCep()" size="10" maxlength="9" OnKeyPress="formatar('#####-###', this)"
+                                <input size="10" maxlength="9" OnKeyPress="formatar('#####-###', this)"
                                     onblur="pesquisacep(this.value);" id="empresaCep" type="pastextsword"
                                     placeholder="CEP" />
                             </div>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="logar">
                         <div class="botao">
-                            <a href="cadastro.html" class="textoPoppins subTitulo amarelo">Voltar</a>
+                            <a href="cadastro.html" class="textoPoppins subTitulo ">Voltar</a>
                             <button onclick="criarConta()">Criar Conta</button></a>
                         </div>
                     </div>
