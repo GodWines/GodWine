@@ -43,7 +43,7 @@ function validarEmail() {
       }
   
       //Verificar se o dominio do email é válido
-      else if (email.value.endsWith("@gmail.com") == false &&email.value.endsWith("@sptech.school") == false &&email.value.endsWith("@bandtec.com.br") == false &&email.value.endsWith("@outlook.com") == false &&email.value.endsWith("@outlook.com.br") == false &&email.value.endsWith("@hotmail.com") == false &&email.value.endsWith("@yahoo.com") == false
+      else if (email.value.startWith("@") == false && email.value.endsWith("@gmail.com") == false && email.value.endsWith("@sptech.school") == false && email.value.endsWith("@bandtec.com.br") == false && email.value.endsWith("@outlook.com") == false && email.value.endsWith("@outlook.com.br") == false && email.value.endsWith("@hotmail.com") == false && email.value.endsWith("@yahoo.com") == false
       ){
         msgEntrarEmContato.innerHTML = `<span style='color:red'>Seu email não tem um dominio válido</span>`;
         return false;

@@ -30,7 +30,7 @@ const dataLinha = {
     label: 'Umidade',
     backgroundColor: 'rgba(255, 195, 0, 1)',
     borderColor: 'rgba(255, 195, 0, 1)',
-    data: [80, 82, 70, 75, 80, 83],
+    data: [74, 73, 72, 73, 73, 71],
 
   }]
 };

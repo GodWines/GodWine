@@ -7,6 +7,13 @@ html{
   scroll-behavior: smooth;
 }
 
+a:hover{
+  color: #e2b024;
+}
+
+a button:hover{
+  color: #000000;
+}
 
 body {
   padding: 0;
@@ -22,6 +29,11 @@ ul {
 
 li {
   all: unset;
+  height: 100%;
+}
+
+li:hover{
+  color: #e2b024;
 }
 
 header {
@@ -35,6 +47,7 @@ a {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 1);
   font-size: 0.8vw;
+  
 }
 
 button {
@@ -44,12 +57,13 @@ button {
   background: #e2b024;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   border: none;
+  cursor: pointer;
 }
 
 #ancora{
   padding: 5px;
   position: fixed;
-  margin-bottom: -40vw;
+  margin-bottom: -42vw;
   margin-right: -90vw;
     
 }
@@ -82,6 +96,7 @@ footer {
   width: 90%;
   border-bottom: white solid 0.1vw;
 }
+
 
 
 /*--------------------------------------------------------------------------------------------------------*/
@@ -518,10 +533,12 @@ footer .imgSocial {
 }
 
 .temperatura {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #e2b024;
   height: 100%;
-  width: 30%;
-  font-size: 0.8vw;
+  width: 35%;
   text-align: center;
   font-weight: 800;
 }
@@ -650,14 +667,24 @@ footer .imgSocial {
   justify-content: flex-end;
 }
 
+.botao a{
+margin-bottom: 2%;
+margin-right: 3%;
+}
+
 .simulador button {
-  font-size: 1vw;
-  width: 7vw;
-  height: 6vh;
+  font-size: 1.5vw;
+  width: 8vw;
+  height: 7vh;
   border: none;
-  margin-top: 5%;
   border: none;
-  margin: 3%;
+ 
+}
+
+.simulador .texto{
+  display: flex;
+
+  justify-content: center;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
@@ -729,10 +756,14 @@ footer .imgSocial {
 }
 
 .saibaMais {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(24, 25, 26, 1);
   width: 100%;
   height: 45%;
 }
+
 
 .saiba .entreContato {
   display: flex;
@@ -742,9 +773,9 @@ footer .imgSocial {
 .saiba .texto {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: column;
-  height: 80%;
+  height: 90%;
 }
 
 .saiba input {
