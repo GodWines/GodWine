@@ -26,7 +26,7 @@ function simular() {
     <span style="color:red"> ${garrafas_perdidas}</span>  vinhos que resulta em  <span style="color:red">  ${valor_desperdicado.toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</span> reais em produtos perdidos. <br>
     <br><br>
     <span style="color:green";>Com os nossos sensores:</span><br>
-    Com nossos sensores esses valores  de garrafas perdidas diminuiriam para  <span style="color:blue">  ${(quantidade_garrafas.toFixed(0) * 0.03)} </span>
+    Com nossos sensores esses valores  de garrafas perdidas diminuiriam para  <span style="color:blue">  ${(quantidade_garrafas * 0.03).toFixed(0)} </span>
     garrafas de vinho, onde economizaria cerca de  <span style="color:green"> ${(valor_desperdicado - (quantidade_garrafas * 0.03) * preco_medio_garrafa).toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })} </span> reais no mês. <br>
     Valor economizado no semestre: <span style="color:green">${valor_desperdicado_semestre.toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })} <br> </span>
     valor economizado no ano: <span style="color:green">${valor_desperdicado_ano.toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}  </span> <br></div>`
