@@ -136,6 +136,10 @@ function cadastrar() {
   var senhaVar = senha.value;
   var confirmacaoSenhaVar = confirmaSenha.value;
 
+
+  localStorage.setItem('email', emailVar);
+  localStorage.setItem('senha', senhaVar);
+
   if (emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
       cardErro.style.display = "block"
       mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
@@ -166,10 +170,10 @@ function cadastrar() {
       if (resposta.ok) {
           cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
 
           setTimeout(() => {
-              window.location = "login.html";
+              window.location = "dados.html";
           }, "2000")
           
           limparFormulario();

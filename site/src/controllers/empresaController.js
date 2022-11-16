@@ -64,7 +64,8 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-
+    console.log(email)
+    console.log(senha)
     // Faça as validações dos valores
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
@@ -93,6 +94,9 @@ function cadastrar(req, res) {
 
 function cadastrarEmpresa(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
     var nomeSocial = req.body.nomeSocialServer;
     var nomeFantasia = req.body.nomeFantasiaServer;
     var cnpj = req.body.cnpjServer;
@@ -106,8 +110,6 @@ function cadastrarEmpresa(req, res) {
     var complemento = req.body.complementoServer;
     var rua = req.body.ruaServer;
     var numero = req.body.numeroServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
 
     // Faça as validações dos valores
     if (nomeSocial == undefined) {

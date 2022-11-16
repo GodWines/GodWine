@@ -21,12 +21,10 @@ function entrar(email, senha) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 function cadastrar (email, senha) {
 
-    emailUsuario = email;
-    senhaUsuario = senha;
     var instrucao = `
-        INSERT INTO empresa  (nome, cnpj, data_cadastro, nome_fantasia, representante) VALUES ('${nomeSocial}', '${cnpj}', now(), '${nomeFantasia}', '${representante}');
-    `;
-    database.executar(instrucao)
+    INSERT INTO empresa(email, senha, data_cadastro) VALUES 
+    ('${email}', AES_ENCRYPT('${senha}', 'sptech'), now());`
+    return database.executar(instrucao)
 }
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 function cadastrarEmpresa (email,nomeSocial,nomeFantasia,cnpj,representante,telefone,senha,cep,uf,cidade,bairro,complemento,rua,numero) {
@@ -37,20 +35,12 @@ function cadastrarEmpresa (email,nomeSocial,nomeFantasia,cnpj,representante,tele
     //  e na ordem de inserção dos dados.
     
     var instrucao1 = `
-        INSERT INTO empresa  (nome, cnpj, data_cadastro, nome_fantasia, representante) VALUES ('${nomeSocial}', '${cnpj}', now(), '${nomeFantasia}', '${representante}');
+        INSERT INTO empresa  (email, senha, telefone, nome, cnpj, data_cadastro, nome_fantasia, representante) VALUES ('${email}','${senha}','${telefone}','${nomeSocial}', '${cnpj}',now(),'${nomeFantasia}', '${representante}');
     `;
 
-    var instrucao2 = `
-        INSERT INTO usuario  (nome, email, senha, telefone) VALUES ('${representante}','${email}', '${senha}','${telefone}');
-    `;
-   
-    var instrucao3 = `
-        INSERT INTO endereco  (sigla, cidade, logradouro, bairro, numero, cep, complemento) VALUES ('${uf}', '${cidade}', '${rua}', '${bairro}', '${numero}', '${cep}', '${complemento}');
-    `;
+
     console.log("Executando a instrução SQL: \n" + instrucao1);
-    console.log("Executando a instrução SQL: \n" + instrucao2);
-    console.log("Executando a instrução SQL: \n" + instrucao3 + usuario.email  + usuario.senha);
-    return database.executar(instrucao1), database.executar(instrucao2), database.executar(instrucao3);
+    return database.executar(instrucao1);
     
 }
 
