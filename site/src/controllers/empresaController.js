@@ -2,28 +2,6 @@ var empresaModel = require("../models/empresaModel");
 
 var sessoes = [];
 
-function testar(req, res) {
-    console.log("ENTRAMOS NA empresaController");
-    res.json("ESTAMOS FUNCIONANDO!");
-}
-
-function listar(req, res) {
-    empresaModel.listar()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -60,38 +38,6 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    console.log(email)
-    console.log(senha)
-    // Faça as validações dos valores
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else {
-        
-        // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
-        empresaModel.cadastrar(email, senha)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
 function cadastrarEmpresa(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
@@ -102,7 +48,6 @@ function cadastrarEmpresa(req, res) {
     var cnpj = req.body.cnpjServer;
     var representante = req.body.representanteServer;
     var telefone = req.body. telefoneServer;
-    var senha = req.body.senhaServer;
     var cep = req.body.cepServer;
     var uf = req.body.ufServer;
     var cidade = req.body.empresaCidadeServer;
@@ -137,13 +82,10 @@ function cadastrarEmpresa(req, res) {
     } else if (email == undefined) {
         res.status(400).send("Sua email está undefined!");
     } else  {
-        
-        
+         
         // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
-
-
-
-        empresaModel.cadastrarEmpresa(nomeSocial,nomeFantasia,cnpj,representante,telefone,senha,email,cep,uf,cidade,bairro,complemento,rua,numero)
+        
+        empresaModel.cadastrarEmpresa(email,senha,telefone,nomeSocial,cnpj,nomeFantasia,representante,uf,cidade,rua,bairro,numero,cep,complemento)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -164,8 +106,5 @@ function cadastrarEmpresa(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
-    cadastrarEmpresa,
-    listar,
-    testar
+    cadastrarEmpresa
 }

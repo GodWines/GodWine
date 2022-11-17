@@ -3,27 +3,21 @@ USE GodWine;
 
 CREATE TABLE empresa(
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+email VARCHAR(100),
+senha VARCHAR(30),
+telefone VARCHAR(13),
 nome VARCHAR(50),
-cnpj VARCHAR(30),
-data_cadastro DATE,
+cnpj VARCHAR(15),
+data_cadastro DATETIME,
 nome_fantasia VARCHAR(60),
 representante VARCHAR(40),
 fkMatriz INT, FOREIGN KEY (fkMatriz) REFERENCES empresa(idEmpresa)
 );
 
-CREATE TABLE usuario(
-idUsuario INT,
-nome VARCHAR(80),
-login VARCHAR(100),
-senha VARCHAR(10),
-telefone VARCHAR(11),
-fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-PRIMARY KEY (idUsuario, fkEmpresa)
-);
+select * from empresa;
 
 CREATE TABLE endereco(
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
-estado VARCHAR(60),
 sigla CHAR(2),
 cidade VARCHAR(60),
 logradouro VARCHAR(70),
@@ -32,6 +26,8 @@ numero INT,
 cep CHAR(9),
 complemento VARCHAR(80) NULL
 );
+
+select * from endereco;
 
 CREATE TABLE vinicola(
 idVinicola INT,
