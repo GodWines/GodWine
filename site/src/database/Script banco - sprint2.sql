@@ -1,33 +1,23 @@
 CREATE DATABASE GodWine;
-
 USE GodWine;
 
 CREATE TABLE empresa(
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+email VARCHAR(100),
+senha VARCHAR(30),
+telefone VARCHAR(13),
 nome VARCHAR(50),
-cnpj VARCHAR(30),
-data_cadastro DATE,
+cnpj VARCHAR(15),
+data_cadastro DATETIME,
 nome_fantasia VARCHAR(60),
 representante VARCHAR(40),
-fkMatriz INT,
-FOREIGN KEY (fkMatriz) REFERENCES empresa(idEmpresa)
+fkMatriz INT, FOREIGN KEY (fkMatriz) REFERENCES empresa(idEmpresa)
 );
 
-CREATE TABLE usuario(
-idUsuario INT,
-nome VARCHAR(80),
-login VARCHAR(100),
-senha VARCHAR(10),
-telefone VARCHAR(11),
-fkEmpresa INT,
-FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-PRIMARY KEY (idUsuario, fkEmpresa)
-);
-DROP DATABASE GodWine;
+select * from empresa;
 
 CREATE TABLE endereco(
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
-estado VARCHAR(60),
 sigla CHAR(2),
 cidade VARCHAR(60),
 logradouro VARCHAR(70),
@@ -37,13 +27,13 @@ cep CHAR(9),
 complemento VARCHAR(80) NULL
 );
 
+select * from endereco;
+
 CREATE TABLE vinicola(
 idVinicola INT,
 nome VARCHAR(40),
-fkEmpresa INT,
-FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-fkEndereco INT,
-FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco),
+fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
+fkEndereco INT, FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco),
 PRIMARY KEY (idVinicola, fkEmpresa)
 );
 
@@ -61,12 +51,9 @@ safra DATE,
 temp_ambiente FLOAT,
 umi_max INT,
 umi_min INT,
-fkEmpresa INT,
-FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-fkVinicola INT,
-FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
-fkTipo_vinho INT,
-FOREIGN KEY (fkTipo_vinho) REFERENCES tipo_vinho(idTipo_vinho),
+fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
+fkVinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
+fkTipo_vinho INT, FOREIGN KEY (fkTipo_vinho) REFERENCES tipo_vinho(idTipo_vinho),
 PRIMARY KEY (idArmazem, fkEmpresa, fkVinicola)
 );
 
@@ -74,12 +61,9 @@ CREATE TABLE Sensor_DHT11(
 idSensor INT,
 `serial` CHAR(12),
 `local` VARCHAR(60),
-fkEmpresa INT,
-FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-fkvinicola INT,
-FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
-fkArmazem INT,
-FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
+fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
+fkvinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
+fkArmazem INT, FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
 PRIMARY KEY (idSensor, fkArmazem, fkVinicola, fkEmpresa)
 );
 
@@ -88,19 +72,14 @@ idDados_sensor INT AUTO_INCREMENT,
 temperatura FLOAT,
 umidade FLOAT,
 dataTime DATETIME,
-fkEmpresa INT,
-FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-fkVinicola INT,
-FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
-fkArmazem INT,
-FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
-fkSensor INT,
-FOREIGN KEY (fkSensor) REFERENCES sensor_DHT11(idSensor),
+fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
+fkVinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
+fkArmazem INT, FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
+fkSensor INT, FOREIGN KEY (fkSensor) REFERENCES sensor_DHT11(idSensor),
 PRIMARY KEY (idDados_sensor, fkEmpresa, fkVinicola, fkArmazem, fkSensor)
 );
 
-  INSERT INTO empresa(nome, cnpj, data_cadastro, nome_fantasia, representante, fkMatriz) VALUES
-
+INSERT INTO empresa(nome, cnpj, data_cadastro, nome_fantasia, representante, fkMatriz) VALUES
 ('Chandon brasil','77.637.658/0001-55','2022-08-12', 'Chan', 'Daniel Freitas', NULL),
 ('Wine','47.877.611/0001-05','2022-08-12', 'vinhedo Wine', 'Paulo Veira', NULL),
 ('Adegavinhos','58.997.155/0001-99','2005-10-10', 'Wine cruz', 'Vivian Souza', NULL),
@@ -112,8 +91,7 @@ PRIMARY KEY (idDados_sensor, fkEmpresa, fkVinicola, fkArmazem, fkSensor)
 ('Tintos','55.994.022/0001-08','2000-05-19', 'vinhozinhos', 'Mirian Souza', NULL),
 ('Bom vinho', '77.668.005/0009-06', '2001-07-10', 'Alonso vinhos', 'Erik Vitor', 9);
  
-  INSERT INTO usuario(idUsuario, nome, login, senha, telefone, fkEmpresa) VALUES
-
+INSERT INTO usuario(idUsuario, nome, login, senha, telefone, fkEmpresa) VALUES
 (1,'Maria Eduarda Bernardino Ettinger','maria123', '1222000', '11989545870', 2),
 (1,'Vinicios Garcia Fagundes','vinicios321', '1222001', '11989965348', 3),
 (1, 'Matheus Martins','matheus456', '1222002', '11975032153', 6),
@@ -125,8 +103,7 @@ PRIMARY KEY (idDados_sensor, fkEmpresa, fkVinicola, fkArmazem, fkSensor)
 (1, 'Felipe de Sousa','felipe135', '1222008', '11989546515', 8),
 (1, 'Eduardo Damacedo','eduardo531', '1222009', '11995084633', 4);
  
- INSERT INTO endereco(estado, sigla, cidade, logradouro, bairro, numero, cep) VALUES
- 
+INSERT INTO endereco(estado, sigla, cidade, logradouro, bairro, numero, cep) VALUES
 ('São Paulo', 'SP', 'São Paulo', 'Travessa cachoeira benfica', 'Jardim Rodolfo Pirane', '150', '08311-380'),
 ('São Paulo', 'SP', 'Guarulhos', 'Alameda cruz', 'Cunha souza', '301', '03447-001'),
 ('São Paulo', 'SP', 'Osasco', 'Rua do Afonso', 'Jururu', '1004', '0777-520'),
@@ -139,8 +116,7 @@ PRIMARY KEY (idDados_sensor, fkEmpresa, fkVinicola, fkArmazem, fkSensor)
 ('Rio de janeiro', 'RJ', 'Volta redonda', 'Avenida Souza', 'Central leste', '369', '08531-300');
 
  
- INSERT INTO vinicola(idVinicola, nome, fkEmpresa, fkEndereco) VALUES
-
+INSERT INTO vinicola(idVinicola, nome, fkEmpresa, fkEndereco) VALUES
 (1, 'Malbec', 3, 7),
 (1, 'Evino', 4, 1),
 (1, 'Vinicola sete', 7, 10),
@@ -153,7 +129,6 @@ PRIMARY KEY (idDados_sensor, fkEmpresa, fkVinicola, fkArmazem, fkSensor)
 (1, 'East rose', 1, 9);
 
 INSERT INTO armazem(idArmazem, nome, safra, temp_ambiente, umi_max, umi_min, fkEmpresa, fkVinicola, fkTipo_vinho) VALUES
-
 (1, 'Sauternes', '2013-10-20', 10, 80, 60, 3, 1, 1),
 (1, 'Toscana', '2000-09-25', 20, 80, 60, 4, 1, 4),
 (1, 'Pomerol', '2002-07-05', 20, 80, 60, 7, 1, 2),
@@ -165,15 +140,13 @@ INSERT INTO armazem(idArmazem, nome, safra, temp_ambiente, umi_max, umi_min, fkE
 (1, 'Solene fresco', '1995-07-28', 22, 80, 60, 3, 2, 1),
 (1, 'Suzi branco', '2005-07-28', 22, 80, 60, 1, 1, 2);
 
- INSERT INTO tipo_vinho(tipo, temp_max, temp_min) VALUES
-
+INSERT INTO tipo_vinho(tipo, temp_max, temp_min) VALUES
 ('Gelado', 7, 3),
 ('Frio', 13, 7),
 ('Temperatura de adega', 16, 13),
 ('Fresco', 20, 16);
 
- INSERT INTO Sensor_DHT11(idSensor, `serial`, `local`, fkEmpresa, fkVinicola, fkArmazem) VALUES
-
+INSERT INTO Sensor_DHT11(idSensor, `serial`, `local`, fkEmpresa, fkVinicola, fkArmazem) VALUES
 (1, '9KNWCU93QtS9', 'Localizado no setor esquerdo do armazem', 3, 1, 1),
 (1, '3jb5B9EoYvZQ', 'Localizado no setor direito do armazem', 4, 1, 1),
 (1, 'a2QRKShhig8K', 'Localizado na parte superior do armazem', 7, 1, 1),
@@ -186,7 +159,6 @@ INSERT INTO armazem(idArmazem, nome, safra, temp_ambiente, umi_max, umi_min, fkE
 (1, 'NdF3a6u6VkMs', 'Localizado na parte superior do armazem', 1, 1, 1);
 
 INSERT INTO Dados_sensor(idDados_sensor, temperatura, umidade, dataTime, fkEmpresa, fkVinicola, fkArmazem, fkSensor) VALUES
- 
 (1, 6, 60, '2022-08-15 10:22:55', 3, 1, 1, 1),
 (1, 7, 62, '2022-10-15 10:04:55', 4, 1, 1, 1),
 (1, 8, 66, '2022-01-23 10:49:55', 7, 1, 1, 1),

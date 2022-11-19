@@ -102,7 +102,7 @@ function mostrarSenha() {
   }
 }
 
-//Botão continuar - Verificar se todos os campos foram preenchidos corretamente
+// Botão continuar - Verificar se todos os campos foram preenchidos corretamente
 function validarSenha() {
   const email = document.getElementById("Email");
   const senha = document.getElementById("senha");
@@ -119,6 +119,9 @@ function validarSenha() {
 
     //Redireciona o cliente para a próxima página de cadastro
     else {
+      
+      localStorage.setItem('email', email.value);
+      localStorage.setItem('senha', senha.value);
       window.location.href = "./dados.html";
     }
 }

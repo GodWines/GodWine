@@ -27,6 +27,7 @@
 
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="./css/cadastro.css" />
+  <script src="./js/funcoes.js"></script>
   <script src="./js/cadastro.js"></script>
 </head>
 
@@ -46,7 +47,16 @@
             <input onkeyup="validarEmail()" type="text" placeholder="Email" id="Email" />
             <input onkeyup="validarForcaSenha()" type="password" placeholder="Senha" id="senha" />
             <input onkeyup="validarConfirmarSenha()" type="password" placeholder="Repetir Senha" id="confirmaSenha" />
+            <div class="alerta_erro">
+              <div class="card_erro" id="cardErro">
+                  <span id="mensagem_erro"></span>
+              </div>
+          </div>
+          <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif">
+        </div>
 
+        <div id="div_erros_login">
             <div class="esqueceSenha">
               <label for="verSenha" class=" container textoPoppins subTitulo">
                 <input type="checkbox" onclick="mostrarSenha()" id="verSenha">Mostrar senha
