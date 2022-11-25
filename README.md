@@ -10,7 +10,7 @@
 1. Clone este repositório em sua máquina.
 
 
-1. Crie as tabelas necessárias para o funcionamento do seu projeto no seu Banco de Dados.
+2. Crie as tabelas necessárias para o funcionamento do seu projeto no seu Banco de Dados.
 - Siga as instruções no arquivo **/site/src/database/script-tabelas.sql**
 
 
