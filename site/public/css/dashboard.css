@@ -416,3 +416,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.avisoCaptura {
+  display: flex;
+  justify-content: center;
+}

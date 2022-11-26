@@ -38,7 +38,7 @@ function entrar(req, res) {
 
 }
 
-function cadastrarEmpresa(req, res) {
+function cadastrarVinicola(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
     var email = req.body.emailServer;
@@ -50,6 +50,7 @@ function cadastrarEmpresa(req, res) {
     var telefone = req.body. telefoneServer;
     var cep = req.body.cepServer;
     var uf = req.body.ufServer;
+    var nomeVinicola = req.body.nomeVinicolaServer;
     var cidade = req.body.empresaCidadeServer;
     var bairro = req.body.bairroServer;
     var complemento = req.body.complementoServer;
@@ -71,7 +72,9 @@ function cadastrarEmpresa(req, res) {
         res.status(400).send("Sua cep está undefined!");
     } else if (uf == undefined) {
         res.status(400).send("Sua uf está undefined!");
-    } else if (bairro == undefined) {
+    } else if (nomeVinicola == undefined) {
+        res.status(400).send("Sua nomeVinicola está undefined!");
+    }else if (bairro == undefined) {
         res.status(400).send("Sua bairro está undefined!");
     } else if (rua == undefined) {
         res.status(400).send("Sua rua está undefined!");
@@ -85,7 +88,7 @@ function cadastrarEmpresa(req, res) {
          
         // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
         
-        empresaModel.cadastrarEmpresa(email,senha,telefone,nomeSocial,cnpj,nomeFantasia,representante,uf,cidade,rua,bairro,numero,cep,complemento)
+        empresaModel.cadastrarVinicola(email,senha,telefone,nomeSocial,cnpj,nomeFantasia,representante,uf,nomeVinicola,cidade,rua,bairro,numero,cep,complemento)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -106,5 +109,5 @@ function cadastrarEmpresa(req, res) {
 
 module.exports = {
     entrar,
-    cadastrarEmpresa
+    cadastrarVinicola
 }
