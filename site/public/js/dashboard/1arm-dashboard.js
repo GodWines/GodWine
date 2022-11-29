@@ -9,14 +9,14 @@ const labels = [
   '17:00',
 ];
 
-const labels1 = [
-'Semana 1',
-'Semana 2',
-'Semana 3',
-'Semana 4',
-'Semana 5',
-'Semana 6',
-];
+// const labels1 = [
+// 'Semana 1',
+// 'Semana 2',
+// 'Semana 3',
+// 'Semana 4',
+// 'Semana 5',
+// 'Semana 6',
+// ];
 
 
 // const dataLinha = {
@@ -35,20 +35,20 @@ const labels1 = [
 //   }]
 // };
 
-const dataBarra = {
-labels: labels1,
-datasets: [{
-  label: 'Temp Maxima',
-  backgroundColor: 'rgba(86, 11, 173, 1)',
-  borderColor: 'rgb(255, 0, 77)',
-  data: [7, 7, 8, 9, 8, 9],
-}, {
-  label: 'Temp Minima',
-  backgroundColor: 'rgba(0, 196, 201, 1)',
-  borderColor: 'rgb(0, 179, 225)',
-  data: [5, 5, 4, 3, 5, 4],
-}]
-};
+// const dataBarra = {
+// labels: labels1,
+// datasets: [{
+//   label: 'Temp Maxima',
+//   backgroundColor: 'rgba(86, 11, 173, 1)',
+//   borderColor: 'rgb(255, 0, 77)',
+//   data: [7],
+// }, {
+//   label: 'Temp Minima',
+//   backgroundColor: 'rgba(0, 196, 201, 1)',
+//   borderColor: 'rgb(0, 179, 225)',
+//   data: [5, 5, 4, 3, 5, 4],
+// }]
+// };
 
  const dataPizza = {
 labels: [
@@ -95,12 +95,12 @@ datasets: [{
   
 // };
 
-const config2 = {
-  type: 'bar',
-  data: dataBarra,
-  options: {}
+// const config2 = {
+//   type: 'bar',
+//   data: dataBarra,
+//   options: {}
   
-};
+// };
 
 const config3 = {
   type: 'pie',
@@ -142,10 +142,10 @@ const config3 = {
 //   config1
 // );
 
-const myChart2 = new Chart(
-  document.getElementById('myChart2'),
-  config2
-);
+// const myChart2 = new Chart(
+//   document.getElementById('myChart2'),
+//   config2
+// );
 const myChart3 = new Chart(
   document.getElementById('myChart3'),
   config3

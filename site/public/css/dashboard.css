@@ -421,3 +421,18 @@
   display: flex;
   justify-content: center;
 }
+
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.graph {
+  width: 60%;
+  margin: auto;
+  padding-top: 10px;
+}
