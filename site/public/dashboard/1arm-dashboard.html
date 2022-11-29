@@ -40,10 +40,10 @@
                     <span class="textoPoppins subTitulo" id="vinicola_nome">-</span>
                 </div>
                 <div class="corpo">
-                    <a onclick="obterDadosGrafico(2)" class="textoPoppins subTexto vin vinSelecionado">Armazém-01</a>
-                    <a href="../dashboard/2arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-02</a>
-                    <a href="../dashboard/3arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-03</a>
-                    <a href="../dashboard/4arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-04</a>
+                    <a href="./1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Armazém-01</a>
+                    <a href="./2arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-02</a>
+                    <a href="./3arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-03</a>
+                    <a href="./4arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-04</a>
                 </div>
                 <div class="barra">
                 </div>
@@ -149,7 +149,7 @@
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGrafico(6), obterDadosGraficoMaxMin(6), atualizarDados(6);
+    window.onload = obterDadosGrafico(1), obterDadosGraficoMaxMin(1), atualizarDados(1);
 
 
 
@@ -172,7 +172,7 @@ fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (r
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 5000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
     }
 })
     .catch(function (error) {
@@ -310,7 +310,7 @@ fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (r
             document.getElementById(`tempUmiHr1`),
             config1
         );
-        setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 5000);
+        setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
     }
 
 
@@ -358,12 +358,12 @@ fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (r
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
             }
         })
             .catch(function (error) {
@@ -462,7 +462,7 @@ fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (r
             document.getElementById(`myChart2`),
             config2
         );
-        setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 5000);
+        setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
     }
 
     function atualizarGraficoMaxMin(fkSensor, dados2, myChart2) {
@@ -472,7 +472,7 @@ fetch(`/grafico/tempo-realMaxMin/${fkSensor}`, { cache: 'no-store' }).then(funct
         response.json().then(function (respostaMinMax) {
 
             console.log(`Dados recebidos: ${JSON.stringify(respostaMinMax)}`);
-            console.log(`Dados atuais do gráfico:, "PORRAAAAAAAAAA"`);
+            console.log(`Dados atuais do gráfico:, ""`);
             console.log(dados2);
             
             let avisoCaptura2 = document.getElementById(`avisoCaptura2`)
@@ -499,12 +499,12 @@ fetch(`/grafico/tempo-realMaxMin/${fkSensor}`, { cache: 'no-store' }).then(funct
           
 
             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-            proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 5000);
+            proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 5000);
+        proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
     }
 })
     .catch(function (error) {
@@ -603,7 +603,7 @@ let myChart2 = new Chart(
     document.getElementById(`myChart2`),
     config2
 );
-setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 5000);
+setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
 }
 
 

@@ -19,9 +19,13 @@ const HABILITAR_OPERACAO_INSERIR = true;
 const AMBIENTE = 'desenvolvimento';
 
 const serial = async (
-    valoresDht11Umidade,
-    valoresDht11Temperatura
+    tempVinhoGelado,
+    tempVinhoFrio,
+    tempVinhoAdega,
+    tempVinhoFresco,
+    umiArmazem
 
+    
 ) => {
     let poolBancoDados = ''
 
@@ -31,9 +35,9 @@ const serial = async (
                 // altere!
                 // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
                 host: 'localhost',
+                database: 'GodWine',
                 user: 'aluno',
-                password: 'sptech',
-                database: 'GodWine'
+                password: 'sptech'
             }
         ).promise();
     } else if (AMBIENTE == 'producao') {
@@ -60,12 +64,18 @@ const serial = async (
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         //console.log(data);
         const valores = data.split(';');
-        const dht11Umidade = parseFloat(valores[0]);
-        const dht11Temperatura = parseFloat(valores[1]);
-   
-        valoresDht11Umidade.push(dht11Umidade);
-        valoresDht11Temperatura.push(dht11Temperatura);
+        const vinhoGelado = parseFloat(valores[0]);
+        const vinhoFrio = parseFloat(valores[1]);
+        const vinhoAdega = parseFloat(valores[2]);
+        const vinhoFresco = parseFloat(valores[3]);
+        const umidade = parseFloat(valores[4]);
 
+        console.log(umiArmazem)
+        tempVinhoGelado.push(vinhoGelado);
+        tempVinhoFrio.push(vinhoFrio);
+        tempVinhoAdega.push(vinhoAdega);
+        tempVinhoFresco.push(vinhoFresco);
+        umiArmazem.push(umidade);
 
         if (HABILITAR_OPERACAO_INSERIR) {
             if (AMBIENTE == 'producao') {
@@ -74,8 +84,8 @@ const serial = async (
                 // -> altere nome da tabela e colunas se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> Importante! você deve ter o aquario de id 1 cadastrado.
-                sqlquery = `INSERT INTO Dados_sensor (temperatura, umidade, dataTime) VALUES (${dht11Temperatura}, ${dht11Umidade}, CURRENT_TIMESTAMP)`;
-
+                sqlquery = `INSERT INTO Dados_sensor (temperatura, umidade, dataTime) VALUES (${vinhoGelado}, ${umidade}, CURRENT_TIMESTAMP)`;
+           
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
                 // Importante! você deve ter criado o usuário abaixo com os comandos presentes no arquivo
                 // "script-criacao-usuario-sqlserver.sql", presente neste diretório.
@@ -83,7 +93,6 @@ const serial = async (
 
                 function inserirComando(conn, sqlquery) {
                     conn.query(sqlquery);
-                    console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
                 }
 
                 sql.connect(connStr)
@@ -98,10 +107,26 @@ const serial = async (
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO Dados_sensor (temperatura, umidade, dataTime, fkSensor) VALUES (?, ?, now(),1)',
-                    [dht11Temperatura,dht11Umidade]
+                    'INSERT INTO Dados_sensor (temperatura, umidade, fkSensor) VALUES (?, ?, 1)',
+                    [vinhoGelado,umidade]
+                    
                 );
-                console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
+                await poolBancoDados.execute(
+                    'INSERT INTO Dados_sensor (temperatura, umidade, fkSensor) VALUES (?, ?,2)',
+                    [vinhoFrio,umidade]
+                    
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO Dados_sensor (temperatura, umidade, fkSensor) VALUES (?, ?,3)',
+                    [vinhoAdega,umidade]
+                    
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO Dados_sensor (temperatura, umidade, fkSensor) VALUES (?, ?,4)',
+                    [vinhoFresco,umidade]
+                    
+                );
+                console.log("valores inseridos no banco: ", vinhoGelado + ", " + vinhoFresco)
 
             } else {
                 throw new Error('Ambiente não configurado. Verifique o arquivo "main.js" e tente novamente.');
@@ -116,8 +141,11 @@ const serial = async (
 
 // não altere!
 const servidor = (
-    valoresDht11Umidade,
-    valoresDht11Temperatura,
+    tempVinhoGelado,
+    tempVinhoFrio,
+    tempVinhoAdega,
+    tempVinhoFresco,
+    umiArmazem
    
 ) => {
     const app = express();
@@ -129,26 +157,45 @@ const servidor = (
     app.listen(SERVIDOR_PORTA, () => {
         console.log(`API executada com sucesso na porta ${SERVIDOR_PORTA}`);
     });
-    app.get('/sensores/dht11/umidade', (_, response) => {
-        return response.json(valoresDht11Umidade);
+    app.get('/sensores/dht11/tempVinhoGelado', (_, response) => {
+        return response.json(tempVinhoGelado);
     });
-    app.get('/sensores/dht11/temperatura', (_, response) => {
-        return response.json(valoresDht11Temperatura);
+    app.get('/sensores/dht11/tempVinhoFrio', (_, response) => {
+        return response.json(tempVinhoFrio);
+    });
+    app.get('/sensores/dht11/tempVinhoAdega', (_, response) => {
+        return response.json(tempVinhoAdega);
+    });
+    app.get('/sensores/dht11/tempVinhoFresco', (_, response) => {
+        return response.json(tempVinhoFresco);
+    });
+    app.get('/sensores/dht11/umiArmazem', (_, response) => {
+        return response.json(umiArmazem);
     });
 }
 
 (async () => {
-    const valoresDht11Umidade = [];
-    const valoresDht11Temperatura = [];
-  
+    const tempVinhoGelado = [];
+    const tempVinhoFrio = [];
+    const tempVinhoAdega = [];
+    const tempVinhoFresco = [];
+    const umiArmazem = [];
+
+
     await serial(
-        valoresDht11Umidade,
-        valoresDht11Temperatura,
+        tempVinhoGelado,
+        tempVinhoFrio,
+        tempVinhoAdega,
+        tempVinhoFresco,
+        umiArmazem
      
     );
     servidor(
-        valoresDht11Umidade,
-        valoresDht11Temperatura,
-    
+        tempVinhoGelado,
+        tempVinhoFrio,
+        tempVinhoAdega,
+        tempVinhoFresco,
+        umiArmazem
+        
     );
 })();
