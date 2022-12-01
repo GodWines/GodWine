@@ -110,18 +110,64 @@ function validarSenha() {
 
   //Verifica se o usuário preencheu todos os campos
   if (email.value == "" || senha.value == "" || confirmaSenha.value == "") {
-    msgErro.innerHTML = `<span style='color:red'>Você deve preencher todos os campos antes de seguir para a próxima tela.</span>`;
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'error',
+      title: 'Erro! Cadastro Inválido'
+    })
   }
     //Verifica se algum campo digitado é inválido
     else if(validarEmail() == false || validarForcaSenha() == false || validarConfirmarSenha() == false){
-      msgErro.innerHTML = `<span style='color:red'>Um dos seus campos é inválido.</span>`;
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Erro! Cadastro Inválido'
+      })
     }
 
     //Redireciona o cliente para a próxima página de cadastro
     else {
-      
       localStorage.setItem('email', email.value);
       localStorage.setItem('senha', senha.value);
       window.location.href = "./dados.html";
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Cadastro Realizado com Sucesso!'
+      })
     }
-}
+    }
+      
