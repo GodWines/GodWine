@@ -1,10 +1,6 @@
 create database GodWine;
 use GodWine;
 
- -- select * from empresa;
--- select * from endereco;
--- select * from vinicola;
-
 CREATE TABLE empresa(
 idEmpresa INT PRIMARY KEY auto_increment,
 email VARCHAR(100),
@@ -59,9 +55,6 @@ fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
 fkVinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
 PRIMARY KEY (idArmazem, fkEmpresa, fkVinicola)
 );
-insert into armazem (nome, fkEmpresa, fkVinicola) values
-('MAt',1,1);
-select * from armazem;
 
 CREATE TABLE tipo(
 idTipo INT auto_increment,
@@ -72,11 +65,8 @@ fkArmazem INT, FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
 fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
 fkVinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
 PRIMARY KEY (idTipo, fkGrupo, fkArmazem, fkEmpresa, fkVinicola)
-);
-
-insert  into tipo(tipo, quantidade, fkGrupo, fkArmazem, fkEmpresa, fkVinicola) values
-('Fortificado',200,1,1,1,1);
-
+);    
+    
 CREATE TABLE Sensor_DHT11(
 idSensor INT auto_increment,
 `serial` CHAR(12),
@@ -87,6 +77,33 @@ fkArmazem INT, FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
 PRIMARY KEY (idSensor, fkArmazem, fkVinicola, fkEmpresa)
 );
 
+CREATE TABLE Dados_sensor(
+idDados_sensor int auto_increment,
+temperatura FLOAT,
+umidade FLOAT,
+dataTime DATETIME DEFAULT current_timestamp(),
+fkSensor int, foreign key (fkSensor) references Sensor_DHT11(idSensor),
+PRIMARY KEY (idDados_sensor, fkSensor)
+);
+
+-- Insert Armazem
+insert into armazem (nome, fkEmpresa, fkVinicola) values
+('GodWine',1,1);
+
+insert  into tipo(tipo, quantidade, fkGrupo, fkArmazem, fkEmpresa, fkVinicola) values
+	('Espumante',50,1,1,1,1),
+	('Branco Leve',40,1,1,1,1),
+	('Branco Encorpado',100,1,1,1,1),
+	('Branco Aromático',300,1,1,1,1),
+	('Rosê',100,1,1,1,1),
+	('Tinto Leve',150,1,1,1,1),
+	('Tinto Médio Corpo',100,1,1,1,1),
+	('Tinto Médio Corpo',900,1,1,1,1),
+	('Tinto Encorpado',500,1,1,1,1),
+	('Fortificado',200,1,1,1,1);
+    
+    
+    
 INSERT INTO Sensor_DHT11(idSensor, `serial`, `local`, fkEmpresa, fkVinicola, fkArmazem) VALUES
 (1,'4nkmzfgFu8h5', 'Localizado no setor esquerdo do armazem', 1, 1, 1),
 (2,'9KNWCU93QtS9', 'Localizado no setor esquerdo do armazem', 1, 1, 1),
@@ -98,21 +115,35 @@ INSERT INTO Sensor_DHT11(idSensor, `serial`, `local`, fkEmpresa, fkVinicola, fkA
 (8,'Xp4oLPVv9GwT', 'Localizado no setor direito do armazem', 1, 1, 1),
 (9,'jR9kJrxp5rRc', 'Localizado na parte superior do armazem', 1, 1, 1);
 
-
--- INSERT INTO Sensor_DHT11 VALUES
--- (NULL, 'dddd', 'ali');
--- fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
--- fkvinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
--- fkArmazem INT, FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
-
-CREATE TABLE Dados_sensor(
-idDados_sensor int auto_increment,
-temperatura FLOAT,
-umidade FLOAT,
-dataTime DATETIME DEFAULT current_timestamp(),
-fkSensor int, foreign key (fkSensor) references Sensor_DHT11(idSensor),
-PRIMARY KEY (idDados_sensor, fkSensor)
-);
 insert into Dados_sensor(temperatura, umidade, fkSensor) values
-(120,150,1);
+(66,75,5);
+
+
+
+select * from Dados_sensor dados join Sensor_DHT11 sensor on  dados.fkSensor = sensor.idSensor order by idSensor limit 3;
+
+select t.tipo, t.quantidade, g.classe, avg(g.temp_max, g.temp_min), a.nome, a.umi_max, a.umi_min from tipo as t
+join grupo as g on g.idGrupo = t.fkGrupo
+join armazem as a on a.idArmazem = t.fkArmazem;
+
 select * from Dados_sensor;
+
+select temperatura, umidade from Dados_sensor order by idDados_sensor desc;
+select max(temperatura) as max, min(temperatura) as min from Dados_sensor;
+
+select max(temperatura), min(temperatura) from Dados_sensor;
+
+
+
+
+
+ -- drop table grupo;
+ -- drop table armazem;
+ drop table tipo;
+ drop table Sensor_DHT11;
+ drop table Dados_Sensor;
+    
+     -- Join da empresa, vinicola e endereço
+	select * from empresa as fkEndereco join vinicola as vinicola on fkEndereco.idEmpresa = vinicola.fkEmpresa join endereco as endereco on vinicola.fkEndereco = endereco.idEndereco;
+
+    
