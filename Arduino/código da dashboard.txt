@@ -6,15 +6,15 @@
 */
 int dht_pin = A0;
 DHT dht_1 = DHT(dht_pin, dht_type); //pode-se configurar diversos sensores DHTxx
-int lm35_pin = A2, leitura_lm35 = 0;
+//int lm35_pin = A2, leitura_lm35 = 0;
 float temperatura;
-int ldr_pin = A4, leitura_ldr = 0;
-int switch_pin = 4;
+//int ldr_pin = A4, leitura_ldr = 0;
+//int switch_pin = 4;
 void setup()
 {
 Serial.begin(9600);
 dht_1.begin();
-pinMode(switch_pin, INPUT);
+//pinMode(switch_pin, INPUT);
 }
 void loop()
 {
@@ -35,10 +35,10 @@ Serial.println("Erro ao ler o DHT");
 }
 else
 {
-//Serial.print(umidade);
-//Serial.print(";");
-//Serial.print(temperatura);
-//Serial.print(";");
+Serial.print(umidade);
+Serial.print(";");
+Serial.print(temperatura);
+Serial.print(";");
 Serial.print(temperaturaGelado);
 Serial.print(";");
 Serial.print(temperaturaFrio);
@@ -53,8 +53,8 @@ Serial.println(";");
 /**
 * Bloco do LM35
 */
-leitura_lm35 = analogRead(lm35_pin);
-temperatura = leitura_lm35 * (5.0/1023) * 100;
+//leitura_lm35 = analogRead(lm35_pin);
+//temperatura = leitura_lm35 * (5.0/1023) * 100;
 //Serial.print(temperatura);
 //Serial.print(";");
 /**

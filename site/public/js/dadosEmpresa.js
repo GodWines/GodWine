@@ -127,6 +127,73 @@ function validarEmail() {
         window.location.href = "./dados.html";
       }
   }
+  
+  function cadastrar() {
+    aguardar();
+  
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    const email = document.getElementById("Email");
+    const senha = document.getElementById("senha");
+    const confirmaSenha = document.getElementById("confirmaSenha");
+  
+    var emailVar = email.value;
+    var senhaVar = senha.value;
+    var confirmacaoSenhaVar = confirmaSenha.value;
+  
+    if (emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+  
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+  
+    // Enviando o valor da nova input
+    fetch("/empresa/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+  
+        console.log("resposta: ", resposta);
+  
+        if (resposta.ok) {
+            cardErro.style.display = "block";
+  
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+  
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "2000")
+            
+            limparFormulario();
+            finalizarAguardar();
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+    });
+  
+    return false;
+  }
+  
+  function sumirMensagem() {
+    cardErro.style.display = "none"
+  }
+
 
 //verificar Nome Social
 function verificarNomeSocial(){
@@ -374,7 +441,6 @@ function criarConta() {
   
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-
     const nomeSocial = document.getElementById("empresaNomeSocial");
     const nomeFantasia = document.getElementById("empresaNomeFantasia");
     const cnpj = document.getElementById("empresaCnpj");
@@ -382,14 +448,13 @@ function criarConta() {
     const telefone = document.getElementById("empresaTelefone");
     const cep = document.getElementById("empresaCep");
     const uf = document.getElementById("empresaUf");
+    const nomeVinicola = document.getElementById("empresaVinicola")
     const empresaCidade = document.getElementById("empresaCidade");
     const bairro = document.getElementById("empresaBairro");
     const complemento = document.getElementById("empresaComplemento");
     const rua = document.getElementById("empresaRua");
     const numero = document.getElementById("empresaNumero");
   
-    var emailVar = localStorage.email;
-    var senhaVar = localStorage.senha;
     var nomeSocialVar = nomeSocial.value;
     var nomeFantasiaVar =nomeFantasia.value;
     var cnpjVar = cnpj.value;
@@ -397,13 +462,18 @@ function criarConta() {
     var telefoneVar = telefone.value;
     var cepVar = cep.value;
     var ufVar = uf.value;
+    var nomeVinicolaVar = nomeVinicola.value;
     var bairroVar = bairro.value;
     var empresaCidadeVar = empresaCidade.value;
     var complementoVar = complemento.value;
     var ruaVar = rua.value;
     var numeroVar = numero.value;
+    var emailVar = emailUsuario;
+    var senhaVar = passwordUsuario;
 
-    if (nomeSocialVar == "" || nomeFantasiaVar == "" || cnpjVar == "" || representanteVar == "" || telefoneVar == "" || cepVar == "" || ufVar == "" || bairroVar == "" || complementoVar == "" || ruaVar == "" || numeroVar == "" || empresaCidade == "") {
+
+
+    if (nomeSocialVar == "" || nomeFantasiaVar == "" || cnpjVar == "" || representanteVar == "" || telefoneVar == "" || cepVar == "" || ufVar == "" || nomeVinicolaVar == "" || bairroVar == "" || complementoVar == "" || ruaVar == "" || numeroVar == "" || empresaCidade == "") {
         cardErro.style.display = "block"
         mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
   
@@ -415,7 +485,7 @@ function criarConta() {
     }
   
     // Enviando o valor da nova input
-    fetch("/empresa/cadastrarEmpresa", {
+    fetch("/empresa/cadastrarVinicola", {
         
         method: "POST",
         headers: {
@@ -425,8 +495,6 @@ function criarConta() {
             // crie um atributo que recebe o valor recuperado aqui
             // Agora vá para o arquivo routes/usuario.js
 
-            emailServer: emailVar,
-            senhaServer: senhaVar,
             nomeSocialServer : nomeSocialVar,
             nomeFantasiaServer : nomeFantasiaVar,
             cnpjServer : cnpjVar,
@@ -434,12 +502,15 @@ function criarConta() {
             telefoneServer : telefoneVar,
             cepServer : cepVar,
             ufServer : ufVar,
+            nomeVinicolaServer: nomeVinicolaVar,
             empresaCidadeServer : empresaCidadeVar,
             bairroServer : bairroVar,
             complementoServer : complementoVar,
             ruaServer : ruaVar,
             numeroServer : numeroVar,
-         
+            emailServer : emailVar,
+            senhaServer : senhaVar
+            
         })
     }).then(function (resposta) {
   

@@ -35,13 +35,13 @@
     <div class="dashInicial">
         <div class="cliente">
             <img src="./assets/telaComentario/cliente.png" class="imgCliente foto" alt="" />
-            <span class="textoPoppins subTitulo"><span id="b_usuario">Fernando Brandão</span></span>
+            <span class="textoPoppins subTitulo"><span id="b_usuario">-</span></span>
             <div class="vinicolas">
                 <div class="barra">
                     <span class="textoPoppins subTitulo">Vinicolas</span>
                 </div>
                 <div class="corpo">
-                    <a href="./dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Vinicola-01</a>
+                    <a href="./dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado" id="vinicola_nome">Vinicola-01</a>
                     <span class="textoPoppins subTexto vin">Vinicola-02</span>
                     <span class="textoPoppins subTexto vin">Vinicola-03</span>
                     <span class="textoPoppins subTexto vin">Vinicola-04</span>
@@ -63,7 +63,7 @@
         </div>
         <div class="telaInicial">
             <div class="bemVindo">
-                <span class="textoPoppins titulo amarelo">Bem Vindo, <span id="b_usuario2">Fernando Brandão</span>!!!</span>
+                <span class="textoPoppins titulo amarelo">Bem Vindo, <span id="b_usuario2">-</span>!!!</span>
                 <div class="sair">
                     <a class="textoPoppins subTexto" href="./index.html" onclick="limparSessao()">Sair</a>
                     <img src="./assets/logo.png" alt="" class="imgLogo" />
@@ -120,6 +120,6 @@
 <script>
 b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 b_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
-
+vinicola_nome.innerHTML = sessionStorage.NOME_VINICOLA;
 
 </script>
