@@ -1,8 +1,8 @@
-CREATE DATABASE GodWine;
+-- SQL Server
 USE GodWine;
 
 CREATE TABLE empresa(
-idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+idEmpresa INT PRIMARY KEY IDENTITY(1,1),
 email VARCHAR(100),
 senha VARCHAR(30),
 telefone VARCHAR(13),
@@ -17,7 +17,7 @@ fkMatriz INT, FOREIGN KEY (fkMatriz) REFERENCES empresa(idEmpresa)
 select * from empresa;
 
 CREATE TABLE endereco(
-idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+idEndereco INT PRIMARY KEY IDENTITY(1,1),
 sigla CHAR(2),
 cidade VARCHAR(60),
 logradouro VARCHAR(70),
@@ -30,35 +30,43 @@ complemento VARCHAR(80) NULL
 select * from endereco;
 
 CREATE TABLE vinicola(
-idVinicola INT,
+idVinicola INT IDENTITY(1,1),
 nome VARCHAR(40),
 fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
 fkEndereco INT, FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco),
 PRIMARY KEY (idVinicola, fkEmpresa)
 );
 
-CREATE TABLE tipo_vinho (
-idTipo_vinho INT AUTO_INCREMENT PRIMARY KEY,
-tipo VARCHAR(45),
+CREATE TABLE grupo (
+idGrupo INT PRIMARY KEY IDENTITY(1,1),
+classe VARCHAR(45),
 temp_max FLOAT,
 temp_min FLOAT
 );
 
 CREATE TABLE armazem(
-idArmazem INT,
+idArmazem INT IDENTITY(1,1),
 nome VARCHAR(45),
-safra DATE,
 temp_ambiente FLOAT,
 umi_max INT,
 umi_min INT,
 fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
 fkVinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
-fkTipo_vinho INT, FOREIGN KEY (fkTipo_vinho) REFERENCES tipo_vinho(idTipo_vinho),
 PRIMARY KEY (idArmazem, fkEmpresa, fkVinicola)
 );
 
+CREATE TABLE tipo(
+idTipo INT IDENTITY(1,1),
+tipo VARCHAR(45),
+fkGrupo INT, FOREIGN KEY (fkGrupo) REFERENCES grupo(idGrupo),
+fkArmazem INT, FOREIGN KEY (fkArmazem) REFERENCES armazem(idArmazem),
+fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
+fkVinicola INT, FOREIGN KEY (fkVinicola) REFERENCES vinicola(idVinicola),
+PRIMARY KEY (idTipo, fkGrupo, fkArmazem,fkVinicola)
+);
+
 CREATE TABLE Sensor_DHT11(
-idSensor INT,
+idSensor INT IDENTITY(1,1),
 `serial` CHAR(12),
 `local` VARCHAR(60),
 fkEmpresa INT, FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
@@ -68,7 +76,7 @@ PRIMARY KEY (idSensor, fkArmazem, fkVinicola, fkEmpresa)
 );
 
 CREATE TABLE Dados_sensor(
-idDados_sensor INT AUTO_INCREMENT,
+idDados_sensor INT IDENTITY(1,1),
 temperatura FLOAT,
 umidade FLOAT,
 dataTime DATETIME,
@@ -79,29 +87,9 @@ fkSensor INT, FOREIGN KEY (fkSensor) REFERENCES sensor_DHT11(idSensor),
 PRIMARY KEY (idDados_sensor, fkEmpresa, fkVinicola, fkArmazem, fkSensor)
 );
 
-INSERT INTO empresa(nome, cnpj, data_cadastro, nome_fantasia, representante, fkMatriz) VALUES
-('Chandon brasil','77.637.658/0001-55','2022-08-12', 'Chan', 'Daniel Freitas', NULL),
-('Wine','47.877.611/0001-05','2022-08-12', 'vinhedo Wine', 'Paulo Veira', NULL),
-('Adegavinhos','58.997.155/0001-99','2005-10-10', 'Wine cruz', 'Vivian Souza', NULL),
-('Vinhedo','03.987.156/0003-10','2012-08-07', 'God vinho', 'Victor Luiz', 3),
-('Anjos roxo','88.017.100/0001-01','2015-11-03', 'Anjos', 'Maria de Fatima', 1),
-('Vinhado','09.088.900/0006-08','2011-08-09', 'Vine wine', 'Sonia Dornelas', 3),
-('Vinicolas enzo','01.002.100/0031-01','2015-06-03', 'Enzo wine', 'Mayara Souza', 3),
-('Central vinho','69.008.980/0011-01','2015-12-01', 'Bons vinhos', 'Matheus Ribeiro', 1),
-('Tintos','55.994.022/0001-08','2000-05-19', 'vinhozinhos', 'Mirian Souza', NULL),
-('Bom vinho', '77.668.005/0009-06', '2001-07-10', 'Alonso vinhos', 'Erik Vitor', 9);
+INSERT INTO empresa(email, senha, telefone, nome, cnpj, data_cadastro, nome_fantasia, representante, fkMatriz) VALUES
+('BrandaoBrasil@Gmail.com','4mBFrdJA','19-2481-4277','Bradao brasil','77637658/000155','2022-08-12', 'Brad', 'Fernando Brandão', NULL);
  
-INSERT INTO usuario(idUsuario, nome, login, senha, telefone, fkEmpresa) VALUES
-(1,'Maria Eduarda Bernardino Ettinger','maria123', '1222000', '11989545870', 2),
-(1,'Vinicios Garcia Fagundes','vinicios321', '1222001', '11989965348', 3),
-(1, 'Matheus Martins','matheus456', '1222002', '11975032153', 6),
-(1, 'Pedro Afonso','pedro654', '1222003', '11973155687', 9),
-(1, 'Gabriel Vilas Boas','gabriel789', '1222004', '11946813210', 1),
-(2,'Alexandra Zangrando','alexandro987', '1222005', '11946786524', 3),
-(1, 'Wagner Oliveira','wagner8910', '1222006', '11940028922', 5),
-(1, 'Elisa Ribas','elisa1098', '1222007', '11930860352', 7),
-(1, 'Felipe de Sousa','felipe135', '1222008', '11989546515', 8),
-(1, 'Eduardo Damacedo','eduardo531', '1222009', '11995084633', 4);
  
 INSERT INTO endereco(estado, sigla, cidade, logradouro, bairro, numero, cep) VALUES
 ('São Paulo', 'SP', 'São Paulo', 'Travessa cachoeira benfica', 'Jardim Rodolfo Pirane', '150', '08311-380'),
@@ -140,7 +128,7 @@ INSERT INTO armazem(idArmazem, nome, safra, temp_ambiente, umi_max, umi_min, fkE
 (1, 'Solene fresco', '1995-07-28', 22, 80, 60, 3, 2, 1),
 (1, 'Suzi branco', '2005-07-28', 22, 80, 60, 1, 1, 2);
 
-INSERT INTO tipo_vinho(tipo, temp_max, temp_min) VALUES
+INSERT INTO grupo(grupo, temp_max, temp_min) VALUES
 ('Gelado', 7, 3),
 ('Frio', 13, 7),
 ('Temperatura de adega', 16, 13),
@@ -169,74 +157,14 @@ INSERT INTO Dados_sensor(idDados_sensor, temperatura, umidade, dataTime, fkEmpre
 (1, 13, 75, '2022-11-02 10:01:55', 2, 2, 1, 1),
 (2, 14, 80, '2022-11-02 10:01:55', 3, 1, 1, 1);
 
- 
--- Dados empresa
-select * from empresa;
-
--- Dados usuario
-select * from usuario;
-
--- Dados vinicola
-select * from vinicola;
-
--- Dados endereço
-select * from endereco;
-
--- Dados armazem
-select * from armazem;
-desc armazem;
-
--- Dados tipo_vinho
-select * from tipo_vinho;
-
--- Dados Sensor
-select * from Sensor_DHT11;
-
--- Dados Dados_sensor
-select * from Dados_sensor;
-
--- Quais matrizes fazem parte das filiais
-select * from empresa as matriz join empresa as filial on filial.fkMatriz = matriz.idEmpresa;
-
--- Empresa que não tem matrizes
-select * from empresa as matriz right join empresa as filial on filial.fkMatriz = matriz.idEmpresa is null;
-
--- Empresa que possuem matrizes
-select * from empresa as matriz left join empresa as filial on filial.fkMatriz = matriz.idEmpresa;
-
--- Usuarios que fazem parte da empresa
-select * from empresa join usuario on idEmpresa = fkEmpresa;
-
--- Usuarios que não faz parte de empresa
-select * from empresa right join usuario on fkEmpresa = idEmpresa is null;
-
--- Vinicola e seus endereços e empresas
-select * from vinicola join endereco on fkEndereco = idEndereco join empresa on fkEmpresa = idEmpresa;
-
--- Vinicola e seus armazems
-select * from armazem join vinicola on fkVinicola = idVinicola;
-
--- Armazem e seus tipo de vinho
-select armazem.nome, tipo_vinho.tipo from armazem join tipo_vinho on fkTipo_vinho = idTipo_vinho;
-
--- Armazem e sensor
-select * from armazem join Sensor_DHT11 on fkArmazem = idArmazem;
-
--- Sensores sem armazem
-select * from armazem right join Sensor_DHT11 on fkArmazem = idArmazem is null;
-
--- Armazem sem sensores
-select * from armazem left join Sensor_DHT11 on fkArmazem = idArmazem is null;
-
--- Sensor e dados sensor
-select * from Sensor_DHT11 join Dados_sensor on fkSensor = idSensor;
-
--- Alertas
--- 3C a 7C = Gelado
--- 3C = vermelho
-select * from Dados_sensor as dados join Sensor_DHT11 as sens on fkSensor = idSensor 
-join armazem as arm on sens.fkArmazem = arm.idArmazem join vinicola as vini on arm.fkVinicola = vini.idVinicola join endereco as ende on fkEndereco = idEndereco;  
-
-
-
- 
+insert into Tipo values
+(null,'Espumante',1,1,1,1),
+(null,'Branco Leve',1,1,1,1),
+(null,'Branco Encorpado',2,2,1,1),
+(null,'Branco Aromático',2,2,1,1),
+(null,'Rosê',2,2,1,1),
+(null,'Tinto Leve',3,3,1,1),
+(null,'Tinto Médio Corpo',3,3,1,1),
+(null,'Tinto Médio Corpo',4,4,1,1),
+(null,'Tinto Encorpado',4,4,1,1),
+(null,'Fortificado',4,4,1,1);
