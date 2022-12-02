@@ -1,3 +1,4 @@
+  
 input {
     border: white solid 0.4vh;
     border-top: none;
@@ -18,7 +19,6 @@ button {
     font-size: 1.5vw;
     width: 9vw;
     height: 7vh;
-
 }
 
 input {

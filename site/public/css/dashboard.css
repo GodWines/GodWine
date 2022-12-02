@@ -1,5 +1,39 @@
 /*Global*/
 
+::-webkit-scrollbar {
+  width: 10px;
+  background: rgba(22, 22, 22, 0.7);
+}
+
+::-webkit-scrollbar-track {
+  background: #e2b024; 
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(136, 136, 136); 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e2b024; 
+}
+body::-webkit-scrollbar {
+  width: 12px;               
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(22, 22, 22, 0.7);        
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #e2b024;  
+  border-radius: 20px;     
+  height: 10%;
+  border: 1vw solid #e2b024  
+}
+
+
 .vinicolas button:hover {
   border: 0.1vw solid aliceblue;
 
@@ -415,4 +449,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.avisoCaptura {
+  display: flex;
+  justify-content: center;
+}
+
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.graph {
+  width: 60%;
+  margin: auto;
+  padding-top: 10px;
 }

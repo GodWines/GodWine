@@ -448,6 +448,7 @@ function criarConta() {
     const telefone = document.getElementById("empresaTelefone");
     const cep = document.getElementById("empresaCep");
     const uf = document.getElementById("empresaUf");
+    const nomeVinicola = document.getElementById("empresaVinicola")
     const empresaCidade = document.getElementById("empresaCidade");
     const bairro = document.getElementById("empresaBairro");
     const complemento = document.getElementById("empresaComplemento");
@@ -461,6 +462,7 @@ function criarConta() {
     var telefoneVar = telefone.value;
     var cepVar = cep.value;
     var ufVar = uf.value;
+    var nomeVinicolaVar = nomeVinicola.value;
     var bairroVar = bairro.value;
     var empresaCidadeVar = empresaCidade.value;
     var complementoVar = complemento.value;
@@ -471,7 +473,7 @@ function criarConta() {
 
 
 
-    if (nomeSocialVar == "" || nomeFantasiaVar == "" || cnpjVar == "" || representanteVar == "" || telefoneVar == "" || cepVar == "" || ufVar == "" || bairroVar == "" || complementoVar == "" || ruaVar == "" || numeroVar == "" || empresaCidade == "") {
+    if (nomeSocialVar == "" || nomeFantasiaVar == "" || cnpjVar == "" || representanteVar == "" || telefoneVar == "" || cepVar == "" || ufVar == "" || nomeVinicolaVar == "" || bairroVar == "" || complementoVar == "" || ruaVar == "" || numeroVar == "" || empresaCidade == "") {
         cardErro.style.display = "block"
         mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
   
@@ -483,7 +485,7 @@ function criarConta() {
     }
   
     // Enviando o valor da nova input
-    fetch("/empresa/cadastrarEmpresa", {
+    fetch("/empresa/cadastrarVinicola", {
         
         method: "POST",
         headers: {
@@ -500,6 +502,7 @@ function criarConta() {
             telefoneServer : telefoneVar,
             cepServer : cepVar,
             ufServer : ufVar,
+            nomeVinicolaServer: nomeVinicolaVar,
             empresaCidadeServer : empresaCidadeVar,
             bairroServer : bairroVar,
             complementoServer : complementoVar,
@@ -507,6 +510,7 @@ function criarConta() {
             numeroServer : numeroVar,
             emailServer : emailVar,
             senhaServer : senhaVar
+            
         })
     }).then(function (resposta) {
   

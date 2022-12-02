@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Armazém-04</title>
+    <title>Armazém-01</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
@@ -27,113 +27,584 @@
 
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/dashboard.css" />
+
 </head>
 
-<body>
+<body onload="atualizarFeed()">
     <div class="dashboard">
         <div class="cliente">
             <img src="../assets/telaComentario/cliente.png" class="imgCliente foto" alt="" />
             <span class="textoPoppins subTitulo"><span id="b_usuario">Fernando Brandão</span></span>
             <div class="vinicolas">
                 <div class="barra">
-                    <span class="textoPoppins subTitulo">Vinicula-1</span>
+                    <span class="textoPoppins subTitulo" id="vinicola_nome">-</span>
                 </div>
                 <div class="corpo">
-                    <a href="../dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-01</a>
-                    <a href="../dashboard/2arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-02</a>
-                    <a href="../dashboard/3arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-03</a>
-                    <a href="../dashboard/4arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Armazém-04</a>
+                    <a href="./1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Armazém-01</a>
+                    <a href="./2arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-02</a>
+                    <a href="./3arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-03</a>
+                    <a href="./4arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-04</a>
                 </div>
                 <div class="barra">
                 </div>
             </div>
         </div>
         <div class="telaDash">
-        <div class="bemVindo">
-            <span class="textoPoppins titulo amarelo">DashBoard</span>
-            <div class="sair" style="width: 15%;">
-                <a class="textoPoppins subTexto" href="../dashInicial.html">Voltar</a>
-                <a class="textoPoppins subTexto" href="../index.html">Sair</a>
-                <img src="../assets/logo.png" alt="" class="imgLogo" />
-            </div>
-        </div>
-          <div class="graficos" >
-            <div class="grafico parte1">
-                <div class="quadradoFundo quadrado1">
-                    <div class="registroTempUmi">
-                        <span class="textoPoppins subTitulo">Temperatura Atual:</span>
-                        <span class="textoPoppins titulo amarelo numero">18°</span>
-                        <div class="tipoTemp">
-                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Fresco</span></span>
-                            <span class="textoPoppins subTexto">Temperatura ideal: <span
-                                    class="amarelo">18°</span></span>
-                        </div>
-                    </div>
-                    <div class="registroTempUmi">
-                        <span class="textoPoppins subTitulo">Umidade Atual:</span>
-                        <span class="textoPoppins titulo amarelo numero">71%</span>
-                        <div class="tipoTemp">
-                            <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Fresco</span></span>
-                            <span class="textoPoppins subTexto">Umidade ideal: <span
-                                    class="amarelo">70%</span></span>
-                        </div>
-                    </div>
+            <div class="bemVindo">
+                <span class="textoPoppins titulo amarelo">DashBoard</span>
+                <div class="sair" style="width: 15%;">
+                    <a class="textoPoppins subTexto" href="../dashInicial.html">Voltar</a>
+                    <a class="textoPoppins subTexto" href="../index.html">Sair</a>
+                    <img src="../assets/logo.png" alt="" class="imgLogo" />
                 </div>
-                <div class="quadradoFundo quadrado2">
-                    <div class="registroTempUmi">
-                    <div class="divPizzaPie">
-                        <canvas id="myChart4"></canvas>
+            </div>
+            <div class="graficos">
+                <div class="grafico parte1">
+                    <div class="quadradoFundo quadrado1">
+                        <div class="registroTempUmi">
+                            <span class="textoPoppins subTitulo">Temperatura Atual:</span>
+                            <span class="textoPoppins titulo amarelo numero"> <span id="tempArm1">0</span>°</span>
+                            <div class="tipoTemp">
+                                <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Gelado</span></span>
+                                <span class="textoPoppins subTexto">Temperatura ideal: <span
+                                        class="amarelo">5°</span></span>
+                            </div>
+                        </div>
+                        <div class="registroTempUmi">
+                            <span class="textoPoppins subTitulo">Umidade Atual:</span>
+                            <span class="textoPoppins titulo amarelo numero"><span id="umiArm1">0</span>%</span>
+                            <div class="tipoTemp">
+                                <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Gelado</span></span>
+                                <span class="textoPoppins subTexto">Umidade ideal: <span
+                                        class="amarelo">70%</span></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="infoGrafico">
-                        <span class="textoPoppins subTitulo">Grafico numero de alertas por Semana</span>
-                    </div>
-                    </div>
+                    <div class="quadradoFundo quadrado2">
+                        <div class="registroTempUmi">
+                            <div class="divPizzaPie">
+                                <canvas id="myChart4"></canvas>
+                            </div>
+                            <div class="infoGrafico">
+                                <span class="textoPoppins subTitulo">Grafico numero de alertas por Semana</span>
+                            </div>
+                        </div>
 
-                    <div class="registroTempUmi">
-                        <div class="divPizzaPie">
-                            <canvas id="myChart3"></canvas>
+                        <div class="registroTempUmi">
+                            <div class="divPizzaPie">
+                                <canvas id="myChart3"></canvas>
+                            </div>
+                            <div class="infoGrafico">
+                                <span class="textoPoppins subTitulo">Grafico tipo de vinhos por armazem</span>
+                            </div>
                         </div>
-                        <div class="infoGrafico">
-                            <span class="textoPoppins subTitulo">Grafico tipo de vinhos por armazem</span>
+                    </div>
+                </div>
+                <div class="grafico parte2">
+                    <div class="quadradoFundo quadrado3">
+                        <div class="registroGrafico">
+                            <div class="infoGrafico">
+                                <span class="textoPoppins subTitulo">Grafico temperatura e umidade por hora</span>
+                            </div>
+                            <div class="divLinhaBarra">
+                                <canvas class="display-none" id="tempUmiHr1"></canvas>
+                               
+                            </div>
+                            <div class="avisoCaptura">
+                                <p id="avisoCaptura" style="color: white"></p>
+                            </div>
+                        </div>
+                        <div class="registroGrafico">
+                            <div class="infoGrafico">
+                                <span class="textoPoppins subTitulo">Grafico de temperatura minima e temperatura maxima
+                                    por semana </span>
+                            </div>
+                            
+                            <div class="divLinhaBarra">
+                                <canvas id="myChart2">
+                                </canvas>
+                                <div class="avisoCaptura">
+                                    <p id="avisoCaptura2" style="color: white"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="grafico parte2">
-                <div class="quadradoFundo quadrado3">
-                    <div class="registroGrafico">
-                        <div class="infoGrafico">
-                            <span class="textoPoppins subTitulo">Grafico temperatura e umidade por hora</span>
-                        </div>
-                        <div class="divLinhaBarra">
-                            <canvas id="myChart1"></canvas>
-                        </div>
-                    </div>
-                    <div class="registroGrafico">
-                        <div class="infoGrafico">
-                            <span class="textoPoppins subTitulo">Grafico de temperatura minima e temperatura maxima por semana </span>
-                        </div>
-                        <div class="divLinhaBarra">
-                            <canvas id="myChart2">
-                            </canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
         </div>
-        
+
     </div>
     </div>
 </body>
 
 </html>
+<script src="../js/funcoes.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/dashboard/4arm-dashboard.js"></script>
+<script src="../js/dashboard/1arm-dashboard.js"></script>
 <script src="../js/dashInicial.js"></script>
-
 <script>
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    
+    vinicola_nome.innerHTML = sessionStorage.NOME_VINICOLA;
+
+    let proximaAtualizacao;
+
+    window.onload = obterDadosGrafico(4), obterDadosGraficoMaxMin(4), atualizarDados(4);
+
+
+
+    // verificar_autenticacao();
+
+    function alterarTitulo(fkSensor) {
+        var tempUmiHr1 = document.getElementById(`tempUmiHr1`)
+        tempUmiHr1.innerHTML = "Últimas grafico de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + fkSensor + "</span>"
+    }
+
+        function atualizarDados(fkSensor, dados) {
+
+fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro) {
+
+            umiArm1.innerHTML = novoRegistro[0].umidade
+            tempArm1.innerHTML = novoRegistro[0].temperatura
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+
+    // function exibirArmazem(fkSensor) {
+    //     let todosOsGraficos = document.getElementById("graficos")
+
+    //     for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+    //         // exibindo - ou não - o gráfico
+    //         let elementoAtual = document.getElementById(`grafico${i}`)
+    //         if (elementoAtual.classList.contains("display-block")) {
+    //             elementoAtual.classList.remove("display-block")
+    //         }
+    //         elementoAtual.classList.add("display-none")
+
+    //         // alterando estilo do botão
+    //         let btnAtual = document.getElementById(`btnArmazem${i}`)
+    //         if (btnAtual.classList.contains("btn-pink")) {
+    //             btnAtual.classList.remove("btn-pink")
+    //         }
+    //         btnAtual.classList.add("btn-white")
+    //     }
+
+    //     // exibindo - ou não - o gráfico
+    //     let graficoExibir = document.getElementById(`grafico${fkSensor}`)
+    //     graficoExibir.classList.remove("display-none")
+    //     graficoExibir.classList.add("display-block")
+
+    //     // alterando estilo do botão
+    //     let btnExibir = document.getElementById(`btnArmazem${fkSensor}`)
+    //     btnExibir.classList.remove("btn-white")
+    //     btnExibir.classList.add("btn-pink")
+    // }
+
+    // O gráfico é construído com três funções:
+    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de grafico.
+    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function obterDadosGrafico(fkSensor) {
+
+        alterarTitulo(fkSensor)
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/grafico/ultimas/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function(resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, fkSensor);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta, fkSensor) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Umidade',
+                data: [],
+                fill: false,
+                backgroundColor: 'rgba(255, 195, 0, 1)',
+                borderColor: 'rgba(255, 195, 0, 1)',
+                tension: 0.1
+            },
+            {
+                label: 'Temperatura',
+                data: [],
+                fill: false,
+                backgroundColor: 'rgba(86, 11, 173, 1)',
+                borderColor: 'rgba(86, 11, 173, 1)',
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.dataTime_grafico);
+            dados.datasets[0].data.push(registro.umidade);
+            dados.datasets[1].data.push(registro.temperatura);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config1 = {
+            type: 'line',
+            data: dados,
+            options: {}
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`tempUmiHr1`),
+            config1
+        );
+        setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGrafico(fkSensor, dados, myChart) {
+
+        fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    let avisoCaptura = document.getElementById(`avisoCaptura`)
+                    avisoCaptura.innerHTML = ""
+                    umiArm1.innerHTML = novoRegistro[0].umidade
+                    tempArm1.innerHTML = novoRegistro[0].temperatura
+                    if (novoRegistro[0].dataTime_grafico == dados.labels[dados.labels.length - 1]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].dataTime_grafico)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length - 1])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].dataTime_grafico); // incluir um novo momento
+
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+
+                        myChart.update();
+                    }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSensor, dados, myChart), 2000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    function obterDadosGraficoMaxMin(fkSensor) {
+
+        alterarTitulo(fkSensor)
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/grafico/maxMin/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (respostaMaxMin) {
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaMaxMin)}`);
+                    respostaMaxMin.reverse();
+                    plotarGraficoMaxMin(respostaMaxMin, fkSensor);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+  var temperaturaMax = ''
+  var temperaturaMin = ''
+    function plotarGraficoMaxMin(respostaMaxMin, fkSensor) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels2 = ['Semana 1','Semana 2','Semana 3','Semana 4','Semana 5','Semana 6'];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Temperatura Maxima',
+                data: [],
+                fill: false,
+                backgroundColor: 'rgba(86, 11, 173, 1)',
+                borderColor: 'rgba(86, 11, 173, 1)',
+                tension: 0.1
+            },
+            {
+                label: 'Temperatura Minima',
+                data: [],
+                fill: false,
+                backgroundColor: 'rgba(0, 196, 201, 1)',
+                borderColor: 'rgba(0, 196, 201, 1)',
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(respostaMaxMin)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < respostaMaxMin.length; i++) {
+            var registro = respostaMaxMin[i];
+            dados2.datasets[0].data.push(registro.max);
+            dados2.datasets[1].data.push(registro.min);
+            temperaturaMax = registro.max
+            temperaturaMin =  registro.min
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels2)
+        console.log('Dados:')
+        console.log(dados2.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config2 = {
+            type: 'bar',
+            data: dados2,
+            options: {}
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart2 = new Chart(
+            document.getElementById(`myChart2`),
+            config2
+        );
+        setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
+    }
+
+    function atualizarGraficoMaxMin(fkSensor, dados2, myChart2) {
+
+fetch(`/grafico/tempo-realMaxMin/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (respostaMinMax) {
+
+            console.log(`Dados recebidos: ${JSON.stringify(respostaMinMax)}`);
+            console.log(`Dados atuais do gráfico:, ""`);
+            console.log(dados2);
+            
+            let avisoCaptura2 = document.getElementById(`avisoCaptura2`)
+            avisoCaptura2.innerHTML = ""
+        
+             if(temperaturaMax == respostaMinMax[0].max){
+              console.log("A temperatura máxima ainda é " + temperaturaMax)
+             }else{
+                dados2.datasets[0].data.shift();
+                dados2.datasets[0].data.push(respostaMinMax[0].max); // incluir uma nova medida de umidade
+              
+                temperaturaMax = respostaMinMax[0].max
+                
+             }
+             if(temperaturaMin == respostaMinMax[0].min){
+                console.log("A temperatura minima ainda é " + temperaturaMin)
+             }else{
+                dados2.datasets[1].data.shift();
+                dados2.datasets[1].data.push(respostaMinMax[0].min); // incluir uma nova medida de temperatura
+                temperaturaMin =  respostaMinMax[0].min
+             }
+               
+                myChart2.update();
+          
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+
+function obterDadosGraficoMaxMin(fkSensor) {
+
+alterarTitulo(fkSensor)
+
+if (proximaAtualizacao != undefined) {
+    clearTimeout(proximaAtualizacao);
+}
+
+fetch(`/grafico/maxMin/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (respostaMaxMin) {
+            console.log(`Dados recebidos: ${JSON.stringify(respostaMaxMin)}`);
+            respostaMaxMin.reverse();
+            plotarGraficoMaxMin(respostaMaxMin, fkSensor);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+var temperaturaMax = ''
+var temperaturaMin = ''
+function plotarGraficoMaxMin(respostaMaxMin, fkSensor) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+let labels2 = ['Semana 1','Semana 2','Semana 3','Semana 4','Semana 5','Semana 6'];
+
+// Criando estrutura para plotar gráfico - dados
+let dados2 = {
+    labels: labels2,
+    datasets: [{
+        label: 'Temperatura Maxima',
+        data: [],
+        fill: false,
+        backgroundColor: 'rgba(86, 11, 173, 1)',
+        borderColor: 'rgba(86, 11, 173, 1)',
+        tension: 0.1
+    },
+    {
+        label: 'Temperatura Minima',
+        data: [],
+        fill: false,
+        backgroundColor: 'rgba(0, 196, 201, 1)',
+        borderColor: 'rgba(0, 196, 201, 1)',
+        tension: 0.1
+    }]
+};
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(respostaMaxMin)
+
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i = 0; i < respostaMaxMin.length; i++) {
+    var registro = respostaMaxMin[i];
+    dados2.datasets[0].data.push(registro.max);
+    dados2.datasets[1].data.push(registro.min);
+    temperaturaMax = registro.max
+    temperaturaMin =  registro.min
+}
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels2)
+console.log('Dados:')
+console.log(dados2.datasets)
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+const config2 = {
+    type: 'bar',
+    data: dados2,
+    options: {}
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart2 = new Chart(
+    document.getElementById(`myChart2`),
+    config2
+);
+setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
+}
+
+
 </script>
