@@ -26,7 +26,7 @@ function cadastrarVinicola(email,senha,telefone,nomeSocial,cnpj,nomeFantasia,rep
 function cadastrarEmpresa (email,senha,telefone,nomeSocial,cnpj,nomeFantasia,representante,uf,cidade,rua,bairro,numero,cep,complemento) {
     
     var instrucao = `
-    INSERT INTO empresa (email, senha, telefone, nome, cnpj, data_cadastro, nome_fantasia, representante) VALUES ('${email}', '${senha}', '${telefone}', '${nomeSocial}', '${cnpj}', CURRENT_TIMESTAMP(), '${nomeFantasia}', '${representante}');
+    INSERT INTO empresa (email, senha, telefone, nome, cnpj, data_cadastro, nome_fantasia, representante) VALUES ('${email}', '${senha}', '${telefone}', '${nomeSocial}', '${cnpj}', CURRENT_TIMESTAMP, '${nomeFantasia}', '${representante}');
     `;
     
     console.log("Cadastrando a empresa: \n" + instrucao);

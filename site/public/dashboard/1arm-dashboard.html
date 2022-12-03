@@ -148,6 +148,7 @@
     vinicola_nome.innerHTML = sessionStorage.NOME_VINICOLA;
 
     let proximaAtualizacao;
+    let proximaAtualizacaoMaxMin;
 
     window.onload = obterDadosGrafico(1), obterDadosGraficoMaxMin(1), atualizarDados(1);
 
@@ -160,7 +161,7 @@
         tempUmiHr1.innerHTML = "Últimas grafico de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + fkSensor + "</span>"
     }
 
-        function atualizarDados(fkSensor, dados) {
+function atualizarDados(fkSensor, dados) {
 
 fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
@@ -181,47 +182,6 @@ fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (r
 
 }
 
-    // function exibirArmazem(fkSensor) {
-    //     let todosOsGraficos = document.getElementById("graficos")
-
-    //     for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         let elementoAtual = document.getElementById(`grafico${i}`)
-    //         if (elementoAtual.classList.contains("display-block")) {
-    //             elementoAtual.classList.remove("display-block")
-    //         }
-    //         elementoAtual.classList.add("display-none")
-
-    //         // alterando estilo do botão
-    //         let btnAtual = document.getElementById(`btnArmazem${i}`)
-    //         if (btnAtual.classList.contains("btn-pink")) {
-    //             btnAtual.classList.remove("btn-pink")
-    //         }
-    //         btnAtual.classList.add("btn-white")
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${fkSensor}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnArmazem${fkSensor}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de grafico.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(fkSensor) {
 
         alterarTitulo(fkSensor)
@@ -376,8 +336,8 @@ fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (r
 
         alterarTitulo(fkSensor)
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
+        if (proximaAtualizacaoMaxMin != undefined) {
+            clearTimeout(proximaAtualizacaoMaxMin);
         }
 
         fetch(`/grafico/maxMin/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
@@ -499,111 +459,18 @@ fetch(`/grafico/tempo-realMaxMin/${fkSensor}`, { cache: 'no-store' }).then(funct
           
 
             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-            proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
+            proximaAtualizacaoMaxMin = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
+        proximaAtualizacaoMaxMin = setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
     }
 })
     .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
 
-}
-
-function obterDadosGraficoMaxMin(fkSensor) {
-
-alterarTitulo(fkSensor)
-
-if (proximaAtualizacao != undefined) {
-    clearTimeout(proximaAtualizacao);
-}
-
-fetch(`/grafico/maxMin/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (respostaMaxMin) {
-            console.log(`Dados recebidos: ${JSON.stringify(respostaMaxMin)}`);
-            respostaMaxMin.reverse();
-            plotarGraficoMaxMin(respostaMaxMin, fkSensor);
-        });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-    }
-})
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-}
-
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
-var temperaturaMax = ''
-var temperaturaMin = ''
-function plotarGraficoMaxMin(respostaMaxMin, fkSensor) {
-
-console.log('iniciando plotagem do gráfico...');
-
-// Criando estrutura para plotar gráfico - labels
-let labels2 = ['Semana 1','Semana 2','Semana 3','Semana 4','Semana 5','Semana 6'];
-
-// Criando estrutura para plotar gráfico - dados
-let dados2 = {
-    labels: labels2,
-    datasets: [{
-        label: 'Temperatura Maxima',
-        data: [],
-        fill: false,
-        backgroundColor: 'rgba(86, 11, 173, 1)',
-        borderColor: 'rgba(86, 11, 173, 1)',
-        tension: 0.1
-    },
-    {
-        label: 'Temperatura Minima',
-        data: [],
-        fill: false,
-        backgroundColor: 'rgba(0, 196, 201, 1)',
-        borderColor: 'rgba(0, 196, 201, 1)',
-        tension: 0.1
-    }]
-};
-
-console.log('----------------------------------------------')
-console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-console.log(respostaMaxMin)
-
-// Inserindo valores recebidos em estrutura para plotar o gráfico
-for (i = 0; i < respostaMaxMin.length; i++) {
-    var registro = respostaMaxMin[i];
-    dados2.datasets[0].data.push(registro.max);
-    dados2.datasets[1].data.push(registro.min);
-    temperaturaMax = registro.max
-    temperaturaMin =  registro.min
-}
-
-console.log('----------------------------------------------')
-console.log('O gráfico será plotado com os respectivos valores:')
-console.log('Labels:')
-console.log(labels2)
-console.log('Dados:')
-console.log(dados2.datasets)
-console.log('----------------------------------------------')
-
-// Criando estrutura para plotar gráfico - config
-const config2 = {
-    type: 'bar',
-    data: dados2,
-    options: {}
-};
-
-// Adicionando gráfico criado em div na tela
-let myChart2 = new Chart(
-    document.getElementById(`myChart2`),
-    config2
-);
-setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
 }
 
 

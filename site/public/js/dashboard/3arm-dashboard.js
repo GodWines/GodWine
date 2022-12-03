@@ -1,55 +1,5 @@
 /*--------------------------------------------------------------------------------------------------------*/
 /*Graficos da Dashboard*/
-const labels = [
-  '12:00',
-  '13:00',
-  '14:00',
-  '15:00',
-  '16:00',
-  '17:00',
-];
-
-const labels1 = [
-  'Semana 1',
-  'Semana 2',
-  'Semana 3',
-  'Semana 4',
-  'Semana 5',
-  'Semana 6',
-];
-
-
-const dataLinha = {
-  labels: labels,
-  datasets: [{
-    label: 'Temperatura',
-    backgroundColor: 'rgba(86, 11, 173, 1)',
-    borderColor: 'rgba(86, 11, 173, 1)',
-    data: [13, 16, 13, 14, 14, 11],
-  }, {
-    label: 'Umidade',
-    backgroundColor: 'rgba(255, 195, 0, 1)',
-    borderColor: 'rgba(255, 195, 0, 1)',
-    data: [71, 72, 73, 73, 72, 71],
-
-  }]
-};
-
-const dataBarra = {
-  labels: labels1,
-  datasets: [{
-    label: 'Temp Maxima',
-    backgroundColor: 'rgba(86, 11, 173, 1)',
-    borderColor: 'rgb(255, 0, 77)',
-    data: [15, 13, 15, 16, 15, 14],
-  }, {
-    label: 'Temp Minima',
-    backgroundColor: 'rgba(0, 196, 201, 1)',
-    borderColor: 'rgb(0, 179, 225)',
-    data: [14, 12, 13, 14, 13, 14],
-  }]
-};
-
 const dataPizza = {
   labels: [
     'Tinto Leve',
@@ -88,20 +38,6 @@ const dataDoughnut = {
   }]
 };
 
-const config1 = {
-  type: 'line',
-  data: dataLinha,
-  options: {}
-
-};
-
-const config2 = {
-  type: 'bar',
-  data: dataBarra,
-  options: {}
-
-};
-
 const config3 = {
   type: 'pie',
   data: dataPizza,
@@ -137,15 +73,6 @@ const config4 = {
 
 };
 
-const myChart1 = new Chart(
-  document.getElementById('myChart1'),
-  config1
-);
-
-const myChart2 = new Chart(
-  document.getElementById('myChart2'),
-  config2
-);
 const myChart3 = new Chart(
   document.getElementById('myChart3'),
   config3

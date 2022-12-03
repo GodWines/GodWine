@@ -23,5 +23,4 @@ router.get("/vinhoPorArmazem/:fkSensor", function (req, res) {
     graficoController.obterDadosGraficovinhoPorArmazem(req, res);
 });
 
-
 module.exports = router;

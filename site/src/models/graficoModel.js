@@ -31,12 +31,19 @@ function buscarUltimasMedidas(fkSensor, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(fkSensor) {
+function buscarMedidasEmTempoReal(fkSensor, limite_linhas) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select max(temperatura) as max, min(temperatura) as min from Dados_sensor where fkSensor = ${fkSensor};`;
+        instrucaoSql = `select top ${limite_linhas}
+        temperatura as temperatura, 
+        umidade as umidade,  
+                        dataTime,
+                        FORMAT(dataTime, 'HH:mm:ss') as dataTime_grafico
+                    from Dados_sensor
+                    where fkSensor = ${fkSensor}
+                    order by idDados_sensor desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
@@ -54,8 +61,6 @@ function buscarMedidasEmTempoReal(fkSensor) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
-
 
 function obterDadosGraficoMaxMin(fkSensor) {
 

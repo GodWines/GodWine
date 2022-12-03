@@ -25,10 +25,10 @@ function buscarUltimasMedidas(req, res) {
 function buscarMedidasEmTempoReal(req, res) {
 
     var fkSensor = req.params.fkSensor;
-
+    const limite_linhas = 7;
     console.log(`Recuperando medidas em tempo real`);
 
-    graficoModel.buscarMedidasEmTempoReal(fkSensor).then(function (resultado) {
+    graficoModel.buscarMedidasEmTempoReal(fkSensor, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
