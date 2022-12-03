@@ -38,9 +38,13 @@ input {
 .voltar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    width: 35vw;
+    justify-content: space-around;
+    width: 32vw;
     height: 12vh;
+}
+
+.voltar a {
+    font-size: 85%;
 }
 
 .info {
