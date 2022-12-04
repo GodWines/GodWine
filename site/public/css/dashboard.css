@@ -190,8 +190,12 @@ body::-webkit-scrollbar-thumb {
 .sair {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 8%;
+  justify-content: space-around;
+  width: 32vw;
+}
+
+.sair a {
+  font-size: 85%;
 }
 
 #inbox {
@@ -469,4 +473,15 @@ body::-webkit-scrollbar-thumb {
   width: 60%;
   margin: auto;
   padding-top: 10px;
+}
+
+
+.sair_dash {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sair_dash a {
+  font-size: 85%;
 }
