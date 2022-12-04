@@ -99,11 +99,49 @@ function obterDadosGraficovinhoPorArmazem(req, res) {
     });
 }
 
+function obterDadosGraficoAlerta(req,res){
+    
+    var fkSensor = req.params.fkSensor;
+
+    graficoModel.obterDadosGraficoAlerta(fkSensor).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarAlertasEmTempoReal(req, res) {
+
+    var fkSensor = req.params.fkSensor;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    graficoModel.buscarAlertasEmTempoReal(fkSensor).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    obterDadosGraficoMaxMin,
     buscarMedidasEmTempoRealMaxMin,
-    obterDadosGraficovinhoPorArmazem
+    buscarAlertasEmTempoReal,
+    obterDadosGraficoMaxMin,
+    obterDadosGraficovinhoPorArmazem,
+    obterDadosGraficoAlerta
 
 }

@@ -25,7 +25,7 @@ labels: [
   'Critico'
 ],
 datasets: [{
-  label: 'My First Dataset',
+  label: 'Vinhos',
   data: [10, 5, 1],
   backgroundColor: [
     'rgba(25, 189, 41, 1)',

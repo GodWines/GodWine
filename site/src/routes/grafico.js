@@ -19,8 +19,12 @@ router.get("/tempo-realMaxMin/:fkSensor", function (req, res) {
     graficoController.buscarMedidasEmTempoRealMaxMin(req, res);
 })
 
-router.get("/vinhoPorArmazem/:fkSensor", function (req, res) {
-    graficoController.obterDadosGraficovinhoPorArmazem(req, res);
+router.get("/alerta/:fkSensor", function (req, res) {
+    graficoController.obterDadosGraficoAlerta(req, res);
+});
+
+router.get("/tempo-realAlerta/:fkSensor", function (req, res) {
+    graficoController.buscarAlertasEmTempoReal(req, res);
 });
 
 module.exports = router;

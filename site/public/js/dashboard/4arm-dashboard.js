@@ -7,7 +7,7 @@ const dataPizza = {
     'Fortificado',
   ],
   datasets: [{
-    label: 'My First Dataset',
+    label: 'Vinhos',
     data: [56, 83, 41],
     backgroundColor: [
       'rgba(255, 195, 0, 1)',
@@ -20,25 +20,6 @@ const dataPizza = {
   }]
 };
 
-const dataDoughnut = {
-  labels: [
-    'Ok',
-    'Alerta',
-    'Critico'
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [10, 0, 0],
-    backgroundColor: [
-      'rgba(25, 189, 41, 1)',
-      'rgba(226, 176, 36, 1)',
-      'rgba(255, 0, 0, 1)'
-    ],
-    hoverOffset: 10
-
-
-  }]
-};
 const config3 = {
   type: 'pie',
   data: dataPizza,
@@ -56,31 +37,11 @@ const config3 = {
 
 };
 
-const config4 = {
-  type: 'doughnut',
-  data: dataDoughnut,
-  options: {
-    plugins: {
-      legend: {
-        position: 'right',
-        labels: {
-          boxWidth: 15,
-          boxHeight: 15
-        }
-      }
-    }
 
-  }
 
-};
 const myChart3 = new Chart(
   document.getElementById('myChart3'),
   config3
-);
-
-const myChart4 = new Chart(
-  document.getElementById('myChart4'),
-  config4
 );
 
 

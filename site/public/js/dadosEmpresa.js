@@ -485,7 +485,7 @@ function criarConta() {
     }
   
     // Enviando o valor da nova input
-    fetch("/empresa/cadastrarVinicola", {
+    fetch("/empresa/cadastrarEmpresa", {
         
         method: "POST",
         headers: {
