@@ -85,29 +85,29 @@ fkSensor int, foreign key (fkSensor) references sensor_DHT11(idSensor),
 PRIMARY KEY (idDados_sensor, fkSensor)
 );
 
-DELIMITER $$
-CREATE PROCEDURE inserirEmpresa (in 
-inEmail VARCHAR(100),
-inSenha VARCHAR(30),
-inTelefone VARCHAR(13),
-inNome VARCHAR(50),
-inCnpj VARCHAR(15),
-inNome_fantasia VARCHAR(60),
-inRepresentante VARCHAR(40),
-inSigla CHAR(2),
-inCidade VARCHAR(60),
-inLogradouro VARCHAR(70),
-inBairro VARCHAR(70), 
-inNumero INT,
-inCep CHAR(9),
-inComplemento VARCHAR(80),
-vinicolaNome VARCHAR(40))
+CREATE OR ALTER PROCEDURE inserirEmpresa 
+@inEmail VARCHAR(100),
+@inSenha VARCHAR(30),
+@inTelefone VARCHAR(13),
+@inNome VARCHAR(50),
+@inCnpj VARCHAR(15),
+@inNome_fantasia VARCHAR(60),
+@inRepresentante VARCHAR(40),
+@inSigla CHAR(2),
+@inCidade VARCHAR(60),
+@inLogradouro VARCHAR(70),
+@inBairro VARCHAR(70), 
+@inNumero INT,
+@inCep CHAR(9),
+@inComplemento VARCHAR(80),
+@vinicolaNome VARCHAR(40)
+AS
 BEGIN
-  INSERT INTO empresa (email, senha, telefone, nome, cnpj, data_cadastro, nome_fantasia, representante) VALUES (inEmail, inSenha, inTelefone, inNome, inCnpj, CURRENT_TIMESTAMP,inNome_fantasia , inRepresentante);
-  INSERT INTO endereco(sigla, cidade, logradouro, bairro, numero, cep, complemento) values(inSigla,inCidade,inLogradouro,inBairro,inNumero,inCep,inComplemento);
-  INSERT INTO vinicola (nome, fkEmpresa, fkEndereco) VALUES (vinicolaNome, (select count(idEmpresa) as fkEmpresa from empresa), (select count(idEndereco) as fkEndereco from endereco));
-END$$
-DELIMITER ;
+  INSERT INTO empresa (email, senha, telefone, nome, cnpj, data_cadastro, nome_fantasia, representante) VALUES (@inEmail, @inSenha, @inTelefone, @inNome, @inCnpj, CURRENT_TIMESTAMP,@inNome_fantasia , @inRepresentante);
+  INSERT INTO endereco(sigla, cidade, logradouro, bairro, numero, cep, complemento) values(@inSigla,@inCidade,@inLogradouro,@inBairro,@inNumero,@inCep,@inComplemento);
+  INSERT INTO vinicola (nome, fkEmpresa, fkEndereco) VALUES (@vinicolaNome, (select max(idEmpresa) as fkEmpresa from empresa), (select max(idEndereco) as fkEndereco from endereco));
+END;
+GO
 
-call inserirEmpresa('edu@aaagmail.com','123','1111','1111','1111','1111','1111','22','222','2222','222',2,'222','2222','vincola');
+exec inserirEmpresa'edu@aaagmail.com','123','1111','1111','1111','1111','1111','22','222','2222','222',2,'222000000','2222','vincola';
 
