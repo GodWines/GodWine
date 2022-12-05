@@ -10,7 +10,6 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var empresaRouter = require("./src/routes/empresa");
-var avisosRouter = require("./src/routes/avisos");
 var graficoRouter = require("./src/routes/grafico");
 
 app.use(express.json());
@@ -21,7 +20,6 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/empresa", empresaRouter);
-app.use("/avisos", avisosRouter);
 app.use("/grafico", graficoRouter)
 
 app.listen(PORTA, function () {

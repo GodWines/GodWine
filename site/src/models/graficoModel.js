@@ -10,7 +10,7 @@ function buscarUltimasMedidas(fkSensor, limite_linhas) {
         umidade as umidade,  
                         dataTime,
                         FORMAT(dataTime, 'HH:mm:ss') as dataTime_grafico
-                    from Dados_sensor
+                    from dados_sensor
                     where fkSensor = ${fkSensor}
                     order by idDados_sensor desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
@@ -19,7 +19,7 @@ function buscarUltimasMedidas(fkSensor, limite_linhas) {
         umidade as umidade,
                         dataTime,
                         DATE_FORMAT(dataTime,'%H:%i:%s') as dataTime_grafico
-                    from Dados_sensor
+                    from dados_sensor
                     where fkSensor = ${fkSensor}
                     order by idDados_sensor desc limit 7`;
     } else {
@@ -41,7 +41,7 @@ function buscarMedidasEmTempoReal(fkSensor, limite_linhas) {
         umidade as umidade,  
                         dataTime,
                         FORMAT(dataTime, 'HH:mm:ss') as dataTime_grafico
-                    from Dados_sensor
+                    from dados_sensor
                     where fkSensor = ${fkSensor}
                     order by idDados_sensor desc`;
 
@@ -51,7 +51,7 @@ function buscarMedidasEmTempoReal(fkSensor, limite_linhas) {
         umidade as umidade,
                         DATE_FORMAT(dataTime,'%H:%i:%s') as dataTime_grafico, 
                         fkSensor 
-                        from Dados_sensor where fkSensor = ${fkSensor} 
+                        from dados_sensor where fkSensor = ${fkSensor} 
                     order by idDados_sensor desc limit 1`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -131,8 +131,35 @@ function obterDadosGraficoAlerta(fkSensor){
         umidade as umidade,
         dataTime as dataTime
                         fkSensor 
-                        from Dados_sensor where fkSensor = ${fkSensor} 
+                        from dados_sensor where fkSensor = ${fkSensor} 
                     order by idDados_sensor desc limit 100`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function obterDadosGraficoAlertaDash(fkSensor){
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top 10
+                    temperatura as temperatura, 
+                    umidade as umidade,  
+                    FORMAT(dataTime,'%H:%m:%s') as dataTime
+                    from dados_sensor
+                    where fkSensor = ${fkSensor}
+                    order by idDados_sensor desc`;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select 
+        temperatura as temperatura, 
+        umidade as umidade,
+        FORMAT(dataTime,'%H:%m:%s') as dataTime
+                        fkSensor 
+                        from dados_sensor where fkSensor = ${fkSensor} 
+                    order by idDados_sensor desc limit 10`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -151,7 +178,7 @@ function buscarAlertasEmTempoReal(fkSensor) {
         temperatura as temperatura, 
         umidade as umidade,
         dataTime as dataTime
-                    from Dados_sensor
+                    from dados_sensor
                     where fkSensor = ${fkSensor}
                     order by idDados_sensor desc`;
 
@@ -161,7 +188,7 @@ function buscarAlertasEmTempoReal(fkSensor) {
         umidade as umidade,
         dataTime as dataTime
                         fkSensor 
-                        from Dados_sensor where fkSensor = ${fkSensor} 
+                        from dados_sensor where fkSensor = ${fkSensor} 
                     order by idDados_sensor desc limit 1`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -179,5 +206,6 @@ module.exports = {
     buscarAlertasEmTempoReal,
     obterDadosGraficoMaxMin,
     obterDadosGraficovinhoPorArmazem,
-    obterDadosGraficoAlerta
+    obterDadosGraficoAlerta,
+    obterDadosGraficoAlertaDash
 }

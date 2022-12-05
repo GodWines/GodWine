@@ -441,6 +441,9 @@ function criarConta() {
   
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
+    
+    const emailUsuario = localStorage.email
+    const passwordUsuario = localStorage.senha
     const nomeSocial = document.getElementById("empresaNomeSocial");
     const nomeFantasia = document.getElementById("empresaNomeFantasia");
     const cnpj = document.getElementById("empresaCnpj");
@@ -501,7 +504,7 @@ function criarConta() {
             representanteServer : representanteVar,
             telefoneServer : telefoneVar,
             cepServer : cepVar,
-            ufServer : ufVar,
+            siglaServer : ufVar,
             nomeVinicolaServer: nomeVinicolaVar,
             empresaCidadeServer : empresaCidadeVar,
             bairroServer : bairroVar,

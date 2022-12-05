@@ -686,10 +686,10 @@ for (i = 0; i < respostaAlerta.length; i++) {
     var tempVinho = registro.temperatura
     var dataAtual = registro.dataTime
     console.log(dataAtual)
-    if((umiVinho > 65 && umiVinho < 75) && (tempVinho > 13,75 && tempVinho < 15.25)){
+    if((umiVinho > 65 && umiVinho < 75) && (tempVinho > 17 && tempVinho < 19)){
         ok++
     }
-    else if((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <=  13 || tempVinho >= 16)){
+    else if((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <=  16 || tempVinho >= 20)){
         critico++
     }else {
         alerta++

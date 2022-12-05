@@ -6,7 +6,7 @@ labels: [
   'Branco Leve',
 ],
 datasets: [{
-  label: 'My First Dataset',
+  label: 'Quantidade em estoque',
   data: [56, 83],
   backgroundColor: [
     'rgba(255, 195, 0, 1)',

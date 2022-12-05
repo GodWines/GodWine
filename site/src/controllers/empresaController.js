@@ -49,7 +49,7 @@ function cadastrarEmpresa(req, res) {
     var representante = req.body.representanteServer;
     var telefone = req.body. telefoneServer;
     var cep = req.body.cepServer;
-    var sigla = req.body.ufServer;
+    var sigla = req.body.siglaServer;
     var nomeVinicola = req.body.nomeVinicolaServer;
     var cidade = req.body.empresaCidadeServer;
     var bairro = req.body.bairroServer;
@@ -70,8 +70,8 @@ function cadastrarEmpresa(req, res) {
         res.status(400).send("Sua telefone está undefined!");
     }  else if (cep == undefined) {
         res.status(400).send("Sua cep está undefined!");
-    } else if (uf == undefined) {
-        res.status(400).send("Sua uf está undefined!");
+    } else if (sigla == undefined) {
+        res.status(400).send("Sua sigla está undefined!");
     } else if (nomeVinicola == undefined) {
         res.status(400).send("Sua nomeVinicola está undefined!");
     }else if (bairro == undefined) {

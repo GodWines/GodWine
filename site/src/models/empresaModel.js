@@ -12,7 +12,8 @@ function entrar(email, senha) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 function cadastrarEmpresa(email,senha,telefone,nomeSocial,cnpj,nomeFantasia,representante,sigla,cidade,rua,bairro,numero,cep,complemento,nomeVinicola){
     var instrucao = `
-    call inserirEmpresa('${email}', '${senha}', '${telefone}', '${nomeSocial}', '${cnpj}', '${nomeFantasia}', '${representante}','${uf}','${cidade}','${rua}','${bairro}','${numero}','${cep}','${complemento}','${nomeVinicola}');
+
+    exec inserirEmpresa'${email}', '${senha}', '${telefone}', '${nomeSocial}', '${cnpj}', '${nomeFantasia}', '${representante}','${sigla}','${cidade}','${rua}','${bairro}','${numero}','${cep}','${complemento}','${nomeVinicola}';
     `;
 
     console.log("Cadastrando a vinicola \n" + instrucao);

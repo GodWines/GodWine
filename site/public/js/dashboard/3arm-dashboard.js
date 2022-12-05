@@ -4,7 +4,7 @@ const dataPizza = {
       'Tinto Medio',
     ],
     datasets: [{
-      label: 'Vinhos',
+      label: 'Quantidade em estoque',
       data: [56, 83],
       backgroundColor: [
         'rgba(255, 195, 0, 1)',
