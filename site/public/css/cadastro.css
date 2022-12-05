@@ -40,9 +40,13 @@ input {
 .voltar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
     width: 35vw;
     height: 12vh;
+}
+
+.voltar a {
+    font-size: 85%;
 }
 
 .info {

@@ -40,9 +40,9 @@
                     <span class="textoPoppins subTitulo" id="vinicola_nome">-</span>
                 </div>
                 <div class="corpo">
-                    <a href="./1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Armazém-01</a>
+                    <a href="./1arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-01</a>
                     <a href="./2arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-02</a>
-                    <a href="./3arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-03</a>
+                    <a href="./3arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado">Armazém-03</a>
                     <a href="./4arm-dashboard.html" class="textoPoppins subTexto vin">Armazém-04</a>
                 </div>
                 <div class="barra">
@@ -52,7 +52,8 @@
         <div class="telaDash">
             <div class="bemVindo">
                 <span class="textoPoppins titulo amarelo">DashBoard</span>
-                <div class="sair" style="width: 15%;">
+                <div class="sair_dash" style="width: 52%;">
+                    <a href="https://godwinesuporte.auvo.com.br/">Precisa de suporte? Clique aqui!</a>
                     <a class="textoPoppins subTexto" href="../dashInicial.html">Voltar</a>
                     <a class="textoPoppins subTexto" href="../index.html">Sair</a>
                     <img src="../assets/logo.png" alt="" class="imgLogo" />
@@ -65,16 +66,16 @@
                             <span class="textoPoppins subTitulo">Temperatura Atual:</span>
                             <span class="textoPoppins titulo amarelo numero"> <span id="tempArm1">0</span>°</span>
                             <div class="tipoTemp">
-                                <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Gelado</span></span>
+                                <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Adega</span></span>
                                 <span class="textoPoppins subTexto">Temperatura ideal: <span
-                                        class="amarelo">5°</span></span>
+                                        class="amarelo">14.5°</span></span>
                             </div>
                         </div>
                         <div class="registroTempUmi">
                             <span class="textoPoppins subTitulo">Umidade Atual:</span>
                             <span class="textoPoppins titulo amarelo numero"><span id="umiArm1">0</span>%</span>
                             <div class="tipoTemp">
-                                <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Gelado</span></span>
+                                <span class="textoPoppins subTexto">Tipo: <span class="amarelo">Adega</span></span>
                                 <span class="textoPoppins subTexto">Umidade ideal: <span
                                         class="amarelo">70%</span></span>
                             </div>
@@ -83,7 +84,7 @@
                     <div class="quadradoFundo quadrado2">
                         <div class="registroTempUmi">
                             <div class="divPizzaPie">
-                                <canvas id="myChart4"></canvas>
+                                <canvas id="Alertas"></canvas>
                             </div>
                             <div class="infoGrafico">
                                 <span class="textoPoppins subTitulo">Grafico numero de alertas por Semana</span>
@@ -140,7 +141,7 @@
 </html>
 <script src="../js/funcoes.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/dashboard/1arm-dashboard.js"></script>
+<script src="../js/dashboard/3arm-dashboard.js"></script>
 <script src="../js/dashInicial.js"></script>
 <script>
 
@@ -148,10 +149,15 @@
     vinicola_nome.innerHTML = sessionStorage.NOME_VINICOLA;
 
     let proximaAtualizacao;
+    let proximaAtualizacaoMaxMin;
+    let proximaAtualizacaoAlerta;
 
-    window.onload = obterDadosGrafico(3), obterDadosGraficoMaxMin(3), atualizarDados(3);
+    window.onload = obterDadosGrafico(3), obterDadosGraficoMaxMin(3), atualizarDados(3), obterDadosGraficoAlerta(3);
 
-
+    var alerta = 0;
+    var critico = 0;
+    var ok = 0;
+    var dataAntiga = '';
 
     // verificar_autenticacao();
 
@@ -181,47 +187,6 @@ fetch(`/grafico/tempo-real/${fkSensor}`, { cache: 'no-store' }).then(function (r
 
 }
 
-    // function exibirArmazem(fkSensor) {
-    //     let todosOsGraficos = document.getElementById("graficos")
-
-    //     for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         let elementoAtual = document.getElementById(`grafico${i}`)
-    //         if (elementoAtual.classList.contains("display-block")) {
-    //             elementoAtual.classList.remove("display-block")
-    //         }
-    //         elementoAtual.classList.add("display-none")
-
-    //         // alterando estilo do botão
-    //         let btnAtual = document.getElementById(`btnArmazem${i}`)
-    //         if (btnAtual.classList.contains("btn-pink")) {
-    //             btnAtual.classList.remove("btn-pink")
-    //         }
-    //         btnAtual.classList.add("btn-white")
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${fkSensor}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnArmazem${fkSensor}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de grafico.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(fkSensor) {
 
         alterarTitulo(fkSensor)
@@ -605,6 +570,182 @@ let myChart2 = new Chart(
 );
 setTimeout(() => atualizarGraficoMaxMin(fkSensor, dados2, myChart2), 2000);
 }
+
+
+
+//Alertas
+function obterDadosGraficoAlerta(fkSensor) {
+
+alterarTitulo(fkSensor)
+
+if (proximaAtualizacaoAlerta != undefined) {
+    clearTimeout(proximaAtualizacaoAlerta);
+}
+
+fetch(`/grafico/alerta/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (respostaAlerta) {
+            console.log(`Dados recebidos: ${JSON.stringify(respostaAlerta)}`);
+            respostaAlerta.reverse();
+            plotarGraficoAlerta(respostaAlerta, fkSensor);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+
+function plotarGraficoAlerta(respostaAlerta, fkSensor) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+let labels3 = ['Ok','Alerta','Critico'];
+
+// Criando estrutura para plotar gráfico - dados
+let dados3 = {
+    labels: labels3,
+    datasets: [ {
+        label: ['Alertas'],
+        data: [],
+        fill: false,
+        backgroundColor: [
+        'rgba(25, 189, 41, 1)',
+        'rgba(226, 176, 36, 1)',
+        'rgba(255, 0, 0, 1)'
+    ],
+        borderColor: [
+        'rgba(25, 189, 41, 1)',
+        'rgba(226, 176, 36, 1)',
+        'rgba(255, 0, 0, 1)'
+    ],
+        tension: 0.1,
+        hoverOffset: 10
+    }
+   ]
+};
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(respostaAlerta)
+
+
+
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i = 0; i < respostaAlerta.length; i++) {
+    var registro = respostaAlerta[i];
+    var umiVinho = registro.umidade
+    var tempVinho = registro.temperatura
+    var dataAtual = registro.dataTime
+    console.log(dataAtual)
+    if((umiVinho > 65 && umiVinho < 75) && (tempVinho > 13,75 && tempVinho < 15.25)){
+        ok++
+    }
+    else if((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <=  13 || tempVinho >= 16)){
+        critico++
+    }else {
+        alerta++
+    }
+    dataAntiga = dataAtual
+}
+    dados3.datasets[0,0,0].data.push(ok,alerta,critico);    
+   
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels3)
+console.log('Dados:')
+console.log(dados3.datasets)
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+const config3 = {
+    type: 'doughnut',
+    data: dados3,
+    options: {
+        plugins: {
+        legend: {
+            position: 'right',
+            labels: {
+            boxWidth:15,
+            boxHeight:15  
+            }
+        }
+        }
+    }
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart3 = new Chart(
+    document.getElementById(`Alertas`),
+    config3
+);
+setTimeout(() => atualizarGraficoAlerta(fkSensor, dados3, myChart3), 2000);
+}
+
+
+function atualizarGraficoAlerta(fkSensor, dados3, myChart3) {
+
+fetch(`/grafico/tempo-realAlerta/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+if (response.ok) {
+response.json().then(function (respostaAlerta) {
+
+console.log(dataAntiga)
+        // tirando e colocando valores no gráfico
+        if (respostaAlerta[0].dataTime == dataAntiga) {
+             
+            } else {
+        for (i = 0; i < respostaAlerta.length; i++) {
+            var registro = respostaAlerta[i];
+            var tempVinho = registro.temperatura;
+            var umiVinho = registro.umidade;
+            dataAntiga = registro.dataTime;
+
+            if((umiVinho > 65 && umiVinho < 75) && (tempVinho > 13,75 && tempVinho < 15.25)){
+                ok++
+                dados3.datasets[0].data.shift();        
+                dados3.datasets[0,0,0].data.unshift(ok);    
+            }
+            else if((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <=  13 || tempVinho >= 16)){
+                critico++
+                dados3.datasets[0].data.pop();       
+                dados3.datasets[0,0,0].data.push(critico);      
+            }else {
+                alerta++
+
+                dados3.datasets[0].data.splice(1,1,alerta);    
+      
+            }
+            
+        }
+   
+        myChart3.update();
+        console.log("-------------------------------------------------------------------------------------")
+    }
+
+    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+    proximaAtualizacaoAlerta = setTimeout(() => atualizarGraficoAlerta(fkSensor, dados3, myChart3), 2000);
+});
+} else {
+console.error('Nenhum dado encontrado ou erro na API');
+// Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+proximaAtualizacaoAlerta = setTimeout(() => atualizarGraficoAlerta(fkSensor, dados3, myChart3), 2000);
+}
+})
+.catch(function (error) {
+console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+});
+
+}
+
 
 
 </script>
