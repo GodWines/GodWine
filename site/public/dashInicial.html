@@ -41,21 +41,8 @@
                     <span class="textoPoppins subTitulo">Vinicolas</span>
                 </div>
                 <div class="corpo">
-                    <a href="./dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado" id="vinicola_nome">Vinicola-01</a>
-                    <span class="textoPoppins subTexto vin">Vinicola-02</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-03</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-04</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-05</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-06</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-07</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-08</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-09</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-10</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-11</span>
-                    <span class="textoPoppins subTexto vin">Vinicola-12</span>
-                    <a onclick="simulacaoAlerta()" class="textoPoppins subTexto vin">Vinicola-13</a>
-                    <a onclick="simulacaoErro()"class="textoPoppins subTexto vin">Vinicola-14</a>
-                    <a onclick="simulacaoOK()" class="textoPoppins subTexto vin">Vinicola-15</a>
+                    <a href="./dashboard/1arm-dashboard.html" class="textoPoppins subTexto vin vinSelecionado"
+                        id="vinicola_nome">Vinicola-01</a>
                 </div>
                 <div class="barra"></div>
             </div>
@@ -63,32 +50,16 @@
         </div>
         <div class="telaInicial">
             <div class="bemVindo">
-                <span class="textoPoppins titulo amarelo">Bem Vindo, <span id="b_usuario2">-</span>!!!</span>
+                <span class="textoPoppins titulo amarelo">Bem Vindo, <span id="b_usuario2">-</span>!</span>
                 <div class="sair">
+                    <a href="https://godwinesuporte.auvo.com.br/">Precisa de suporte? Clique aqui!</a>
                     <a class="textoPoppins subTexto" href="./index.html" onclick="limparSessao()">Sair</a>
                     <img src="./assets/logo.png" alt="" class="imgLogo" />
                 </div>
             </div>
             <span class="textoPoppins subTitulo" style="width: 90%">Problemas Encontrados: <span
                     class="amarelo">0</span></span>
-            <div id="inbox">
-                <div class="mensagem">
-                    <div class="envio">
-                        <img src="./assets/logo.png" alt="" class="imgLogo" />
-                        <span class="textoPoppins subTitulo">GOD<span class="amarelo">WINE</span></span>
-                    </div>
-                    <div id="forma" >
-                        <div class="balao">
-                            <div class="statusMensagem">
-                                <span class="textoPoppins subTitulo amarelo">Mensagem:</span>
-                                <span class="textoPoppins subTexto">Tudo OK no momento</span>
-                            </div>
-                            <div class="bolinha verde"></div>
-                        </div>
-                        <div class="triangulo"></div>
-                    </div>
-                </div>
-            </div>
+            <div id="inbox"></div>
             <div id="visaoGeral">
                 <span class="textoPoppins subTitulo amarelo textoVisaoGeral">Visão Geral: </span>
                 <div class="informacoes">
@@ -118,8 +89,198 @@
 </html>
 
 <script>
-b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-b_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
-vinicola_nome.innerHTML = sessionStorage.NOME_VINICOLA;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
+    vinicola_nome.innerHTML = sessionStorage.NOME_VINICOLA;
+
+    window.onload = obterDadosGraficoAlertaDash(1), obterDadosGraficoAlertaDash(2), obterDadosGraficoAlertaDash(3), obterDadosGraficoAlertaDash(4);
+    var fkSensor1 = 0
+    var fkSensor2 = 0
+    var fkSensor3 = 0
+    var fkSensor4 = 0
+
+    var dataAntiga1 = ''
+    var dataAntiga2 = ''
+    var dataAntiga3 = ''
+    var dataAntiga4 = ''
+
+    var bom = 0;
+    var atencao = 0;
+    var erro = 0;
+    
+    function obterDadosGraficoAlertaDash(fkSensor) {
+
+        fetch(`/grafico/alertaDash/${fkSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (respostaAlerta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaAlerta)}`);
+                    respostaAlerta.reverse();
+
+                    var sensor = `${fkSensor}`
+                    console.log(sensor)
+
+                    
+
+                    if (sensor == 1) {
+
+                        var alerta = 0;
+                        var critico = 0;
+                        var ok = 0;
+
+                        for (i = 0; i < 10; i++) {
+
+                            var registro = respostaAlerta[i];
+                            var umiVinho = registro.umidade
+                            var tempVinho = registro.temperatura
+                            var dataAtual = registro.dataTime
+                      
+                            if ((umiVinho > 65 && umiVinho < 75) && (tempVinho > 4 && tempVinho < 6)) {
+                                ok++
+                            }
+                            else if ((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <= 3 || tempVinho >= 7)) {
+                                critico++
+
+                            } else {
+                                alerta++
+
+                            }
+                         
+                        }
+                        console.log(critico);
+                        console.log(alerta);
+                        console.log(ok);
+                        if (critico >= alerta && critico >= ok) {
+                            Erro(sensor, dataAtual)
+                            erro++
+                        } else if (alerta > critico && alerta >= ok) {
+                            Alerta(sensor, dataAtual)
+                            atencao++
+                        } else {
+                            bom++
+                        }
+                    } else if (sensor == 2) {
+                        var alerta = 0;
+                        var critico = 0;
+                        var ok = 0;
+                        for (i = 0; i < 10; i++) {
+
+                            var registro = respostaAlerta[i];
+                            var umiVinho = registro.umidade
+                            var tempVinho = registro.temperatura
+                            var dataAtual = registro.dataTime
+
+                            if ((umiVinho > 65 && umiVinho < 75) && (tempVinho > 8.5 && tempVinho < 11.5)) {
+                                ok++
+                            }
+                            else if ((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <= 7 || tempVinho >= 13)) {
+                                critico++
+                            } else {
+                                alerta++
+                            }
+                        }
+
+                            console.log(critico);
+                            console.log(alerta);
+                            console.log(ok);
+                        if (critico >= alerta && critico >= ok) {
+                            Erro(2, dataAtual)
+                            erro++
+                        } else if (alerta > critico && alerta >= ok) {
+                            Alerta(2, dataAtual)
+                            atencao++
+                        } else {
+                            bom++
+                        }
+                    } else if (sensor == 3) {
+                        var alerta = 0;
+                        var critico = 0;
+                        var ok = 0;
+                        for (i = 0; i < 10; i++) {
+                            var registro = respostaAlerta[i];
+                            var umiVinho = registro.umidade
+                            var tempVinho = registro.temperatura
+                            var dataAtual = registro.dataTime
+                            if ((umiVinho > 65 && umiVinho < 75) && (tempVinho > 13.75 && tempVinho < 15.25)) {
+                                ok++
+                            }
+                            else if ((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <= 13 || tempVinho >= 16)) {
+                                critico++
+                                
+                            } else {
+                                alerta++
+                            }
+                      
+                        }
+                            console.log(critico);
+                            console.log(alerta);
+                            console.log(ok);
+                        if (critico >= alerta && critico >= ok) {
+                            Erro(3, dataAtual)
+                            erro++
+                        } else if (alerta > critico && alerta >= ok) {
+                            Alerta(3, dataAtual)
+                            atencao++
+                        } else {
+                            bom++
+                        }
+
+
+                    } else if (sensor == 4) {
+                        var alerta = 0;
+                        var critico = 0;
+                        var ok = 0;
+                        for (i = 0; i < 10; i++) {
+                            var registro = respostaAlerta[i];
+                            var umiVinho = registro.umidade
+                            var tempVinho = registro.temperatura
+                            var dataAtual = registro.dataTime
+                            if ((umiVinho > 65 && umiVinho < 75) && (tempVinho > 17 && tempVinho < 19)) {
+                                ok++
+                            }
+                            else if ((umiVinho <= 60 || umiVinho >= 80) || (tempVinho <= 16 || tempVinho >= 20)) {
+                                critico++
+                            } else {
+                                alerta++
+                            }
+                           
+                        }
+                            console.log(critico);
+                            console.log(alerta);
+                            console.log(ok);
+                        if (critico >= alerta && critico >= ok) {
+                            Erro(4, dataAtual)
+                            erro++
+                        } else if (alerta > critico && alerta >= ok) {
+                            Alerta(4, dataAtual)
+                            atencao++
+                        } else {
+                            bom++
+                        }
+                    }
+                             if(erro >= atencao && erro >= bom){
+                                mudarErro();
+                                erro = 0;
+                            }else if(atencao > erro && atencao >= bom){
+                                mudarAtencao();
+                                atencao = 0;
+                            }else if(bom >= 4){
+                                mudarBom();
+                                bom = 0;
+                            }
+                           setInterval(()=>{
+                            inbox.innerHTML = ``;
+                           },10000)   
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+        proximaAtualizacaoAlerta = setTimeout(() => obterDadosGraficoAlertaDash(fkSensor), 10000);
+    }
+
 
 </script>
