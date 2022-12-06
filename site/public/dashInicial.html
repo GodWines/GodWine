@@ -267,9 +267,9 @@
                                 mudarBom();
                                 bom = 0;
                             }
-                           setInterval(()=>{
-                            inbox.innerHTML = ``;
-                           },10000)   
+                        //    setInterval(()=>{
+                        //     inbox.innerHTML = ``;
+                        //    },6500)   
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -279,7 +279,7 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-        proximaAtualizacaoAlerta = setTimeout(() => obterDadosGraficoAlertaDash(fkSensor), 10000);
+        proximaAtualizacaoAlerta = setTimeout(() => obterDadosGraficoAlertaDash(fkSensor), 8000);
     }
 
 
