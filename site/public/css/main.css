@@ -161,6 +161,11 @@ footer {
 .comentario .container {
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 90px;
+  padding: 40px;
+  height: 100%;
+  width: 100%;
 }
 
 .safra .container {
@@ -596,7 +601,8 @@ footer .imgSocial {
 }
 
 .cliente {
-  height: 48%;
+  width: 120%;
+  height: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;

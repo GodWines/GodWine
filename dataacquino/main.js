@@ -16,7 +16,7 @@ const HABILITAR_OPERACAO_INSERIR = true;
 // altere o valor da variável AMBIENTE para o valor desejado:
 // API conectada ao banco de dados remoto, SQL Server -> 'producao'
 // API conectada ao banco de dados local, MySQL Workbench - 'desenvolvimento'
-const AMBIENTE = 'desenvolvimento';
+const AMBIENTE = 'producao';
 
 const serial = async (
     tempVinhoGelado,
@@ -84,12 +84,12 @@ const serial = async (
                 // -> altere nome da tabela e colunas se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> Importante! você deve ter o aquario de id 1 cadastrado.
-                sqlquery = `INSERT INTO Dados_sensor (temperatura, umidade, dataTime) VALUES (${vinhoGelado}, ${umidade}, CURRENT_TIMESTAMP)`;
+                `exec inserirTemp '${vinhoGelado}','${vinhoFrio}','${vinhoAdega}','${vinhoFresco}','${umidade}';`
            
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
                 // Importante! você deve ter criado o usuário abaixo com os comandos presentes no arquivo
                 // "script-criacao-usuario-sqlserver.sql", presente neste diretório.
-                const connStr = "Server=servidor-acquatec.database.windows.net;Database=bd-acquatec;User Id=usuarioParaAPIArduino_datawriter;Password=#Gf_senhaParaAPI;";
+                const connStr = "Server=bd-godwine.database.windows.net;Database=godwine;User Id=godwine-root;Password=#Gfgrupo7;";
 
                 function inserirComando(conn, sqlquery) {
                     conn.query(sqlquery);
