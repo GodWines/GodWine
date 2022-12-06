@@ -170,7 +170,7 @@ function obterDadosGraficoAlertaDash(fkSensor){
 }
 
 function buscarAlertasEmTempoReal(fkSensor) {
-
+    
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
@@ -207,5 +207,6 @@ module.exports = {
     obterDadosGraficoMaxMin,
     obterDadosGraficovinhoPorArmazem,
     obterDadosGraficoAlerta,
-    obterDadosGraficoAlertaDash
+    obterDadosGraficoAlertaDash,
+
 }
